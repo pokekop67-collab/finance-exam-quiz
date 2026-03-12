@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新手攻略 — 金融市場常識與職業道德</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+:root{--bg:#0f0f13;--card:#1a1a24;--card2:#222233;--accent:#00b4d8;--accent2:#90e0ef;--green:#00b894;--red:#e17055;--orange:#fdcb6e;--purple:#a29bfe;--text:#f0f0f5;--text2:#8888aa;--border:#2a2a3e;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+.wrap{max-width:800px;margin:0 auto;padding:20px 16px 60px;}
+.header{text-align:center;padding:32px 0 24px;border-bottom:1px solid var(--border);margin-bottom:32px;}
+.header h1{font-size:1.6em;font-weight:900;background:linear-gradient(135deg,var(--accent2),var(--accent),#48cae4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;}
+.header .sub{color:var(--text2);font-size:0.85em;line-height:1.8;}
+.back-btn{display:inline-block;margin-bottom:24px;padding:8px 18px;border-radius:20px;border:1px solid var(--border);color:var(--text2);text-decoration:none;font-size:0.82em;transition:all 0.2s;}
+.back-btn:hover{border-color:var(--accent);color:var(--accent);}
+/* TOC */
+.toc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:32px;}
+.toc h3{font-size:0.9em;color:var(--text2);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;}
+.toc a{display:block;color:var(--accent2);text-decoration:none;font-size:0.88em;padding:4px 0;border-bottom:1px solid var(--border);}
+.toc a:last-child{border-bottom:none;}
+.toc a:hover{color:var(--accent);}
+/* Sections */
+.section{margin-bottom:40px;}
+.section-title{font-size:1.15em;font-weight:700;color:var(--accent2);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px;}
+.section-title .icon{font-size:1.2em;}
+h3{font-size:0.95em;font-weight:700;color:var(--orange);margin:20px 0 10px;}
+h4{font-size:0.88em;font-weight:600;color:var(--text2);margin:16px 0 8px;text-transform:uppercase;letter-spacing:0.5px;}
+p{font-size:0.9em;color:var(--text);margin-bottom:12px;}
+/* Cards */
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:12px;}
+.card.green{border-left:3px solid var(--green);}
+.card.red{border-left:3px solid var(--red);}
+.card.blue{border-left:3px solid var(--accent);}
+.card.orange{border-left:3px solid var(--orange);}
+.card.purple{border-left:3px solid var(--purple);}
+/* Info blocks */
+.info{background:var(--card2);border-radius:10px;padding:14px 16px;margin-bottom:12px;font-size:0.88em;}
+.info.warn{border-left:3px solid var(--orange);background:#2a2010;}
+.info.good{border-left:3px solid var(--green);background:#0a2010;}
+.info.bad{border-left:3px solid var(--red);background:#2a1010;}
+/* Table */
+table{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:0.85em;}
+th{background:var(--card2);padding:10px 12px;text-align:left;border:1px solid var(--border);color:var(--accent2);font-weight:600;}
+td{padding:10px 12px;border:1px solid var(--border);color:var(--text);vertical-align:top;}
+tr:hover td{background:#ffffff05;}
+/* Strategy items */
+.strategy-list{list-style:none;display:grid;gap:10px;margin-bottom:16px;}
+.strategy-list li{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:0.88em;display:flex;gap:12px;align-items:flex-start;}
+.strategy-list li .num{background:var(--accent);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:0.78em;font-weight:700;flex-shrink:0;margin-top:1px;}
+/* Top 10 */
+.top10{list-style:none;display:grid;gap:8px;}
+.top10 li{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:0.86em;display:flex;gap:10px;}
+.top10 li .n{color:var(--accent2);font-weight:700;min-width:22px;}
+/* Day plan */
+.day-plan{display:grid;gap:8px;}
+.day-row{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;gap:14px;align-items:center;font-size:0.88em;}
+.day-label{background:var(--accent);color:white;border-radius:8px;padding:4px 10px;font-weight:700;font-size:0.8em;flex-shrink:0;}
+/* CTA */
+.cta{background:linear-gradient(135deg,#0a2030,#0f1525);border:1px solid var(--accent);border-radius:14px;padding:24px;text-align:center;margin-top:32px;}
+.cta h3{font-size:1.1em;color:var(--accent2);margin-bottom:8px;}
+.cta p{color:var(--text2);font-size:0.88em;margin-bottom:16px;}
+.cta a{display:inline-block;background:var(--accent);color:white;padding:12px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:0.9em;transition:opacity 0.2s;}
+.cta a:hover{opacity:0.85;}
+/* code block */
+.code-block{background:#111118;border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-family:monospace;font-size:0.82em;color:var(--green);line-height:1.8;margin-bottom:12px;overflow-x:auto;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-btn" href="index.html">← 返回題庫練習</a>
+  
+  <div class="header">
+    <h1>🦞 新手考試攻略</h1>
+    <div class="sub">
+      金融市場常識與職業道德 ｜ 113年版（2024年9月起適用）<br>
+      金融市場常識：504題 ｜ 職業道德：616題 ｜ 合格：60分
+    </div>
+  </div>
+
+  <div class="toc">
+    <h3>📋 目錄</h3>
+    <a href="#strategy">考試基本資訊 & 新手策略</a>
+    <a href="#part1">Part I：金融市場常識 核心概念</a>
+    <a href="#part2">Part II：職業道德 核心原則</a>
+    <a href="#top10">超高頻必背考點 TOP 10</a>
+    <a href="#plan">7天備考計劃</a>
+    <a href="#sprint">考前最後衝刺</a>
+  </div>
+
+  <!-- 基本資訊 & 策略 -->
+  <div class="section" id="strategy">
+    <div class="section-title"><span class="icon">🎯</span>考試基本資訊 & 新手策略</div>
+    
+    <div class="card blue">
+      <table>
+        <tr><th>項目</th><th>內容</th></tr>
+        <tr><td>考試時間</td><td>通常 60–90 分鐘</td></tr>
+        <tr><td>題型</td><td>四選一單選題</td></tr>
+        <tr><td>合格分數</td><td>60分（各科分開計算）</td></tr>
+        <tr><td>出題方式</td><td>直接從公開題庫中抽題</td></tr>
+        <tr><td>題庫來源</td><td>證基會官網免費下載</td></tr>
+      </table>
+    </div>
+
+    <h3>💡 新手最有效的備考策略</h3>
+    <ul class="strategy-list">
+      <li><span class="num">1</span><div><strong>不要硬背道理，背答案就好</strong><br>題庫固定公開，直接背答案是最有效率的做法。看到題目要能反射答案。</div></li>
+      <li><span class="num">2</span><div><strong>先攻職業道德</strong><br>多為常識判斷，新手較快上手。看到「保證獲利、內線消息、多層次傳銷」→ 一律選「不對」。</div></li>
+      <li><span class="num">3</span><div><strong>金融常識靠幾個核心概念</strong><br>理解貨幣/資本市場、初/次級市場、金管會架構，很多題目自然就會。</div></li>
+      <li><span class="num">4</span><div><strong>最後 2 天刷題庫</strong><br>把整個題庫掃一遍，通過率大幅提升。本網站有 935 題可以練習。</div></li>
+    </ul>
+  </div>
+
+  <!-- Part I -->
+  <div class="section" id="part1">
+    <div class="section-title"><span class="icon">💰</span>Part I：金融市場常識（504題）</div>
+
+    <h3>核心概念 1：金融市場的種類</h3>
+    <h4>按「期限」分</h4>
+    <table>
+      <tr><th>市場</th><th>期限</th><th>工具舉例</th></tr>
+      <tr><td><strong style="color:var(--accent2)">貨幣市場</strong>（短期）</td><td>1年以內</td><td>商業本票、國庫券、銀行承兌匯票、可轉讓存單（NCD）</td></tr>
+      <tr><td><strong style="color:var(--orange)">資本市場</strong>（長期）</td><td>1年以上</td><td>股票、公司債、政府公債</td></tr>
+    </table>
+    <div class="info warn">⚠️ 常考陷阱：公司股票 → 資本市場　｜　古董藝術品 → <strong>不是</strong>金融工具</div>
+
+    <h4>按「發行階段」分</h4>
+    <table>
+      <tr><th>市場</th><th>說明</th><th>例子</th></tr>
+      <tr><td><strong>初級市場</strong>（發行市場）</td><td>新證券第一次發行，公司募集新資金</td><td>台塑公司透過承銷商發行新股</td></tr>
+      <tr><td><strong>次級市場</strong>（流通市場）</td><td>已發行的證券買賣，投資人之間交易</td><td>投資人在市場買賣股票</td></tr>
+    </table>
+
+    <h4>按「交易地點」分</h4>
+    <div class="card">
+      <p>🏢 <strong>集中市場</strong>：有固定場所，電腦撮合 → 台灣證券交易所就是集中市場</p>
+      <p>🌐 <strong>店頭市場（OTC）</strong>：交易商報價，投資人接受即成交</p>
+    </div>
+
+    <h3>核心概念 2：金融監理機構</h3>
+    <div class="code-block">金融監督管理委員會（金管會）
+├── 銀行局 ─── 管銀行業
+├── 證券期貨局 ─ 管證券、期貨、投信公司
+├── 保險局 ─── 管保險公司
+└── 檢查局 ─── 做金融業實地檢查</div>
+    <div class="info warn">⚠️ 常考陷阱：<br>
+    • 公務人員退休撫卹基金 → <strong>不屬於</strong>金管會<br>
+    • 金融資訊服務公司 → <strong>不屬於</strong>檢查局業務<br>
+    • 稅改 → <strong>不屬於</strong>金管會職掌</div>
+
+    <h3>核心概念 3：金融機構類型</h3>
+    <table>
+      <tr><th>機構</th><th>主要業務</th></tr>
+      <tr><td>商業銀行</td><td>存放款、一般金融服務</td></tr>
+      <tr><td>投信公司</td><td>發行共同基金、全權委託投資（代客操作）</td></tr>
+      <tr><td>投顧公司</td><td>提供投資建議，<strong style="color:var(--red)">不能操作帳戶</strong></td></tr>
+      <tr><td>證券商 — 經紀商</td><td>代客戶買賣股票（中間人）</td></tr>
+      <tr><td>證券商 — 自營商</td><td>用自己的錢買賣股票</td></tr>
+      <tr><td>證券商 — 承銷商</td><td>幫公司發行新股（<strong>初級市場主角</strong>）</td></tr>
+      <tr><td>金融控股公司</td><td>整合銀行+證券+保險</td></tr>
+      <tr><td>證券金融公司</td><td>辦理融資融券、轉融通</td></tr>
+    </table>
+    <div class="info warn">⚠️ 投信公司<strong>不能</strong>收購委託書！</div>
+
+    <h3>核心概念 4：直接 vs 間接金融</h3>
+    <div class="card">
+      <p>📢 <strong>直接金融</strong>：資金需求者直接發行證券（股票/債券）向大眾募資</p>
+      <p>🏦 <strong>間接金融</strong>：透過銀行等金融機構作中介（存款 → 放款）</p>
+    </div>
+
+    <h3>核心概念 5：常見金融工具</h3>
+    <table>
+      <tr><th>類別</th><th>工具</th></tr>
+      <tr><td>貨幣市場（短期）</td><td>商業本票、國庫券、可轉讓定期存單、銀行承兌匯票</td></tr>
+      <tr><td>資本市場（長期）</td><td>股票、公司債、政府公債</td></tr>
+      <tr><td>衍生性金融商品</td><td>期貨、選擇權、利率交換合約、股票選擇權</td></tr>
+    </table>
+    <div class="info warn">⚠️ 「組合式股票基金」<strong>不是</strong>衍生性金融商品</div>
+
+    <h3>核心概念 6：重要制度</h3>
+    <div class="card green">
+      <p><strong>本益比（P/E Ratio）</strong> = 股價 ÷ 每股盈餘</p>
+      <p style="margin-top:8px">本益比高 = 投資人願意為每1元盈餘付出更多</p>
+    </div>
+    <div class="card blue">
+      <p><strong>金融消費者保護法</strong></p>
+      <p>• 民國100年12月30日施行</p>
+      <p>• 主管機關：<strong>金融監督管理委員會</strong></p>
+    </div>
+    <div class="card orange">
+      <p><strong>股票申購方式</strong></p>
+      <p>• 散戶最常用：<strong>公開申購</strong></p>
+      <p>• 法人常用：詢價圈購</p>
+    </div>
+
+    <h3>常考送分題型辨識</h3>
+    <div class="info good">✅ <strong>「下列何者不是金融市場功能？」</strong><br>→ 答案通常是「提供投機場所」或負面功能</div>
+    <div class="info good">✅ <strong>「下列何者不屬於金管會？」</strong><br>→ 找跟金融無關的機構（公務員退撫基金、稅務相關）</div>
+    <div class="info good">✅ <strong>「下列何者是次級市場？」</strong><br>→ 舊股票在市場上買賣 = 次級市場；新發行 = 初級市場</div>
+  </div>
+
+  <!-- Part II -->
+  <div class="section" id="part2">
+    <div class="section-title"><span class="icon">⚖️</span>Part II：職業道德（616題）</div>
+
+    <div class="card purple">
+      <p><strong>答題萬用邏輯：</strong></p>
+      <p style="margin-top:8px">✅ 保護客戶利益 → 通常是對的</p>
+      <p>❌ 欺騙、誇大、保證獲利 → 通常是錯的</p>
+      <p>❌ 利用內線消息 → <strong>一定是錯的</strong></p>
+    </div>
+
+    <h3>核心原則 1：客戶開戶與徵信</h3>
+    <div class="info good">✅ 正確做法：<br>• 確實了解客戶背景、風險承受能力<br>• 告知客戶金融商品風險<br>• 不適合的客戶應<strong>拒絕</strong></div>
+    <div class="info bad">❌ 錯誤做法：<br>• 因為客戶有錢就不需徵信<br>• 代替客戶填寫資料<br>• 保管客戶存摺印章代為操作</div>
+
+    <h3>核心原則 2：廣告與業務招攬</h3>
+    <div class="info bad">❌ 絕對不能做：<br>• 保證獲利（不得簽署獲利保證契約）<br>• 引用推薦書、感謝函作為保證<br>• 多層次傳銷（老鼠會）方式<br>• 僅強調獲利不說明風險<br>• 用內線消息招攬</div>
+    <div class="info good">✅ 正確做法：<br>• 同時說明風險與獲利<br>• 提供客觀完整資訊<br>• 以專業與誠心服務客戶</div>
+
+    <h3>核心原則 3：保密義務</h3>
+    <div class="card">
+      <p>✅ 客戶資料、買賣記錄 → <strong style="color:var(--green)">對外保密</strong></p>
+      <p style="margin-top:8px">❌ 「工作時看到公司機密就與客戶分享」→ <strong style="color:var(--red)">違反保密義務</strong></p>
+    </div>
+
+    <h3>核心原則 4：保險業務規範</h3>
+    <div class="card orange">
+      <p>• 業務員只能為<strong>所屬公司</strong>招攬，不得為未授權公司招攬</p>
+      <p>• 廣告文宣必須標明所屬公司名稱</p>
+      <p>• 登錄證<strong>不得</strong>借給他人</p>
+      <p>• 不得以不實言論散播、擾亂金融秩序</p>
+    </div>
+
+    <h3>核心原則 5：廉政與反貪腐</h3>
+    <div class="card">
+      <p><strong>賄賂判斷：</strong></p>
+      <p>✅ 是賄賂：招待住宿、介紹工作、免除債務</p>
+      <p>⭕ 不算：公司印製的月曆、農特產禮品（無對價關係）</p>
+    </div>
+    <div class="info bad">❌ 常見錯誤觀念：<br>• 農曆春節也<strong>不能</strong>送高價禮品<br>• 「事後餽贈表達感謝」→ <strong>一樣違法</strong></div>
+    <table>
+      <tr><th>檢舉制度重點</th><th>內容</th></tr>
+      <tr><td>檢舉方式</td><td>須以<strong>真實姓名</strong>檢舉才能獲獎金</td></tr>
+      <tr><td>檢舉時機</td><td>須在<strong>犯罪未發覺前</strong>檢舉</td></tr>
+      <tr><td>最高獎金</td><td><strong style="color:var(--green)">1,000萬元</strong></td></tr>
+      <tr><td>洩漏檢舉人資料</td><td>觸犯<strong>洩漏國防以外秘密罪</strong></td></tr>
+      <tr><td>公司內部制度</td><td>應建立<strong>吹哨者（Whistleblower）保護機制</strong></td></tr>
+    </table>
+  </div>
+
+  <!-- Top 10 -->
+  <div class="section" id="top10">
+    <div class="section-title"><span class="icon">🔑</span>超高頻必背考點</div>
+
+    <h3>金融市場常識 TOP 10</h3>
+    <ul class="top10">
+      <li><span class="n">1</span>貨幣市場 = 短期（<strong>1年以內</strong>）；資本市場 = 長期（1年以上）</li>
+      <li><span class="n">2</span>初級市場 = 發行新股；次級市場 = 舊股交易</li>
+      <li><span class="n">3</span>台灣證券交易所 = <strong>集中市場</strong></li>
+      <li><span class="n">4</span>金管會旗下：銀行局、<strong>證券期貨局</strong>、保險局、<strong>檢查局</strong></li>
+      <li><span class="n">5</span>投信公司 = 發行基金；投顧公司 = 給建議（不能操作）</li>
+      <li><span class="n">6</span>承銷商 = 初級市場主角（幫公司發行新股）</li>
+      <li><span class="n">7</span>直接金融 = 發行股票/債券；間接金融 = 透過銀行</li>
+      <li><span class="n">8</span>本益比 = <strong>股價 ÷ 每股盈餘</strong></li>
+      <li><span class="n">9</span>古董藝術品 ≠ 金融工具</li>
+      <li><span class="n">10</span>金融消費者保護法主管機關 = <strong>金管會</strong></li>
+    </ul>
+
+    <h3 style="margin-top:24px">職業道德 TOP 10</h3>
+    <ul class="top10">
+      <li><span class="n">1</span><strong style="color:var(--red)">不得保證獲利</strong></li>
+      <li><span class="n">2</span><strong style="color:var(--red)">不得使用內線消息</strong></li>
+      <li><span class="n">3</span><strong style="color:var(--red)">不得以多層次傳銷招攬</strong></li>
+      <li><span class="n">4</span>業務員只能為<strong>所屬公司</strong>招攬保險</li>
+      <li><span class="n">5</span>登錄證<strong>不得</strong>借人</li>
+      <li><span class="n">6</span>客戶資料須<strong>保密</strong></li>
+      <li><span class="n">7</span>廣告必須<strong>同時說明風險</strong></li>
+      <li><span class="n">8</span>開戶前須了解客戶背景</li>
+      <li><span class="n">9</span>不適合的客戶<strong>可以拒絕</strong></li>
+      <li><span class="n">10</span>檢舉貪污須用<strong>真實姓名</strong>，最高獎金 <strong style="color:var(--green)">1000萬</strong></li>
+    </ul>
+  </div>
+
+  <!-- 7天計劃 -->
+  <div class="section" id="plan">
+    <div class="section-title"><span class="icon">📅</span>7天備考計劃</div>
+    <div class="day-plan">
+      <div class="day-row"><span class="day-label">Day 1</span>讀本攻略，建立基本概念框架，把 TOP 10 看一遍</div>
+      <div class="day-row"><span class="day-label">Day 2</span>金融常識題庫 題 1–150（速讀模式快速過一遍）</div>
+      <div class="day-row"><span class="day-label">Day 3</span>金融常識題庫 題 151–350</div>
+      <div class="day-row"><span class="day-label">Day 4</span>金融常識題庫 題 351–504，整理錯題</div>
+      <div class="day-row"><span class="day-label">Day 5</span>職業道德題庫 題 1–300</div>
+      <div class="day-row"><span class="day-label">Day 6</span>職業道德題庫 題 301–616</div>
+      <div class="day-row"><span class="day-label">Day 7</span>快速複習本攻略 + 刷錯題集</div>
+    </div>
+  </div>
+
+  <!-- 衝刺 -->
+  <div class="section" id="sprint">
+    <div class="section-title"><span class="icon">⚡</span>考前最後衝刺（考前1天）</div>
+    <ul class="top10">
+      <li><span class="n">1</span>複習本攻略的「超高頻必背考點」</li>
+      <li><span class="n">2</span>牢記：貨幣/資本市場的分界是 <strong style="color:var(--orange)">1年</strong></li>
+      <li><span class="n">3</span>職業道德：看到「保證獲利」「內線消息」「多層次傳銷」→ <strong style="color:var(--red)">一律選錯的</strong></li>
+      <li><span class="n">4</span>金管會四局背熟：銀行、證券期貨、保險、<strong>檢查局</strong></li>
+      <li><span class="n">5</span>檢舉貪污：<strong>真實姓名</strong> + <strong>犯罪未發覺前</strong> + 最高 <strong style="color:var(--green)">1000萬</strong></li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <h3>準備好了嗎？開始練習題庫！</h3>
+    <p>935 題互動式練習 ｜ 測驗模式 + 速讀模式 + 錯題集</p>
+    <a href="index.html">🎯 前往題庫練習</a>
+  </div>
+
+  <div style="text-align:center;color:var(--text2);font-size:0.75em;margin-top:32px">
+    整理：小龍蝦 🦞 ｜ 2026-03-12 ｜ 來源：證基會113年公開題庫
+  </div>
+</div>
+</body>
+</html>

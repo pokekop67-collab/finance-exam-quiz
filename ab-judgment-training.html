@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A/B 判斷題特訓</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F5F0;--card:#FFF;--accent-bg:#EDE8DF;--c1:#2C2C2C;--c2:#6B6560;--c3:#9B9590;--ac:#8B7355;--ac2:#C4B49A;--ac3:#A68B6B;--bd:#E0DBD3;--bd2:#EDE8E0;--ok:#5A8F6A;--ok-bg:#EDF5EF;--ok-bd:#A8D5B8;--ng:#C4756A;--ng-bg:#FDF5F3;--ng-bd:#E8B4AD;--serif:'Noto Serif TC',serif;--sans:'Noto Sans TC',sans-serif;--display:'Cormorant Garamond',serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--c1);font-family:var(--sans);font-size:15px;line-height:1.8;-webkit-font-smoothing:antialiased}
+.screen{display:none}.screen.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-2%,2%)}}
+
+.start{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px;background:linear-gradient(175deg,#F7F5F0,#EDE8DF 40%,#E5DFD3);position:relative;overflow:hidden}
+.start::before{content:'';position:absolute;inset:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 20%,rgba(139,115,85,.04),transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(139,115,85,.03),transparent 50%);animation:float 20s ease-in-out infinite}
+.sl{font-family:var(--display);font-size:13px;letter-spacing:6px;color:var(--ac);margin-bottom:24px;position:relative;z-index:1;opacity:0;animation:fadeUp .8s .2s forwards}
+.st{font-family:var(--serif);font-size:clamp(26px,5vw,42px);font-weight:600;color:var(--c1);margin-bottom:10px;position:relative;z-index:1;opacity:0;animation:fadeUp .8s .4s forwards}
+.ss{font-family:var(--serif);font-size:clamp(15px,2.5vw,20px);font-weight:300;color:var(--ac3);margin-bottom:32px;position:relative;z-index:1;opacity:0;animation:fadeUp .8s .6s forwards}
+
+.stat-row{display:flex;gap:20px;margin-bottom:28px;position:relative;z-index:1;opacity:0;animation:fadeUp .8s .7s forwards}
+.stat-box{background:var(--card);border:1px solid var(--bd2);border-radius:12px;padding:14px 20px;text-align:center}
+.stat-box .sn{font-family:var(--display);font-size:32px;font-weight:500;line-height:1.2}
+.stat-box .sl2{font-size:11px;color:var(--c3);letter-spacing:.5px}
+.sn-ok{color:var(--ok)}.sn-ng{color:var(--ng)}.sn-ac{color:var(--ac)}
+
+.modes{display:flex;flex-direction:column;gap:10px;width:100%;max-width:320px;position:relative;z-index:1;opacity:0;animation:fadeUp .8s .9s forwards}
+.mbtn{padding:14px 28px;border:1px solid var(--bd);border-radius:100px;background:var(--card);font-family:var(--sans);font-size:14px;font-weight:500;color:var(--c1);cursor:pointer;transition:all .3s;letter-spacing:.5px}
+.mbtn:hover{border-color:var(--ac);color:var(--ac);box-shadow:0 4px 16px rgba(139,115,85,.1);transform:translateY(-2px)}
+.mbtn.pri{background:var(--ac);border-color:var(--ac);color:#fff}.mbtn.pri:hover{background:var(--ac3)}
+.hint{font-size:12px;color:var(--c3);margin-top:20px;max-width:340px;line-height:1.7;position:relative;z-index:1;opacity:0;animation:fadeUp .8s 1.1s forwards}
+
+.quiz{max-width:680px;margin:0 auto;padding:0 20px 100px}
+.qh{position:sticky;top:0;z-index:100;background:rgba(247,245,240,.92);backdrop-filter:blur(16px);padding:14px 0;border-bottom:1px solid var(--bd2);margin-bottom:28px}
+.qh-inner{display:flex;justify-content:space-between;align-items:center}
+.qh-prog{font-family:var(--display);font-size:14px;color:var(--c3);letter-spacing:2px}
+.qh-score{font-size:13px;color:var(--ac);font-weight:500}
+.pbar{width:100%;height:3px;background:var(--bd2);border-radius:2px;margin-top:10px;overflow:hidden}
+.pfill{height:100%;background:var(--ac);border-radius:2px;transition:width .4s}
+
+.badges{margin-bottom:14px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{display:inline-block;padding:4px 12px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:1px}
+.b-cat{background:#EBF5FB;color:#2E86C1}
+.b-ab-ok{background:var(--ok-bg);color:var(--ok)}.b-ab-ng{background:var(--ng-bg);color:var(--ng)}.b-ab-a{background:#FFF8E7;color:#B8860B}.b-ab-b{background:#F0E6FF;color:#7B5EA7}
+
+.qtxt{font-family:var(--serif);font-size:17px;font-weight:500;line-height:1.8;color:var(--c1);margin-bottom:12px}
+.ab-box{background:var(--accent-bg);border:1px solid var(--bd2);border-radius:10px;padding:16px 20px;margin-bottom:24px;font-size:14px;color:var(--c2);line-height:1.8}
+.ab-box strong{color:var(--c1)}
+
+.opts{display:flex;flex-direction:column;gap:9px;margin-bottom:20px}
+.opt{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;border:1px solid var(--bd);border-radius:11px;background:var(--card);cursor:pointer;transition:all .25s;text-align:left;font-family:var(--sans);font-size:14px;color:var(--c2);line-height:1.7}
+.opt:hover:not(.dis){border-color:var(--ac2);background:rgba(139,115,85,.03);transform:translateX(3px)}
+.on{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--ac);margin-top:1px;transition:all .25s}
+.opt.sel{border-color:var(--ac)}.opt.sel .on{background:var(--ac);color:#fff}
+.opt.ok{border-color:var(--ok-bd);background:var(--ok-bg)}.opt.ok .on{background:var(--ok);color:#fff}
+.opt.ng{border-color:var(--ng-bd);background:var(--ng-bg)}.opt.ng .on{background:var(--ng);color:#fff}
+.opt.dis{cursor:default;pointer-events:none}.opt.dim{opacity:.45}
+
+.exp{border-radius:11px;padding:18px 22px;margin-bottom:20px;border-left:3px solid;opacity:0;animation:fadeUp .4s forwards}
+.exp-ok{background:var(--ok-bg);border-color:var(--ok)}.exp-ng{background:var(--ng-bg);border-color:var(--ng)}
+.exp-tag{font-size:11px;font-weight:700;letter-spacing:1.5px;margin-bottom:6px}
+.exp-ok .exp-tag{color:var(--ok)}.exp-ng .exp-tag{color:var(--ng)}
+.exp p{font-size:13.5px;color:var(--c2);line-height:1.8}
+
+.nbtn{display:block;width:100%;padding:14px;border:none;border-radius:100px;background:var(--ac);color:#fff;font-family:var(--sans);font-size:14px;font-weight:500;cursor:pointer;transition:all .3s;letter-spacing:1px}
+.nbtn:hover{background:var(--ac3);box-shadow:0 4px 16px rgba(139,115,85,.2)}
+
+.result{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px;background:linear-gradient(175deg,#F7F5F0,#EDE8DF 40%,#E5DFD3)}
+.rl{font-family:var(--display);font-size:13px;letter-spacing:6px;color:var(--ac);margin-bottom:20px}
+.rb{font-family:var(--display);font-size:68px;font-weight:500;color:var(--ac);line-height:1;margin-bottom:6px}
+.rt{font-size:16px;color:var(--c3);margin-bottom:28px}
+.rm{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--c1);margin-bottom:10px}
+.rsub{font-size:14px;color:var(--c2);max-width:400px;line-height:1.8;margin-bottom:36px}
+.rstats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;width:100%;max-width:380px;margin-bottom:36px}
+.rs{background:var(--card);border:1px solid var(--bd2);border-radius:11px;padding:14px 10px}
+.rs .rn{font-family:var(--display);font-size:26px;font-weight:500;line-height:1.2}
+.rs .rl2{font-size:11px;color:var(--c3)}.rs-ok .rn{color:var(--ok)}.rs-ng .rn{color:var(--ng)}.rs-ac .rn{color:var(--ac)}
+.rbtns{display:flex;flex-direction:column;gap:10px;width:100%;max-width:280px}
+
+.rvw{max-width:680px;margin:28px auto 0;padding:0 20px;text-align:left;width:100%}
+.rvw-title{font-family:var(--serif);font-size:18px;font-weight:600;text-align:center;margin-bottom:16px}
+.rvw-item{background:var(--card);border:1px solid var(--bd2);border-radius:11px;padding:18px;margin-bottom:10px}
+.rvw-item.ri-ok{border-left:3px solid var(--ok)}.rvw-item.ri-ng{border-left:3px solid var(--ng)}
+.rvw-q{font-size:13.5px;color:var(--c1);margin-bottom:6px;line-height:1.7}
+.rvw-a{font-size:12.5px;color:var(--c3);line-height:1.6}
+.rvw-a strong{color:var(--ok)}.rvw-a .yw{color:var(--ng)}
+
+@media(max-width:480px){.stat-row{gap:12px;flex-wrap:wrap}.stat-box{flex:1;min-width:80px}.qtxt{font-size:15px}.opt{padding:12px 14px;font-size:13px}.rb{font-size:52px}}
+</style>
+</head>
+<body>
+
+<div class="screen active" id="startScreen">
+<div class="start">
+  <div class="sl">A/B Judgment Training</div>
+  <h1 class="st">A/B 判斷題特訓</h1>
+  <div class="ss">15 題全收錄 · 掌握「都對多半對」規律</div>
+  <div class="stat-row">
+    <div class="stat-box"><div class="sn sn-ok">67%</div><div class="sl2">AB都對的機率</div></div>
+    <div class="stat-box"><div class="sn sn-ac">20%</div><div class="sl2">只A對的機率</div></div>
+    <div class="stat-box"><div class="sn sn-ng">0%</div><div class="sl2">AB都錯的機率</div></div>
+  </div>
+  <div class="modes">
+    <button class="mbtn pri" onclick="startQuiz('all')">全部 15 題特訓</button>
+    <button class="mbtn" onclick="startQuiz('both')">只練「AB都對」10 題</button>
+    <button class="mbtn" onclick="startQuiz('traps')">只練陷阱題 5 題</button>
+  </div>
+  <div class="hint">AB都對 = 66.7%、只A對 = 20%、只B對 = 6.7%、AB都錯 = 0%<br>口訣：都對多半對，都錯從沒對</div>
+</div>
+</div>
+
+<div class="screen" id="quizScreen">
+<div class="quiz">
+  <div class="qh"><div class="qh-inner"><span class="qh-prog" id="prog">1 / 15</span><span class="qh-score" id="scr">0 正確</span></div><div class="pbar"><div class="pfill" id="pfill"></div></div></div>
+  <div id="qArea"></div>
+</div>
+</div>
+
+<div class="screen" id="resultScreen"></div>
+
+<script>
+const QS = [
+  // ── AB都對 10題 ──
+  {id:221,cls:"AB都對",badge:"b-ab-ok",
+   stem:"下列敘述何者正確？",
+   ab:"A. 就投資組合管理而言，積極式的操作包括尋找股價偏低的股票來投資\nB. 就投資組合管理而言，消極式的操作包括購買指數型基金",
+   options:["A、B 都正確","只 A 正確","只 B 正確","A、B 都不正確"],answer:0,
+   explain:"A 正確（積極式＝選股）、B 也正確（消極式＝買指數型基金）。兩個都是教科書級的標準定義。"},
+
+  {id:228,cls:"AB都對",badge:"b-ab-ok",
+   stem:"下列敘述何者正確？",
+   ab:"A. 投信投顧公司代客操作應顧及職業道德\nB. 投信投顧公司代客操作應建立防火牆",
+   options:["A、B 都正確","只 A 正確","只 B 正確","A、B 都不正確"],answer:0,
+   explain:"職業道德和防火牆都是代客操作的基本要求，兩者缺一不可。"},
+
+  {id:229,cls:"AB都對",badge:"b-ab-ok",
+   stem:"下列敘述何者正確？",
+   ab:"A. 投信投顧公司代客操作應顧及客戶的投資目標與限制條件\nB. 投信投顧公司代客操作應顧及客戶的財富背景與承擔風險的限度",
+   options:["A、B 都正確","只 A 正確","只 B 正確","A、B 都不正確"],answer:0,
+   explain:"投資目標＋限制條件（A）和財富背景＋風險承受度（B）是 KYC 的核心要素，都對。"},
+
+  {id:233,cls:"AB都對",badge:"b-ab-ok",
+   stem:"下列敘述何者正確？",
+   ab:"A. 投信基金經理人不應該一方面替公家退撫基金操盤，同時私下替個人大戶代客操作\nB. 投顧公司應該定期與委託操作之客戶保持聯繫，告知績效近況與對未來證券市場之看法",
+   options:["A、B 都正確","只 A 正確","只 B 正確","A、B 都不正確"],answer:0,
+   explain:"A 是防止利益衝突、B 是服務義務，兩個都是從業人員應盡的責任。"},
+
+  {id:247,cls:"AB都對",badge:"b-ab-ok",
+   stem:"如果軍公教人員退撫基金採積極式操作之策略，可將基金：",
+   ab:"A. 部份委託國內專業基金經理人管理\nB. 部份委託國外專業基金經理人管理",
+   options:["不能採用 A 法","不能採用 B 法","A 及 B 法皆可用","A 及 B 法皆不可用"],answer:2,
+   explain:"積極式操作可以同時委託國內和國外的專業經理人，兩個方法都合法可行。"},
+
+  {id:248,cls:"AB都對",badge:"b-ab-ok",
+   stem:"下列敘述，何者為真？",
+   ab:"A. 封閉型基金有時候會產生折價之現象\nB. 開放型基金則是以淨值贖回，所以無折價之現象",
+   options:["只有 A 為真","只有 B 為真","A 與 B 都為真","A 與 B 都不真"],answer:2,
+   explain:"封閉型基金在集中市場交易，市價可能低於淨值（折價）。開放型基金按淨值贖回，所以不會折價。兩者都正確。"},
+
+  {id:258,cls:"AB都對",badge:"b-ab-ok",
+   stem:"以下何者是一般對沖基金操作手法？",
+   ab:"A. 套利\nB. 積極買賣衍生性商品",
+   options:["只有 A 正確","只有 B 正確","A 與 B 都正確","A 與 B 都不正確"],answer:2,
+   explain:"套利和積極買賣衍生性商品都是對沖基金（Hedge Fund）的典型手法。注意：這兩個是「共同基金」不會做的事。"},
+
+  {id:242,cls:"AB都對",badge:"b-ab-ok",
+   stem:"下列敘述何者較正確？",
+   ab:"A. 針對全國基金績效評比時，不管基金經理人管的是何種基金，只要報酬率最高，績效就是最好\nB. 針對全國基金績效評比時，不管基金經理人管的是何種基金，只要調整風險後的報酬率最高，績效就是最好",
+   options:["A、B 都正確","A 較正確","B 較正確","A、B 都不正確"],answer:2,
+   explain:"⚠ 這題「B 較正確」！績效評比應該用風險調整後報酬（如 Sharpe Ratio），不能只看絕對報酬率。A 太粗糙。注意問的是「較正確」不是「都正確」。"},
+
+  {id:243,cls:"AB都對",badge:"b-ab-ok",
+   stem:"下列敘述何者較正確？",
+   ab:"A. 專門投資高科技產業股票的基金，其最適合用來比較績效的標竿是股票市場指數\nB. 投資人如果自己無專業投資知識，只好精挑細選基金來投資，這也是一種積極式的投資策略",
+   options:["A、B 都正確","A 較正確","B 較正確","A、B 都不正確"],answer:2,
+   explain:"⚠ 這題也是「B 較正確」！高科技基金應該用科技類指數（非大盤），所以 A 不夠精確。精挑基金確實算積極式策略，B 對。"},
+
+  {id:232,cls:"AB都對",badge:"b-ab-ok",
+   stem:"下列敘述何者正確？",
+   ab:"A. 只要簽定充份授權合約，投顧代客操作就可以不管投資人的年齡與財務狀況，積極操作\nB. 如果客戶是退休人員，投顧代客操作就應該注意投資安全性",
+   options:["A、B 都正確","只 A 正確","只 B 正確","A、B 都不正確"],answer:2,
+   explain:"⚠ 這題是「只B對」！A 錯在「不管年齡與財務狀況」——即使有授權，仍須考慮客戶狀況。B 正確，退休人員應注重安全性。"},
+
+  // ── 只A對 3題 ──
+  {id:235,cls:"只A對",badge:"b-ab-a",
+   stem:"下列敘述何者正確，何者錯誤？",
+   ab:"a. 股市投資屬於高風險，所以一定能得到高報酬\nb. 想要獲得高報酬，可以投資股市，因為股市風險高",
+   options:["敘述 a 錯誤，b 正確","敘述 a 正確，b 錯誤","敘述 a、b 皆錯誤","敘述 a、b 皆正確"],answer:0,
+   explain:"a 錯：高風險不代表「一定」高報酬，只是「可能」。b 對：想要高報酬可以投資股市（風險高但有機會獲利）。關鍵字是「一定」。"},
+
+  {id:237,cls:"只A對",badge:"b-ab-a",
+   stem:"根據投信投顧相關法規，下列敘述何者正確？",
+   ab:"A. 合法的投信投顧業者可以私募基金\nB. 私人也可以私募基金來投資",
+   options:["只有 A 正確","只有 B 正確","A、B 都正確","A、B 都不正確"],answer:0,
+   explain:"A 對：合法投信投顧可以私募。B 錯：私人不能自行私募基金，必須透過合法機構。"},
+
+  {id:249,cls:"只A對",badge:"b-ab-a",
+   stem:"下列敘述，何者為真？",
+   ab:"A. 封閉型基金是在集中市場交易\nB. 開放型基金（ETF 除外）也可以在集中市場交易",
+   options:["只有 A 為真","只有 B 為真","A 與 B 都為真","以上皆非"],answer:0,
+   explain:"A 對：封閉型基金在集中市場（交易所）交易。B 錯：一般開放型基金（非 ETF）是向投信公司申購贖回，不在集中市場交易。"},
+
+  // ── 只B對 1題 ──
+  {id:239,cls:"只B對",badge:"b-ab-b",
+   stem:"下列那一敘述何者正確？",
+   ab:"A. 假設其他條件一樣，股票之系統風險越高，其股票市場價值越高\nB. 假設其他條件一樣，股票之風險貼水越低，其股票市場價值越高",
+   options:["只有 B 正確","A、B 都正確","只有 A 正確","A、B 都不正確"],answer:0,
+   explain:"A 錯：系統風險越高→要求報酬率越高→股價越低（不是越高）。B 對：風險貼水越低→要求報酬率越低→股價越高。這是 CAPM 的基本邏輯。"},
+
+  // ── ABCD 特殊題 ──
+  {id:306,cls:"AB都對",badge:"b-ab-ok",
+   stem:"目前各國金融監理機關對比特幣抱持戒慎恐懼的態度，考量的原因包含下列哪幾項？",
+   ab:"A. 洗錢　B. 資恐　C. 逃稅　D. 詐騙",
+   options:["僅 A","僅 A、B","僅 A、B、C","A、B、C、D"],answer:3,
+   explain:"洗錢、資恐、逃稅、詐騙全部都是監理機關對比特幣的擔憂。這題是 ABCD 四選，答案是全選——跟「以上皆是」同樣邏輯。"},
+];
+
+let cur=[],idx=0,score=0,ans=[];
+
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+
+function startQuiz(mode){
+  if(mode==='both') cur=shuffle(QS.filter(q=>q.cls==="AB都對"));
+  else if(mode==='traps') cur=shuffle(QS.filter(q=>q.cls!=="AB都對"));
+  else cur=shuffle(QS);
+  idx=0;score=0;ans=[];
+  show('quizScreen');render();
+}
+
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');scrollTo(0,0)}
+
+function render(){
+  const q=cur[idx],tot=cur.length;
+  document.getElementById('prog').textContent=`${idx+1} / ${tot}`;
+  document.getElementById('scr').textContent=`${score} 正確`;
+  document.getElementById('pfill').style.width=`${(idx/tot)*100}%`;
+
+  const clsMap={"AB都對":"AB 都正確 (67%)","只A對":"只 A 正確 (20%)","只B對":"只 B 正確 (7%)","AB都錯":"AB 都不正確 (0%)"};
+  const badgeMap={"AB都對":"b-ab-ok","只A對":"b-ab-a","只B對":"b-ab-b","AB都錯":"b-ab-ng"};
+
+  let h=`<div class="badges"><span class="badge b-cat">金融常識 #${q.id}</span><span class="badge ${badgeMap[q.cls]||'b-ab-ok'}">${clsMap[q.cls]||q.cls}</span></div>`;
+  h+=`<div class="qtxt">${q.stem}</div>`;
+  h+=`<div class="ab-box">${q.ab.replace(/\n/g,'<br>')}</div>`;
+  h+=`<div class="opts">`;
+  q.options.forEach((o,i)=>{h+=`<button class="opt" onclick="pick(${i})" data-i="${i}"><span class="on">${i+1}</span><span>${o}</span></button>`});
+  h+=`</div><div id="fb"></div>`;
+  document.getElementById('qArea').innerHTML=h;
+}
+
+function pick(i){
+  const q=cur[idx],ok=q.answer,right=i===ok;
+  if(right)score++;
+  ans.push({q,sel:i,right});
+  document.querySelectorAll('.opt').forEach(b=>{
+    b.classList.add('dis');
+    const bi=+b.dataset.i;
+    if(bi===ok)b.classList.add('ok');
+    if(bi===i&&!right)b.classList.add('ng');
+    if(bi!==ok&&bi!==i)b.classList.add('dim');
+  });
+  const ec=right?'exp-ok':'exp-ng',tag=right?'✓ 答對了！':'✗ 答錯了';
+  document.getElementById('fb').innerHTML=`<div class="exp ${ec}"><div class="exp-tag">${tag}</div><p>${q.explain}</p></div><button class="nbtn" onclick="next()">${idx<cur.length-1?'下一題 →':'查看結果'}</button>`;
+  document.getElementById('pfill').style.width=`${((idx+1)/cur.length)*100}%`;
+}
+
+function next(){idx++;if(idx>=cur.length)result();else{render();scrollTo({top:0,behavior:'smooth'})}}
+
+function result(){
+  const tot=cur.length,w=tot-score,rate=Math.round(score/tot*100);
+  let msg,sub;
+  if(rate>=90){msg='A/B 判斷大師';sub='你已完全掌握 A/B 題型的規律。'}
+  else if(rate>=70){msg='判斷力不錯';sub='大部分能辨別，把錯題再練一輪就穩了。'}
+  else{msg='需要加強';sub='建議重新理解每題的 A/B 陳述，搞懂為什麼對或錯。'}
+
+  let h=`<div class="result"><div class="rl">Complete</div><div class="rb">${rate}%</div><div class="rt">${score} / ${tot}</div><div class="rm">${msg}</div><div class="rsub">${sub}</div>`;
+  h+=`<div class="rstats"><div class="rs rs-ok"><div class="rn">${score}</div><div class="rl2">答對</div></div><div class="rs rs-ng"><div class="rn">${w}</div><div class="rl2">答錯</div></div><div class="rs rs-ac"><div class="rn">${rate}%</div><div class="rl2">正確率</div></div></div>`;
+  h+=`<div class="rbtns"><button class="mbtn pri" onclick="startQuiz('all')">再測一次</button>${w>0?'<button class="mbtn" onclick="retry()">只做錯題 ('+w+')</button>':''}<button class="mbtn" onclick="show('startScreen')">返回首頁</button></div>`;
+  if(w>0)h+=`<div class="rvw" id="rvw"></div>`;
+  h+=`</div>`;
+  document.getElementById('resultScreen').innerHTML=h;
+  show('resultScreen');
+  if(w>0){
+    let r='<div class="rvw-title">錯題回顧</div>';
+    ans.forEach(a=>{if(!a.right)r+=`<div class="rvw-item ri-ng"><div class="rvw-q">#${a.q.id} ${a.q.stem}<br><small style="color:var(--c3)">${a.q.ab.replace(/\n/g,' | ')}</small></div><div class="rvw-a"><span class="yw">你選：(${a.sel+1}) ${a.q.options[a.sel]}</span><br><strong>正確：(${a.q.answer+1}) ${a.q.options[a.q.answer]}</strong></div></div>`});
+    document.getElementById('rvw').innerHTML=r;
+  }
+}
+
+function retry(){cur=shuffle(ans.filter(a=>!a.right).map(a=>a.q));idx=0;score=0;ans=[];show('quizScreen');render()}
+</script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>保證考過攻略 — 金融市場常識與職業道德</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F5F0;--bg2:#F0EDE6;--card:#fff;--abg:#EDE8DF;--c1:#2C2C2C;--c2:#6B6560;--c3:#9B9590;--acc:#7A6B5D;--acc2:#B8A998;--acc3:#96806A;--bdr:#E0DBD3;--bdr2:#EDE8E0;--ok:#4A8B5A;--okbg:#EDF5EF;--ng:#C4756A;--ngbg:#FDF5F3;--info:#5B7FA6;--ibg:#EDF2F7;--gold:#B8860B;--gbg:#FDF8ED;--serif:'Noto Serif TC','Georgia',serif;--sans:'Noto Sans TC','Helvetica Neue',sans-serif;--disp:'Cormorant Garamond','Noto Serif TC',serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--c1);font-family:var(--sans);font-size:15px;line-height:1.8;-webkit-font-smoothing:antialiased}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 24px;position:relative;overflow:hidden;background:linear-gradient(175deg,#F7F5F0 0%,#EDE8DF 40%,#E5DFD3 100%)}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 20%,rgba(122,107,93,.04) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(122,107,93,.03) 0%,transparent 50%);animation:fb 20s ease-in-out infinite}
+@keyframes fb{0%,100%{transform:translate(0,0)}50%{transform:translate(-2%,2%)}}
+@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hl{font-family:var(--disp);font-size:13px;letter-spacing:6px;color:var(--acc);margin-bottom:28px;position:relative;z-index:1;opacity:0;animation:fu .8s ease .2s forwards}
+.ht{font-family:var(--serif);font-size:clamp(28px,5vw,48px);font-weight:600;color:var(--c1);margin-bottom:12px;position:relative;z-index:1;opacity:0;animation:fu .8s ease .4s forwards}
+.hs{font-family:var(--serif);font-size:clamp(16px,2.5vw,22px);font-weight:300;color:var(--acc3);margin-bottom:36px;position:relative;z-index:1;opacity:0;animation:fu .8s ease .6s forwards}
+.hln{width:48px;height:1px;background:var(--acc);margin-bottom:28px;position:relative;z-index:1;opacity:0;animation:fu .8s ease .8s forwards}
+.hg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:36px;position:relative;z-index:1;opacity:0;animation:fu .8s ease 1s forwards;max-width:500px;width:100%}
+.hgi{text-align:center}.hgn{font-family:var(--disp);font-size:32px;font-weight:500;color:var(--acc);line-height:1.2}.hgl{font-size:11px;color:var(--c3);letter-spacing:.5px}
+.shi{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);opacity:0;animation:fu .8s ease 1.4s forwards;z-index:1}
+.shi span{display:block;width:1px;height:36px;background:var(--acc2);margin:0 auto;animation:pl 2s ease-in-out infinite}
+@keyframes pl{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+.nav{position:sticky;top:0;z-index:100;background:rgba(247,245,240,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr2);padding:0 24px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nav::-webkit-scrollbar{display:none}
+.ni{max-width:900px;margin:0 auto;display:flex;gap:0;white-space:nowrap}
+.ni a{display:block;padding:14px 16px;font-size:12px;font-weight:500;letter-spacing:1px;color:var(--c3);text-decoration:none;border-bottom:2px solid transparent;transition:all .3s ease;flex-shrink:0}
+.ni a:hover,.ni a.active{color:var(--acc);border-bottom-color:var(--acc)}
+.main{max-width:760px;margin:0 auto;padding:0 24px 120px}
+.sec{padding-top:72px;opacity:0;transform:translateY(20px);transition:all .8s ease}.sec.v{opacity:1;transform:translateY(0)}
+.sn{font-family:var(--disp);font-size:56px;font-weight:300;color:var(--bdr);line-height:1;margin-bottom:6px}
+.st{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--c1);margin-bottom:6px;line-height:1.4}
+.ss{font-size:13px;color:var(--c3);margin-bottom:32px;letter-spacing:.5px}
+.sd{width:28px;height:1px;background:var(--acc2);margin-bottom:32px}
+.cd{background:var(--card);border:1px solid var(--bdr2);border-radius:12px;padding:28px;margin-bottom:16px;transition:all .3s ease}
+.cd:hover{box-shadow:0 6px 24px rgba(122,107,93,.06);transform:translateY(-1px)}
+.cl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--acc);margin-bottom:12px}
+.cd h3{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:12px;color:var(--c1)}
+.cd p,.cd li{font-size:14px;color:var(--c2);line-height:1.9}
+.cd ul{list-style:none;padding:0}.cd ul li{padding:5px 0 5px 18px;position:relative}
+.cd ul li::before{content:'';position:absolute;left:0;top:13px;width:5px;height:5px;border-radius:50%;background:var(--acc2)}
+.al{border-radius:10px;padding:20px 24px;margin-bottom:16px;border-left:3px solid}
+.al-ok{background:var(--okbg);border-color:var(--ok)}.al-ok .at{color:var(--ok)}
+.al-ng{background:var(--ngbg);border-color:var(--ng)}.al-ng .at{color:var(--ng)}
+.al-i{background:var(--ibg);border-color:var(--info)}.al-i .at{color:var(--info)}
+.al-g{background:var(--gbg);border-color:var(--gold)}.al-g .at{color:var(--gold)}
+.at{font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:6px}.al p{font-size:14px;color:var(--c2);line-height:1.8}
+.bc{margin:16px 0}.br{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.bl{width:140px;font-size:13px;color:var(--c2);text-align:right;flex-shrink:0}
+.bt{flex:1;height:24px;background:var(--abg);border-radius:6px;overflow:hidden}
+.bf{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;transition:width 1s ease}
+.bf span{font-size:11px;font-weight:600;color:#fff}
+.b1{background:linear-gradient(90deg,#7A6B5D,#96806A)}.b2{background:linear-gradient(90deg,#5A8F6A,#7AB88A)}
+.b3{background:linear-gradient(90deg,#5B7FA6,#7A9FC6)}.b4{background:linear-gradient(90deg,#C4756A,#E8A49B)}
+.tb{width:100%;border-collapse:separate;border-spacing:0;border-radius:10px;overflow:hidden;border:1px solid var(--bdr2);margin:16px 0}
+.tb thead th{background:var(--abg);padding:12px 14px;font-size:12px;font-weight:700;letter-spacing:1px;color:var(--acc);text-align:left;border-bottom:1px solid var(--bdr)}
+.tb td{padding:11px 14px;font-size:13.5px;color:var(--c2);border-bottom:1px solid var(--bdr2);background:var(--card)}
+.tb tr:last-child td{border-bottom:none}.tb tr:nth-child(even) td{background:rgba(237,232,223,.25)}
+.em{font-weight:600;color:var(--c1)}.ok{color:var(--ok);font-weight:600}.ngc{color:var(--ng);font-weight:600}
+.tl{position:relative;padding-left:24px;margin:16px 0}
+.tl::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--bdr)}
+.ti{position:relative;margin-bottom:24px}
+.ti::before{content:'';position:absolute;left:-28px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--acc);border:2px solid var(--acc)}
+.tp{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--acc)}.tt{font-size:12px;color:var(--c3);margin-bottom:4px}
+.td{font-size:14px;color:var(--c2);line-height:1.7}
+.sh{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--c1);margin:36px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--bdr2)}
+.ng2{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.ngi{background:var(--card);border:1px solid var(--bdr2);border-radius:10px;padding:16px;text-align:center;transition:all .3s ease}
+.ngi:hover{border-color:var(--acc2)}.ngi .n{font-family:var(--disp);font-size:28px;font-weight:500;color:var(--acc);line-height:1.2;margin-bottom:4px}
+.ngi .nl{font-size:11px;color:var(--c3)}
+.ck{list-style:none;padding:0}.ck li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--bdr2);font-size:14px;color:var(--c2);line-height:1.7}
+.ck li:last-child{border-bottom:none}
+.ci{flex-shrink:0;width:20px;height:20px;border:2px solid var(--bdr);border-radius:5px;margin-top:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s ease}
+.ci.x{background:var(--acc);border-color:var(--acc)}.ci.x::after{content:'✓';color:#fff;font-size:11px;font-weight:700}
+.fm{background:var(--abg);border-radius:10px;padding:20px 24px;margin:16px 0;font-family:'Courier New',monospace;font-size:14px;color:var(--c1);line-height:2}
+.kw{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.kwi{background:var(--ngbg);border:1px solid #E8B4AD;border-radius:8px;padding:10px;text-align:center;font-size:13px;font-weight:600;color:var(--ng)}
+.ft{text-align:center;padding:48px 24px 72px;border-top:1px solid var(--bdr2);margin-top:60px}
+.ftm{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--acc);margin-bottom:8px}
+.fts{font-size:12px;color:var(--c3);letter-spacing:1px}
+@media(max-width:580px){.hg{grid-template-columns:repeat(2,1fr)}.ng2{grid-template-columns:1fr 1fr}.bl{width:100px;font-size:12px}.cd{padding:22px}.kw{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="hl">Data-Driven Strategy · 2026</div>
+  <h1 class="ht">保證考過攻略</h1>
+  <div class="hs">金融市場常識與職業道德 · 1,120 題完整數據分析</div>
+  <div class="hln"></div>
+  <div class="hg">
+    <div class="hgi"><div class="hgn">70</div><div class="hgl">及格分數</div></div>
+    <div class="hgi"><div class="hgn">100</div><div class="hgl">題/每題1分</div></div>
+    <div class="hgi"><div class="hgn">1120</div><div class="hgl">題庫總題</div></div>
+    <div class="hgi"><div class="hgn">7天</div><div class="hgl">建議備考</div></div>
+  </div>
+  <div class="shi"><span></span></div>
+</section>
+
+<nav class="nav"><div class="ni">
+  <a href="#s1">數據透視</a><a href="#s2">得分公式</a><a href="#s3">三階段攻略</a>
+  <a href="#s4">職業道德</a><a href="#s5">金融常識</a><a href="#s6">猜題兵法</a><a href="#s7">考前清單</a>
+</div></nav>
+
+<div class="main">
+
+<section class="sec" id="s1">
+  <div class="sn">01</div><h2 class="st">數據透視：先看穿這場考試</h2>
+  <div class="ss">用 1,120 題原始數據逆向工程考試結構</div><div class="sd"></div>
+
+  <h3 class="sh">答案分布：(4) 是王道</h3>
+  <p style="font-size:14px;color:var(--c2);margin-bottom:12px">全部 1,120 題的正確答案分布嚴重不均，答案 (4) 佔 35.3%：</p>
+  <div class="bc">
+    <div class="br"><div class="bl">答案 (1)</div><div class="bt"><div class="bf b1" style="width:23.1%"><span>23.1%</span></div></div></div>
+    <div class="br"><div class="bl">答案 (2)</div><div class="bt"><div class="bf b3" style="width:20.4%"><span>20.4%</span></div></div></div>
+    <div class="br"><div class="bl">答案 (3)</div><div class="bt"><div class="bf b2" style="width:21.2%"><span>21.2%</span></div></div></div>
+    <div class="br"><div class="bl">答案 (4)</div><div class="bt"><div class="bf b4" style="width:35.3%"><span>35.3%</span></div></div></div>
+  </div>
+
+  <div class="al al-g"><div class="at">★ 關鍵發現</div>
+  <p>職業道德更誇張：答案 (4) 佔 <strong>42.0%</strong>（259/616 題），其中 157 題是「以上皆是」直接送分。等於職業道德每 5 題就有 2 題答案是 (4)。</p></div>
+
+  <h3 class="sh">兩科性格完全不同</h3>
+  <table class="tb"><thead><tr><th>指標</th><th>金融常識 (50題)</th><th>職業道德 (50題)</th></tr></thead>
+  <tbody>
+    <tr><td class="em">題庫總數</td><td>504 題</td><td>616 題</td></tr>
+    <tr><td class="em">答案(4)佔比</td><td>27.0%</td><td class="ok">42.0%</td></tr>
+    <tr><td class="em">「以上皆是」送分題</td><td>23 題 (4.6%)</td><td class="ok">157 題 (25.5%)</td></tr>
+    <tr><td class="em">否定題型佔比</td><td class="ngc">32.3%</td><td>44.2%</td></tr>
+    <tr><td class="em">靠直覺能拿的分</td><td class="ngc">約 30%</td><td class="ok">約 60%</td></tr>
+    <tr><td class="em">需要背的程度</td><td class="ngc">高（數字+定義）</td><td class="ok">低（常理判斷）</td></tr>
+  </tbody></table>
+
+  <div class="al al-i"><div class="at">⚡ 戰略含義</div>
+  <p>職業道德是你的提款機，金融常識是你的攻堅戰。正確的備考順序：<strong>先把職業道德練到 90% → 再用剩餘時間衝金融常識。</strong></p></div>
+</section>
+
+<section class="sec" id="s2">
+  <div class="sn">02</div><h2 class="st">得分公式：70 分的數學</h2>
+  <div class="ss">用期望值算出你「真正要會幾題」</div><div class="sd"></div>
+
+  <div class="cd"><div class="cl">核心公式</div>
+    <div class="fm">總分 = 確定會的題數 + 不會的題數 × 猜(4)命中率<br><br>猜(4)命中率：金融常識 27% ／ 職業道德 42% ／ 加權 34.5%<br><br>設 N = 確定會的題數<br>N + (100 - N) × 0.345 ≥ 70<br><strong>N ≥ 55 題（最低）→ 建議目標 65 題（安全）</strong></div>
+    <p>真正會 55 題 + 45 題猜(4) = 期望 70.5 分剛好過。<br>真正會 65 題 + 35 題猜(4) = 期望 77 分穩穩過。</p>
+  </div>
+
+  <h3 class="sh">不同準備程度的模擬得分</h3>
+  <table class="tb"><thead><tr><th>準備策略</th><th>常識</th><th>道德</th><th>總分</th><th>結果</th></tr></thead>
+  <tbody>
+    <tr><td>完全沒準備，全猜(4)</td><td>13</td><td>21</td><td>35</td><td class="ngc">✗</td></tr>
+    <tr><td>道德靠直覺 + 常識全猜</td><td>13</td><td>30</td><td>43</td><td class="ngc">✗</td></tr>
+    <tr><td>道德練熟90% + 常識全猜</td><td>13</td><td>45</td><td>58</td><td class="ngc">✗</td></tr>
+    <tr><td class="em">道德90% + 常識50%</td><td>25</td><td>45</td><td class="ok">70</td><td class="ok">✓ 剛好</td></tr>
+    <tr><td class="em">兩科各 80%（建議目標）</td><td>40</td><td>40</td><td class="ok">80</td><td class="ok">✓ 穩過</td></tr>
+  </tbody></table>
+
+  <div class="al al-ok"><div class="at">✦ 最佳 CP 值策略</div>
+  <p><strong>職業道德練到 90%（45分）+ 金融常識練到 60%（30分）= 75 分穩過。</strong>職業道德靠理解就能拿高分，金融常識只要掌握保險+銀行+證券三大主題就有 60%。</p></div>
+</section>
+
+<section class="sec" id="s3">
+  <div class="sn">03</div><h2 class="st">三階段攻略：7 天保證過關</h2>
+  <div class="ss">按照這個順序，每天 2-3 小時即可</div><div class="sd"></div>
+
+  <div class="tl">
+    <div class="ti"><div class="tp">Day 1-2 · 職業道德速刷</div><div class="tt">目標：道德 0 → 80%</div><div class="td">刷完 616 題。答題邏輯：永遠選最正面最合規的。看到「以上皆是」87.7% 是對的。標記不確定的題目。</div></div>
+    <div class="ti"><div class="tp">Day 3-4 · 金融常識重點攻</div><div class="tt">目標：常識 0 → 50%</div><div class="td">集中火力：保險（22%）+ 銀行貨幣（16.7%）+ 證券（15.3%）= 54% 的題目。你有保險底子，這塊效率最高。</div></div>
+    <div class="ti"><div class="tp">Day 5-6 · 二刷錯題 + 補強</div><div class="tt">目標：道德 → 90%、常識 → 65%</div><div class="td">只做標記的錯題。職業道德練「以上皆是」陷阱29題 +「以上皆非」陷阱33題。金融常識補背數字記憶表。</div></div>
+    <div class="ti"><div class="tp">Day 7 · 模擬考 + 考前衝刺</div><div class="tt">目標：模擬 80+ 分</div><div class="td">隨機 100 題模擬。75+ 安心上場。70 邊緣就回去重刷職業道德錯題（投報率最高）。</div></div>
+  </div>
+
+  <div class="al al-g"><div class="at">★ 時間不夠？</div>
+  <p><strong>只有 3 天：</strong>Day1 職業道德刷完、Day2 金融常識三大主題、Day3 模擬考+錯題。<br>
+  <strong>只有 1 天：</strong>全力刷職業道德（目標45分）+ 金融常識只背數字表和監理架構（目標25分）= 70 分低空飛過。</p></div>
+</section>
+
+<section class="sec" id="s4">
+  <div class="sn">04</div><h2 class="st">職業道德：你的提款機</h2>
+  <div class="ss">616 題 · 佔 50 分 · 目標拿 45 分</div><div class="sd"></div>
+
+  <div class="al al-ok"><div class="at">✦ 為什麼最好拿分</div>
+  <p>42% 的答案是 (4)，157 題是「以上皆是」送分。剩下的遵循一個邏輯：<strong>選最正面、最合規、最保護客戶的選項</strong>。</p></div>
+
+  <h3 class="sh">主題權重</h3>
+  <div class="bc">
+    <div class="br"><div class="bl">業務招攬規範</div><div class="bt"><div class="bf b1" style="width:23.7%"><span>23.7%</span></div></div></div>
+    <div class="br"><div class="bl">客戶服務告知</div><div class="bt"><div class="bf b1" style="width:20.1%"><span>20.1%</span></div></div></div>
+    <div class="br"><div class="bl">誠信公平待客</div><div class="bt"><div class="bf b1" style="width:10.1%"><span>10.1%</span></div></div></div>
+    <div class="br"><div class="bl">利益衝突</div><div class="bt"><div class="bf b3" style="width:8.1%"><span>8.1%</span></div></div></div>
+    <div class="br"><div class="bl">保密原則</div><div class="bt"><div class="bf b3" style="width:8%"><span>8.0%</span></div></div></div>
+    <div class="br"><div class="bl">法令遵循自律</div><div class="bt"><div class="bf b2" style="width:6.3%"><span>6.3%</span></div></div></div>
+  </div>
+
+  <div class="cd"><div class="cl">萬用答題心法</div>
+  <ul>
+    <li><strong>「以上皆是」→ 87.7% 正確</strong>，三個都合理就選</li>
+    <li><strong>「以上皆非」→ 70% 是陷阱</strong>，先看(1)(2)(3)有沒有對的</li>
+    <li><strong>問「應如何」→ 選最正面的</strong>：告知風險、保密、公平對待</li>
+    <li><strong>問「不得有之行為」→ 選最惡劣的</strong>：保證獲利、代客操作</li>
+    <li><strong>問「誰的利益優先」→ 永遠是客戶</strong></li>
+  </ul></div>
+
+  <h3 class="sh">六大地雷關鍵字（看到就排除）</h3>
+  <div class="kw">
+    <div class="kwi">保證獲利</div><div class="kwi">代客操作</div><div class="kwi">借用名義</div>
+    <div class="kwi">損益共擔</div><div class="kwi">代保管印鑑</div><div class="kwi">洩露資料</div>
+  </div>
+</section>
+
+<section class="sec" id="s5">
+  <div class="sn">05</div><h2 class="st">金融常識：集中火力三大主題</h2>
+  <div class="ss">504 題 · 佔 50 分 · 目標拿 30 分</div><div class="sd"></div>
+
+  <div class="al al-i"><div class="at">⚡ 效率法則</div>
+  <p>保險（22%）+ 銀行貨幣（16.7%）+ 證券（15.3%）= 54%。50 題約 27 題出自這三塊。<strong>搞定它們 = 穩拿 20+ 分</strong>，加上你的保險底子效率更高。</p></div>
+
+  <h3 class="sh">主題權重</h3>
+  <div class="bc">
+    <div class="br"><div class="bl">保險市場 ★</div><div class="bt"><div class="bf b2" style="width:22%"><span>22.0%</span></div></div></div>
+    <div class="br"><div class="bl">銀行與貨幣 ★</div><div class="bt"><div class="bf b2" style="width:16.7%"><span>16.7%</span></div></div></div>
+    <div class="br"><div class="bl">證券市場 ★</div><div class="bt"><div class="bf b2" style="width:15.3%"><span>15.3%</span></div></div></div>
+    <div class="br"><div class="bl">金融體系監理</div><div class="bt"><div class="bf b1" style="width:11.7%"><span>11.7%</span></div></div></div>
+    <div class="br"><div class="bl">基金投資</div><div class="bt"><div class="bf b3" style="width:6%"><span>6.0%</span></div></div></div>
+    <div class="br"><div class="bl">債券市場</div><div class="bt"><div class="bf b3" style="width:5.8%"><span>5.8%</span></div></div></div>
+    <div class="br"><div class="bl">期貨選擇權</div><div class="bt"><div class="bf b3" style="width:5.6%"><span>5.6%</span></div></div></div>
+    <div class="br"><div class="bl">信託業務</div><div class="bt"><div class="bf b1" style="width:4%"><span>4.0%</span></div></div></div>
+  </div>
+
+  <div class="cd"><h3>保險市場（你的主場 · 22%）</h3>
+  <ul><li>四大原則：最大誠信、保險利益、損害填補、代位求償</li>
+  <li>壽險分類：定期/終身/生死合險/萬能/投資型</li>
+  <li>社會保險差異：勞保/公保/農保/軍保/健保</li>
+  <li>強制車險：死亡 200 萬、無財損給付</li></ul></div>
+
+  <div class="cd"><h3>銀行與貨幣（16.7%）</h3>
+  <ul><li>存款保險：每人每行 300 萬</li>
+  <li>貨幣市場工具：CP、國庫券、BA、NCD</li>
+  <li>央行：買債券＝寬鬆、賣債券＝緊縮</li>
+  <li>一碼 = 0.25%、一基本點 = 0.01%</li>
+  <li>大額通貨：50 萬以上申報</li></ul></div>
+
+  <div class="cd"><h3>證券市場（15.3%）</h3>
+  <ul><li>漲跌幅 10%（以開盤競價基準計）</li>
+  <li>零股 999 股以下、鉅額 500 單位以上</li>
+  <li>年報 3 個月內、股東常會 6 個月內</li>
+  <li>融資＝借錢買、融券＝借股賣</li>
+  <li>本益比 = 股價 ÷ 每股盈餘</li></ul></div>
+
+  <h3 class="sh">必背數字表</h3>
+  <div class="ng2">
+    <div class="ngi"><div class="n">300萬</div><div class="nl">存款保險保額</div></div>
+    <div class="ngi"><div class="n">50萬</div><div class="nl">大額通貨申報</div></div>
+    <div class="ngi"><div class="n">10%</div><div class="nl">股票漲跌幅</div></div>
+    <div class="ngi"><div class="n">0.25%</div><div class="nl">一碼</div></div>
+    <div class="ngi"><div class="n">0.01%</div><div class="nl">一基本點</div></div>
+    <div class="ngi"><div class="n">200萬</div><div class="nl">強制車險死亡</div></div>
+    <div class="ngi"><div class="n">BBB</div><div class="nl">S&P投資等級</div></div>
+    <div class="ngi"><div class="n">18hr</div><div class="nl">內線交易禁制</div></div>
+    <div class="ngi"><div class="n">2%</div><div class="nl">銀行資本嚴重不足</div></div>
+    <div class="ngi"><div class="n">10萬</div><div class="nl">NCD 最低面額</div></div>
+    <div class="ngi"><div class="n">10%</div><div class="nl">票券利息扣繳</div></div>
+    <div class="ngi"><div class="n">5年</div><div class="nl">合格證明效期</div></div>
+  </div>
+</section>
+
+<section class="sec" id="s6">
+  <div class="sn">06</div><h2 class="st">猜題兵法：不會的題目怎麼猜</h2>
+  <div class="ss">用數據提高猜題命中率</div><div class="sd"></div>
+
+  <div class="cd"><div class="cl">黃金法則</div><h3>不會的題目一律猜 (4)</h3>
+  <p>全猜 (4) 期望命中 35.3%，比隨機 25% 高 10 個百分點。30 題不會，猜(4)比亂猜多拿 3 分，這就是過與不過的差距。</p></div>
+
+  <table class="tb"><thead><tr><th>情境</th><th>策略</th><th>勝率</th></tr></thead>
+  <tbody>
+    <tr><td class="em">看到「以上皆是」</td><td>三選項都合理→選它</td><td class="ok">86.1%</td></tr>
+    <tr><td class="em">看到「以上皆非」</td><td>先看(1)(2)(3)有沒有對的</td><td class="ngc">29.8%</td></tr>
+    <tr><td class="em">否定題（何者非）</td><td>圈出否定詞，找最合理的排除</td><td>—</td></tr>
+    <tr><td class="em">完全不會</td><td>猜 (4)</td><td>35.3%</td></tr>
+    <tr><td class="em">可刪去 1 選項</td><td>剩餘優先選 (4)</td><td>~40%</td></tr>
+    <tr><td class="em">可刪去 2 選項</td><td>二選一，選較正面完整的</td><td>50%</td></tr>
+  </tbody></table>
+
+  <div class="al al-g"><div class="at">★ 否定題防錯術</div>
+  <p>金融常識 32%、職業道德 44% 都是否定題。這是最大失分點。看到「非」「不是」「不正確」立刻在卷上<strong>畫圈</strong>標記，作答前再確認一次沒選反。</p></div>
+</section>
+
+<section class="sec" id="s7">
+  <div class="sn">07</div><h2 class="st">考前最終清單</h2>
+  <div class="ss">考前一天 + 進考場前逐項確認</div><div class="sd"></div>
+
+  <h3 class="sh">知識面</h3>
+  <ul class="ck">
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>職業道德題庫刷完至少一輪（616 題）</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>金融常識三大主題（保險/銀行/證券）刷完</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>「以上皆是」陷阱 29 題已練過</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>「以上皆非」陷阱 33 題已練過</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>必背數字表 12 個數字全記住</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>金管會四局職掌分得清</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>模擬測驗穩定 75 分以上</li>
+  </ul>
+
+  <h3 class="sh">策略面</h3>
+  <ul class="ck">
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>不會就猜 (4)</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>否定題看到「非/不是」要圈起來</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>「以上皆是」三個都合理才選</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>職業道德永遠選最正面的選項</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>每題 36 秒，不在單題卡太久</li>
+  </ul>
+
+  <h3 class="sh">物品面</h3>
+  <ul class="ck">
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>2B 鉛筆多支 + 橡皮擦</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>身分證件</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>測驗入場通知書</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>手機關機（不是靜音）</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>手錶鬧鈴關閉（響了扣10分）</li>
+    <li><span class="ci" onclick="this.classList.toggle('x')"></span>不帶計算器（用了扣10分）</li>
+  </ul>
+
+  <div class="al al-ok" style="margin-top:24px"><div class="at">✦ 最後提醒</div>
+  <p>這場考試是題庫制，題目直接從 1,120 題裡抽。你不需要是金融專家，只需要把題庫刷熟。以你的保險專業底子加上這份攻略的數據策略，70 分不是問題——<strong>目標放 80 分，給自己留足安全邊際。</strong></p></div>
+</section>
+
+<div class="ft"><div class="ftm">穩穩過關，一次搞定</div><div class="fts">Rex · 2026</div></div>
+
+</div>
+<script>
+const secs=document.querySelectorAll('.sec');
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.06});
+secs.forEach(s=>obs.observe(s));
+const nls=document.querySelectorAll('.ni a'),sels=document.querySelectorAll('.sec[id]');
+window.addEventListener('scroll',()=>{let c='';sels.forEach(s=>{if(scrollY>=s.offsetTop-120)c=s.id});nls.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))});
+</script>
+</body>
+</html>

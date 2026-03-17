@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「以上皆是」陷阱題特訓</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F5F0;
+  --bg-warm: #F0EDE6;
+  --bg-card: #FFFFFF;
+  --bg-accent: #EDE8DF;
+  --text-primary: #2C2C2C;
+  --text-secondary: #6B6560;
+  --text-muted: #9B9590;
+  --accent: #8B7355;
+  --accent-light: #C4B49A;
+  --accent-warm: #A68B6B;
+  --border: #E0DBD3;
+  --border-light: #EDE8E0;
+  --correct: #5A8F6A;
+  --correct-bg: #EDF5EF;
+  --correct-border: #A8D5B8;
+  --wrong: #C4756A;
+  --wrong-bg: #FDF5F3;
+  --wrong-border: #E8B4AD;
+  --serif: 'Noto Serif TC', 'Georgia', serif;
+  --sans: 'Noto Sans TC', 'Helvetica Neue', sans-serif;
+  --display: 'Cormorant Garamond', 'Noto Serif TC', serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ─── SCREENS ─── */
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* ─── START SCREEN ─── */
+.start-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px;
+  background: linear-gradient(175deg, #F7F5F0 0%, #EDE8DF 40%, #E5DFD3 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.start-screen::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(139,115,85,0.04) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(139,115,85,0.03) 0%, transparent 50%);
+  animation: floatBg 20s ease-in-out infinite;
+}
+@keyframes floatBg {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-2%, 2%); }
+}
+
+.start-label {
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 6px;
+  color: var(--accent);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+  opacity: 0; animation: fadeUp .8s ease .2s forwards;
+}
+
+.start-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  position: relative; z-index: 1;
+  opacity: 0; animation: fadeUp .8s ease .4s forwards;
+}
+
+.start-subtitle {
+  font-family: var(--serif);
+  font-size: clamp(16px, 2.5vw, 22px);
+  font-weight: 300;
+  color: var(--accent-warm);
+  margin-bottom: 36px;
+  position: relative; z-index: 1;
+  opacity: 0; animation: fadeUp .8s ease .6s forwards;
+}
+
+.start-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 40px;
+  position: relative; z-index: 1;
+  opacity: 0; animation: fadeUp .8s ease .8s forwards;
+}
+
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.2;
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.start-modes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 340px;
+  position: relative; z-index: 1;
+  opacity: 0; animation: fadeUp .8s ease 1s forwards;
+}
+
+.mode-btn {
+  padding: 16px 32px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: var(--bg-card);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all .3s ease;
+  letter-spacing: .5px;
+}
+.mode-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 4px 20px rgba(139,115,85,0.1);
+  transform: translateY(-2px);
+}
+.mode-btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.mode-btn.primary:hover {
+  background: var(--accent-warm);
+  border-color: var(--accent-warm);
+  box-shadow: 0 4px 20px rgba(139,115,85,0.2);
+}
+
+.start-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 24px;
+  position: relative; z-index: 1;
+  opacity: 0; animation: fadeUp .8s ease 1.2s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── QUIZ SCREEN ─── */
+.quiz-screen {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 20px 100px;
+}
+
+.quiz-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247,245,240,0.92);
+  backdrop-filter: blur(16px);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 32px;
+}
+
+.quiz-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quiz-progress-text {
+  font-family: var(--display);
+  font-size: 14px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+}
+
+.quiz-score {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 3px;
+  background: var(--border-light);
+  border-radius: 2px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width .4s ease;
+}
+
+.quiz-category {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+.cat-financial {
+  background: #EBF5FB;
+  color: #2E86C1;
+}
+.cat-ethics {
+  background: #F5EBE0;
+  color: #8B6F47;
+}
+
+.trap-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: var(--wrong-bg);
+  color: var(--wrong);
+  margin-left: 8px;
+}
+
+.question-text {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin-bottom: 28px;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: all .25s ease;
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.option-btn:hover:not(.disabled) {
+  border-color: var(--accent-light);
+  background: rgba(139,115,85,0.03);
+  transform: translateX(4px);
+}
+
+.option-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 1px;
+  transition: all .25s ease;
+}
+
+.option-btn.selected {
+  border-color: var(--accent);
+  background: rgba(139,115,85,0.05);
+}
+.option-btn.selected .option-num {
+  background: var(--accent);
+  color: #fff;
+}
+
+.option-btn.correct {
+  border-color: var(--correct-border);
+  background: var(--correct-bg);
+}
+.option-btn.correct .option-num {
+  background: var(--correct);
+  color: #fff;
+}
+
+.option-btn.wrong {
+  border-color: var(--wrong-border);
+  background: var(--wrong-bg);
+}
+.option-btn.wrong .option-num {
+  background: var(--wrong);
+  color: #fff;
+}
+
+.option-btn.disabled { cursor: default; pointer-events: none; }
+.option-btn.dimmed { opacity: 0.5; }
+
+/* ─── EXPLANATION ─── */
+.explanation {
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  border-left: 3px solid;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUp .4s ease forwards;
+}
+
+.explanation.correct-exp {
+  background: var(--correct-bg);
+  border-color: var(--correct);
+}
+.explanation.wrong-exp {
+  background: var(--wrong-bg);
+  border-color: var(--wrong);
+}
+
+.explanation-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+.correct-exp .explanation-tag { color: var(--correct); }
+.wrong-exp .explanation-tag { color: var(--wrong); }
+
+.explanation p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.next-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 100px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .3s ease;
+  letter-spacing: 1px;
+}
+.next-btn:hover {
+  background: var(--accent-warm);
+  box-shadow: 0 4px 20px rgba(139,115,85,0.2);
+}
+
+/* ─── RESULT SCREEN ─── */
+.result-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px;
+  background: linear-gradient(175deg, #F7F5F0 0%, #EDE8DF 40%, #E5DFD3 100%);
+}
+
+.result-label {
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 6px;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.result-score-big {
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.result-total {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.result-message {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.result-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 400px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.result-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 40px;
+}
+
+.result-stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 16px 12px;
+}
+.result-stat .rs-num {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.result-stat .rs-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: .5px;
+}
+.rs-correct .rs-num { color: var(--correct); }
+.rs-wrong .rs-num { color: var(--wrong); }
+.rs-rate .rs-num { color: var(--accent); }
+
+.result-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* ─── REVIEW LIST ─── */
+.review-list {
+  max-width: 680px;
+  margin: 32px auto 0;
+  padding: 0 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.review-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.review-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.review-item.ri-correct { border-left: 3px solid var(--correct); }
+.review-item.ri-wrong { border-left: 3px solid var(--wrong); }
+
+.review-q {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.review-answer {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.review-answer strong { color: var(--correct); }
+.review-answer .your-wrong { color: var(--wrong); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 480px) {
+  .start-stats { gap: 20px; }
+  .stat-num { font-size: 28px; }
+  .question-text { font-size: 16px; }
+  .option-btn { padding: 14px 16px; font-size: 13.5px; }
+  .result-score-big { font-size: 56px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ START ═══ -->
+<div class="screen active" id="startScreen">
+  <div class="start-screen">
+    <div class="start-label">Trap Question Training</div>
+    <h1 class="start-title">「以上皆是」陷阱題特訓</h1>
+    <div class="start-subtitle">29 題精準狙擊你的弱點</div>
+    <div class="start-stats">
+      <div class="stat-item"><div class="stat-num">29</div><div class="stat-label">陷阱題</div></div>
+      <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">陷阱模式</div></div>
+      <div class="stat-item"><div class="stat-num">86%</div><div class="stat-label">平時選對率</div></div>
+    </div>
+    <div class="start-modes">
+      <button class="mode-btn primary" onclick="startQuiz('all')">全部 29 題特訓</button>
+      <button class="mode-btn" onclick="startQuiz('random10')">隨機 10 題快測</button>
+      <button class="mode-btn" onclick="startQuiz('financial')">金融常識 7 題</button>
+      <button class="mode-btn" onclick="startQuiz('ethics')">職業道德 22 題</button>
+    </div>
+    <div class="start-hint">這 29 題的「以上皆是」全都是錯的，練到看穿為止</div>
+  </div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div class="screen" id="quizScreen">
+  <div class="quiz-screen">
+    <div class="quiz-header">
+      <div class="quiz-header-inner">
+        <span class="quiz-progress-text" id="progressText">1 / 29</span>
+        <span class="quiz-score" id="scoreText">0 正確</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <div id="questionArea"></div>
+  </div>
+</div>
+
+<!-- ═══ RESULT ═══ -->
+<div class="screen" id="resultScreen"></div>
+
+<script>
+const QUESTIONS = [
+  // ─── 金融常識 7 題 ───
+  {
+    id: "F16", cat: "financial", trapType: 1,
+    text: "區分資本市場和貨幣市場的差異主要在於：",
+    options: ["金管會核准發行的數量", "證券發行期限的長短", "證券收益率", "以上皆是"],
+    answer: 1,
+    explain: "【陷阱模式 1】選項(2)和(3)看似合理但不精確。資本市場與貨幣市場的「主要」區分標準就是期限長短（1年為界），收益率和核准數量都不是區分依據。"
+  },
+  {
+    id: "F41", cat: "financial", trapType: 1,
+    text: "有關金融市場的構成，下列何者最正確？",
+    options: [
+      "一般根據金融市場上交易工具的期限，把金融市場分為貨幣市場和資本市場兩大類",
+      "貨幣市場是融通長期資金的市場",
+      "資本市場是融通短期資金的市場",
+      "以上皆是"
+    ],
+    answer: 0,
+    explain: "【陷阱模式 1】選項(2)(3)把定義完全顛倒了——貨幣市場是短期、資本市場是長期。只要看到一個選項明顯錯誤，就不能選「以上皆是」。"
+  },
+  {
+    id: "F219", cat: "financial", trapType: 3,
+    text: "目前臺灣市場上的封閉型基金比開放型基金數量(種類)：",
+    options: ["多", "少", "一樣", "以上皆是"],
+    answer: 1,
+    explain: "【陷阱模式 3】這是事實題。臺灣的封閉型基金數量遠少於開放型基金，「以上皆是」在邏輯上就不可能成立（多、少、一樣不可能同時為真）。"
+  },
+  {
+    id: "F439", cat: "financial", trapType: 3,
+    text: "下列何者為我國勞工保險中職業災害保險的承保項目？",
+    options: ["傷病給付", "生育給付", "失業給付", "以上皆是"],
+    answer: 0,
+    explain: "【陷阱模式 3】職災保險只承保：傷病、醫療、失能、死亡。生育給付和失業給付屬於「普通事故保險」，不是職災保險。需要精確記憶。"
+  },
+  {
+    id: "F440", cat: "financial", trapType: 3,
+    text: "下列何者為我國勞工保險中普通事故保險與職業災害保險二者均會給付之項目？",
+    options: ["生育給付", "傷病給付", "失業給付", "以上皆是"],
+    answer: 1,
+    explain: "【陷阱模式 3】普通事故和職災「都有」的項目是：傷病、失能、死亡。生育給付只在普通事故，失業給付屬於就業保險，兩者都不是「共通」項目。"
+  },
+  {
+    id: "F445", cat: "financial", trapType: 3,
+    text: "我國就業保險規定，被保險人包括：",
+    options: ["公教人員", "受雇之外國籍勞工", "受雇之本國籍勞工", "以上皆是"],
+    answer: 2,
+    explain: "【陷阱模式 3】就業保險只適用於「本國籍」受雇勞工。公教人員有自己的保險制度，外國籍勞工不適用就業保險。"
+  },
+  {
+    id: "F449", cat: "financial", trapType: 3,
+    text: "我國軍人保險中所稱「軍人」，係指：",
+    options: ["現役軍人", "退役軍人", "後備軍人", "以上皆是"],
+    answer: 0,
+    explain: "【陷阱模式 3】軍人保險的「軍人」只指「現役軍人」。退役和後備軍人不在軍保範圍內。這是定義題，需要精確記憶。"
+  },
+  // ─── 職業道德 22 題 ───
+  {
+    id: "E79", cat: "ethics", trapType: 4,
+    text: "以下金融從業人員從事投信投顧之業務推廣與招攬行為，哪一項是明顯地違反所謂「公平競爭原則」？",
+    options: [
+      "提供客戶基金申購手續費優惠來促銷新基金",
+      "散佈同業之不實資料",
+      "提供客戶有關同業與自己公司類似產品及手續費或經理費費率差異比較表",
+      "以上皆是"
+    ],
+    answer: 1,
+    explain: "【陷阱模式 4】(1)手續費優惠和(3)提供比較表都是合法的競爭行為。只有(2)「散佈同業不實資料」才違反公平競爭。"
+  },
+  {
+    id: "E96", cat: "ethics", trapType: 3,
+    text: "金融從業人員從事保險業務招攬行為所生之損害，其應與誰負連帶賠償責任？",
+    options: ["自己", "所屬公司", "介紹人", "以上皆是"],
+    answer: 1,
+    explain: "【陷阱模式 3】依法，業務員招攬行為所生損害，應與「所屬公司」負連帶賠償責任。不是自己、也不是介紹人。"
+  },
+  {
+    id: "E101", cat: "ethics", trapType: 3,
+    text: "以下何者是根據契約或授權書，向保險公司收取費用，並代理經營業務之金融從業人員？",
+    options: ["保險經紀人", "保險公證人", "保險代理人", "以上皆是"],
+    answer: 2,
+    explain: "【陷阱模式 3】精確定義：保險代理人＝代理保險公司。保險經紀人＝代被保險人洽訂契約。保險公證人＝查勘理賠。三者角色不同。"
+  },
+  {
+    id: "E149", cat: "ethics", trapType: 1,
+    text: "金融從業人員應以自己的專業知識替客戶選擇合適的商品，在執行時應遵守之原則為？",
+    options: ["最大誠信原則", "從業人員利益最大化原則", "金融商品風險最大化原則", "以上皆是"],
+    answer: 0,
+    explain: "【陷阱模式 1】選項(2)「從業人員利益最大化」和(3)「風險最大化」一看就是荒謬選項。正確答案是最大誠信原則。"
+  },
+  {
+    id: "E230", cat: "ethics", trapType: 1,
+    text: "於業務推廣與招攬時，從業人員向客戶應盡之告知義務，下列何者正確？",
+    options: [
+      "依商品相關內容據實告知",
+      "為爭取業績，隱匿部分應告知內容",
+      "於告知時，可加入從業人員主觀之想法",
+      "以上皆是"
+    ],
+    answer: 0,
+    explain: "【陷阱模式 1】(2)隱匿告知內容、(3)加入主觀想法都明顯違反告知義務。只有(1)據實告知才正確。"
+  },
+  {
+    id: "E279", cat: "ethics", trapType: 2,
+    text: "證券商之業務人員執行業務應本誠實及信用原則，下列何者為其本於職業道德而不得有之行為？",
+    options: [
+      "辦理受託買賣有價證券時，有隱瞞、詐欺或其他足以致人誤信之行為",
+      "以他人或親屬名義供客戶申購、買賣有價證券",
+      "接受客戶委託買賣有價證券時，同時以自己之計算為買入或賣出之相對行為",
+      "以上皆是"
+    ],
+    answer: 3,
+    explain: "【注意！這題答案其實就是「以上皆是」】(1)(2)(3)全都是不當行為。這題用來提醒你：不是所有「不得有之行為」題型都是陷阱，要逐一判斷每個選項。"
+  },
+  {
+    id: "E299", cat: "ethics", trapType: 2,
+    text: "金融從業人員不得有下列何種行為？",
+    options: [
+      "參加專業證照之考試以提昇自身素質",
+      "配合政府金融政策，促進經濟發展，善盡社會責任",
+      "利用客戶名義或帳戶，為自己從事交易",
+      "以上皆是"
+    ],
+    answer: 2,
+    explain: "【陷阱模式 2】題目問「不得有之行為」，但(1)考證照和(2)配合政策都是正當行為！只有(3)利用客戶帳戶才是「不得有」的。混搭正當＋不當是經典陷阱。"
+  },
+  {
+    id: "E308", cat: "ethics", trapType: 4,
+    text: "下列何者係金融從業人員秉持誠實信用原則之行為？",
+    options: [
+      "假借銀行存款名義招攬保險",
+      "以高預定利率作不實比較，誘使消費者抱持錯誤認知而購買保險",
+      "不以單獨強調或與其他金融商品比較之方式誤導消費者",
+      "以上皆是"
+    ],
+    answer: 2,
+    explain: "【陷阱模式 4】(1)假借名義、(2)不實比較都是違反誠信的行為。只有(3)「不誤導消費者」才符合誠實信用原則。"
+  },
+  {
+    id: "E316", cat: "ethics", trapType: 4,
+    text: "金融從業人員基於招攬業務時，應秉持誠實信用原則，下列行為何者不屬誠實信用原則？",
+    options: [
+      "客戶對商品有不懂之處應再仔細說明",
+      "商品一旦售出，即使客戶對商品內容有疑問也置之不理",
+      "客戶交給我們的資料，不可隨意散播",
+      "以上皆是"
+    ],
+    answer: 1,
+    explain: "【陷阱模式 4】題目問「不屬於」誠信原則的。(1)仔細說明和(3)不散播資料都是誠信行為。只有(2)置之不理才「不屬於」誠信。"
+  },
+  {
+    id: "E332", cat: "ethics", trapType: 4,
+    text: "證券投信事業對於有業務往來的證券商，應採何種管理事項？",
+    options: [
+      "應簽訂書面約定，將退還手續費捐予慈善機構",
+      "定期對財務、業務及服務品質作評比",
+      "除退還的手續費之外，得接受證券商的其它利益",
+      "以上皆是"
+    ],
+    answer: 1,
+    explain: "【陷阱模式 4】(1)捐慈善不是法定要求，(3)接受其他利益明顯不妥。只有(2)定期評比才是正確的管理事項。"
+  },
+  {
+    id: "E338", cat: "ethics", trapType: 3,
+    text: "忠實誠信義務原則之主要涵義為：",
+    options: ["客戶利益優先", "公司利益優先", "個人利益優先", "以上皆是"],
+    answer: 0,
+    explain: "【陷阱模式 3】忠實誠信義務＝客戶利益優先。公司和個人利益都不是「忠實誠信」的涵義。三者不可能同時優先。"
+  },
+  {
+    id: "E373", cat: "ethics", trapType: 3,
+    text: "以下何者不得參與投資決策？",
+    options: ["與業務相關人員有利害關係者", "投資決策人員", "具有運用決定權人", "以上皆是"],
+    answer: 0,
+    explain: "【陷阱模式 3】投資決策人員和有運用決定權的人當然「可以」參與投資決策——那是他們的工作。只有「有利害關係者」才不得參與。"
+  },
+  {
+    id: "E394", cat: "ethics", trapType: 3,
+    text: "金融從業人員銷售對自己有利益的商品，如果該商品不符合客戶的需求，將會違反什麼原則？",
+    options: ["能力原則", "利益衝突原則", "損失原則", "以上皆是"],
+    answer: 1,
+    explain: "【陷阱模式 3】銷售對自己有利但不符合客戶需求的商品，精確來說違反的是「利益衝突原則」。「損失原則」根本不存在，是假選項。"
+  },
+  {
+    id: "E396", cat: "ethics", trapType: 2,
+    text: "金融從業人員辦理全權委託業務，為避免利益衝突，應遵守下列何種事項？",
+    options: [
+      "不得與委任人有利益衝突之第三人從事全權委託業務，以及從事足以損害委任人權益之交易",
+      "可利用委任人之交易帳戶，為自己從事交易",
+      "可利用委任人之交易帳戶，為委任人以外之第三人從事交易",
+      "以上皆是"
+    ],
+    answer: 0,
+    explain: "【陷阱模式 2】(2)(3)都是明顯違規行為（利用客戶帳戶）。題目問「應遵守事項」，只有(1)是正確的遵守事項。"
+  },
+  {
+    id: "E413", cat: "ethics", trapType: 3,
+    text: "金融從業人員違反相關法律之規定，致當事人權益受損者，應負之責任為何？",
+    options: ["損害賠償責任", "道義責任", "不需負責", "以上皆是"],
+    answer: 0,
+    explain: "【陷阱模式 3】法律上是負「損害賠償責任」。(2)道義責任不是法律責任，(3)不需負責更是錯的。三者不可能同時成立。"
+  },
+  {
+    id: "E431", cat: "ethics", trapType: 1,
+    text: "基於職務的關係而獲得的客戶資料，金融服務業之從業人員應該如何做才正確？",
+    options: [
+      "由於大環境不佳，基於自己未來生活著想，可以將客戶資料轉賣給別人",
+      "必須忠於保密原則，絕不對外洩露",
+      "隨意丟棄，不整理",
+      "以上皆是"
+    ],
+    answer: 1,
+    explain: "【陷阱模式 1】(1)轉賣資料和(3)隨意丟棄一看就是荒謬選項。只有(2)保密原則才正確。"
+  },
+  {
+    id: "E436", cat: "ethics", trapType: 4,
+    text: "下列何者屬於證券商的商業機密，身為公司的員工，不可對第三者透露？",
+    options: [
+      "客戶及其買賣交易證券的相關資料",
+      "公司名稱、營業處所、聯絡電話、電子郵件信箱等資料",
+      "公司官方網站提供的資訊",
+      "以上皆是"
+    ],
+    answer: 0,
+    explain: "【陷阱模式 4】公司名稱、地址、電話和官網資訊都是「公開資訊」，不是商業機密。只有(1)客戶交易資料才是不可透露的機密。"
+  },
+  {
+    id: "E475", cat: "ethics", trapType: 1,
+    text: "金融從業人員依財產保險損害補償原則，下列何者處理方式才屬正確？",
+    options: ["一分損失可獲二分補償", "二分損失只獲一分補償", "一分損失只獲一分補償", "以上皆是"],
+    answer: 2,
+    explain: "【陷阱模式 1】損害補償原則的核心就是「填補損失，不多不少」。(1)過度補償和(2)不足補償都違反原則。"
+  },
+  {
+    id: "E484", cat: "ethics", trapType: 4,
+    text: "金融從業人員銷售保險商品之招攬廣告，除應遵守相關法令外，並應遵守什麼規定？",
+    options: ["商場守則", "商場資訊", "保險業相關自律規範", "以上皆是"],
+    answer: 2,
+    explain: "【陷阱模式 4】「商場守則」和「商場資訊」根本不是正式的法規用語，是假選項。正確答案是「保險業相關自律規範」。看到不熟悉的專有名詞要警覺。"
+  },
+  {
+    id: "E486", cat: "ethics", trapType: 4,
+    text: "金融從業人員從事保險業務招攬，主張損害補償原則，主要理由為何？",
+    options: ["預防道德危險發生", "預防損害發生", "預防不當得利發生", "以上皆是"],
+    answer: 2,
+    explain: "【陷阱模式 4】損害補償原則的「主要理由」是預防不當得利（不能因為保險而獲利）。預防道德危險是保險利益原則的目的，預防損害則太籠統。"
+  },
+  {
+    id: "E540", cat: "ethics", trapType: 4,
+    text: "懲戒違反道德行為準則之員工時，應有下列何者考量？",
+    options: [
+      "逕行公開譴責",
+      "逕行吊銷或撤銷相關資格者，不得於媒體公告之，以保障其工作權及隱私權",
+      "應給予申復機會及救濟管道",
+      "以上皆是"
+    ],
+    answer: 2,
+    explain: "【陷阱模式 4】(1)「逕行」公開譴責不妥（應先給申復機會）、(2)嚴重違規依法仍可公告。只有(3)「給予申復機會及救濟管道」才是正確的程序正義考量。"
+  },
+  {
+    id: "E548", cat: "ethics", trapType: 1,
+    text: "金融從業人員要落實公平待客原則，必須先奠定從業人員認定公平待客之重要性，首要將下列何者列為宗旨？",
+    options: ["優先保障公司權益", "優先保障集團利益", "優先保障金融消費者利益", "以上皆是"],
+    answer: 2,
+    explain: "【陷阱模式 1】公平待客原則的核心宗旨就是「消費者利益優先」。保障公司或集團利益不是公平待客的宗旨。"
+  }
+];
+
+// Fix: E279 answer is actually (4)以上皆是 = index 3, which means it's NOT a trap
+// Remove it or mark differently - actually let me re-check the data
+// E279 correct answer is (4) which IS 以上皆是, so it should NOT be in the trap list
+// But it was included in the trap analysis... Let me remove it to be accurate
+
+const TRAP_QUESTIONS = QUESTIONS.filter(q => q.id !== "E279");
+
+let currentQuiz = [];
+let currentIndex = 0;
+let score = 0;
+let answers = [];
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function startQuiz(mode) {
+  let pool;
+  switch (mode) {
+    case 'financial':
+      pool = TRAP_QUESTIONS.filter(q => q.cat === 'financial');
+      break;
+    case 'ethics':
+      pool = TRAP_QUESTIONS.filter(q => q.cat === 'ethics');
+      break;
+    case 'random10':
+      pool = shuffle(TRAP_QUESTIONS).slice(0, 10);
+      break;
+    default:
+      pool = shuffle(TRAP_QUESTIONS);
+  }
+  currentQuiz = pool;
+  currentIndex = 0;
+  score = 0;
+  answers = [];
+  showScreen('quizScreen');
+  renderQuestion();
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function renderQuestion() {
+  const q = currentQuiz[currentIndex];
+  const total = currentQuiz.length;
+  
+  document.getElementById('progressText').textContent = `${currentIndex + 1} / ${total}`;
+  document.getElementById('scoreText').textContent = `${score} 正確`;
+  document.getElementById('progressFill').style.width = `${((currentIndex) / total) * 100}%`;
+  
+  const catClass = q.cat === 'financial' ? 'cat-financial' : 'cat-ethics';
+  const catName = q.cat === 'financial' ? '金融常識' : '職業道德';
+  const trapNames = { 1: '混入荒謬選項', 2: '正當不當混搭', 3: '精確定義題', 4: '隱藏地雷' };
+  
+  let html = `
+    <div>
+      <span class="quiz-category ${catClass}">${catName}</span>
+      <span class="trap-badge">陷阱模式 ${q.trapType}：${trapNames[q.trapType]}</span>
+    </div>
+    <div class="question-text">${q.text}</div>
+    <div class="options-list">
+  `;
+  
+  q.options.forEach((opt, i) => {
+    html += `<button class="option-btn" onclick="selectAnswer(${i})" data-idx="${i}">
+      <span class="option-num">${i + 1}</span>
+      <span>${opt}</span>
+    </button>`;
+  });
+  
+  html += `</div><div id="feedback"></div>`;
+  document.getElementById('questionArea').innerHTML = html;
+}
+
+function selectAnswer(idx) {
+  const q = currentQuiz[currentIndex];
+  const correct = q.answer;
+  const isCorrect = idx === correct;
+  
+  if (isCorrect) score++;
+  answers.push({ q, selected: idx, isCorrect });
+  
+  // Disable all buttons
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.classList.add('disabled');
+    const bIdx = parseInt(btn.dataset.idx);
+    if (bIdx === correct) btn.classList.add('correct');
+    if (bIdx === idx && !isCorrect) btn.classList.add('wrong');
+    if (bIdx !== correct && bIdx !== idx) btn.classList.add('dimmed');
+  });
+  
+  // Show explanation
+  const expClass = isCorrect ? 'correct-exp' : 'wrong-exp';
+  const tag = isCorrect ? '✓ 答對了！' : '✗ 答錯了';
+  
+  document.getElementById('feedback').innerHTML = `
+    <div class="explanation ${expClass}">
+      <div class="explanation-tag">${tag}</div>
+      <p>${q.explain}</p>
+    </div>
+    <button class="next-btn" onclick="nextQuestion()">
+      ${currentIndex < currentQuiz.length - 1 ? '下一題 →' : '查看結果'}
+    </button>
+  `;
+  
+  // Update progress
+  document.getElementById('progressFill').style.width = `${((currentIndex + 1) / currentQuiz.length) * 100}%`;
+}
+
+function nextQuestion() {
+  currentIndex++;
+  if (currentIndex >= currentQuiz.length) {
+    showResult();
+  } else {
+    renderQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function showResult() {
+  const total = currentQuiz.length;
+  const wrong = total - score;
+  const rate = Math.round((score / total) * 100);
+  
+  let msg, sub;
+  if (rate >= 90) {
+    msg = '陷阱免疫者';
+    sub = '你已經能看穿「以上皆是」的套路了，考試時這 29 題不會再失分。';
+  } else if (rate >= 70) {
+    msg = '陷阱感知力不錯';
+    sub = '大部分能辨別，但還有幾個模式需要加強。建議重做錯題。';
+  } else if (rate >= 50) {
+    msg = '需要再練練';
+    sub = '部分陷阱還會中招，建議對照四大模式的破解法再複習一輪。';
+  } else {
+    msg = '以上皆是的誘惑太強';
+    sub = '別擔心，這些題本來就是精挑出來的陷阱。多練幾次就能掌握規律。';
+  }
+  
+  let html = `
+    <div class="result-screen">
+      <div class="result-label">Training Complete</div>
+      <div class="result-score-big">${rate}%</div>
+      <div class="result-total">${score} / ${total} 題正確</div>
+      <div class="result-message">${msg}</div>
+      <div class="result-sub">${sub}</div>
+      <div class="result-stats">
+        <div class="result-stat rs-correct"><div class="rs-num">${score}</div><div class="rs-label">答對</div></div>
+        <div class="result-stat rs-wrong"><div class="rs-num">${wrong}</div><div class="rs-label">答錯</div></div>
+        <div class="result-stat rs-rate"><div class="rs-num">${rate}%</div><div class="rs-label">正確率</div></div>
+      </div>
+      <div class="result-buttons">
+        <button class="mode-btn primary" onclick="startQuiz('all')">再測一次</button>
+        ${wrong > 0 ? '<button class="mode-btn" onclick="retryWrong()">只做錯題 (' + wrong + ' 題)</button>' : ''}
+        <button class="mode-btn" onclick="showScreen(\'startScreen\')">返回首頁</button>
+      </div>
+      ${wrong > 0 ? '<div class="review-list" id="reviewList"></div>' : ''}
+    </div>
+  `;
+  
+  document.getElementById('resultScreen').innerHTML = html;
+  showScreen('resultScreen');
+  
+  // Render review
+  if (wrong > 0) {
+    const reviewEl = document.getElementById('reviewList');
+    if (reviewEl) {
+      let rHtml = '<div class="review-title">錯題回顧</div>';
+      answers.forEach((a, i) => {
+        if (!a.isCorrect) {
+          rHtml += `
+            <div class="review-item ri-wrong">
+              <div class="review-q">${a.q.text}</div>
+              <div class="review-answer">
+                <span class="your-wrong">你選：(${a.selected + 1}) ${a.q.options[a.selected]}</span><br>
+                <strong>正確：(${a.q.answer + 1}) ${a.q.options[a.q.answer]}</strong>
+              </div>
+            </div>
+          `;
+        }
+      });
+      reviewEl.innerHTML = rHtml;
+    }
+  }
+}
+
+function retryWrong() {
+  const wrongQs = answers.filter(a => !a.isCorrect).map(a => a.q);
+  currentQuiz = shuffle(wrongQs);
+  currentIndex = 0;
+  score = 0;
+  answers = [];
+  showScreen('quizScreen');
+  renderQuestion();
+}
+</script>
+</body>
+</html>

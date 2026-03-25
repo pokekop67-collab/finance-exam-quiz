@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🪤 保險法規 考題陷阱分析</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans TC',sans-serif;background:#fff9f0;color:#2d3748;}
+.hero{background:linear-gradient(135deg,#4158d0,#c850c0);color:#fff;padding:40px 20px 80px;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:900;margin-bottom:6px;}
+.hero p{opacity:.85;}
+.badge{display:inline-block;background:rgba(255,255,255,.2);border-radius:999px;padding:4px 14px;font-size:.8rem;margin:6px 4px;}
+.wrap{max-width:860px;margin:-40px auto 60px;padding:0 16px;}
+.trap-section{background:#fff;border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 4px 20px rgba(0,0,0,.07);}
+.ts-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.ts-icon{font-size:1.8rem;}
+.ts-title{font-size:1.1rem;font-weight:900;}
+.ts-count{margin-left:auto;padding:4px 14px;border-radius:999px;font-size:.8rem;font-weight:700;}
+.tip-box{background:#fffaf0;border:1.5px solid #f6ad55;border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:.88rem;line-height:1.7;}
+.tip-box strong{color:#c05621;}
+.trap-card{background:#f8f9ff;border-radius:10px;padding:14px 16px;margin-bottom:10px;border-left:4px solid #4158d0;}
+.tc-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
+.tc-type{background:#4158d0;color:#fff;padding:3px 10px;border-radius:999px;font-size:.75rem;font-weight:700;}
+.tc-num{font-size:.8rem;color:#718096;}
+.tc-ans{margin-left:auto;font-weight:900;color:#4158d0;font-size:.88rem;}
+.tc-q{font-size:.87rem;line-height:1.6;margin-bottom:6px;}
+.tc-note{font-size:.82rem;color:#c05621;background:#fffaf0;padding:6px 10px;border-radius:6px;margin-bottom:6px;}
+.tc-expl{font-size:.82rem;color:#4a5568;background:#eef2ff;padding:8px 10px;border-radius:6px;line-height:1.6;}
+.strategy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:16px;}
+.strat-card{background:linear-gradient(135deg,#f8f9ff,#eef2ff);border-radius:12px;padding:16px;}
+.strat-card .icon{font-size:1.5rem;margin-bottom:8px;}
+.strat-card .title{font-weight:900;font-size:.9rem;margin-bottom:6px;color:#4158d0;}
+.strat-card .desc{font-size:.83rem;line-height:1.6;color:#4a5568;}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>🪤 保險法規 考題陷阱分析</h1>
+  <p>常見陷阱題型分析・考前必讀</p>
+  <div>
+    <span class="badge">❌ 何者為非：45題</span>
+    <span class="badge">✅ 以上皆是：43題</span>
+    <span class="badge">🔢 數字陷阱：9題</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- 解題策略 -->
+<div class="trap-section">
+  <div class="ts-header">
+    <div class="ts-icon">🗺️</div>
+    <div class="ts-title">解題策略總覽</div>
+  </div>
+  <div class="strategy-grid">
+    <div class="strat-card">
+      <div class="icon">❌</div>
+      <div class="title">何者為非／錯誤</div>
+      <div class="desc">先找「明顯正確」的選項排除，剩下的就是答案。通常有一個選項改了關鍵字或數字造成錯誤。</div>
+    </div>
+    <div class="strat-card">
+      <div class="icon">✅</div>
+      <div class="title">以上皆是</div>
+      <div class="desc">逐一確認每個選項，只要發現任一選項「明顯錯誤」就排除「以上皆是」。若全部正確則選之。</div>
+    </div>
+    <div class="strat-card">
+      <div class="icon">🔢</div>
+      <div class="title">數字/天數題</div>
+      <div class="desc">把關鍵數字做成口訣：10天撤銷、30天寬限、5天要求可保、15天回覆、6個月復效門檻。</div>
+    </div>
+    <div class="strat-card">
+      <div class="icon">🔄</div>
+      <div class="title">相似概念混淆</div>
+      <div class="desc">頻率=次數，幅度=金額。損失成本=頻率×幅度。特定風險=個人，基本風險=大範圍。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 何者為非 -->
+<div class="trap-section">
+  <div class="ts-header">
+    <div class="ts-icon">❌</div>
+    <div class="ts-title">何者為非／錯誤（共45題）</div>
+    <div class="ts-count" style="background:#fff5f5;color:#c53030;">高頻陷阱</div>
+  </div>
+  <div class="tip-box">
+    ⚡ <strong>解題口訣：</strong>看到「何者為非/錯誤/不正確」→ 找「最像正確但有小錯」的選項<br>
+    常見手法：①關鍵字對調（頻率←→幅度）②數字改錯③多加一個條件④否定詞藏在後半段
+  </div>
+  <div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q9 [第一章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">有關保險利益原則之敘述，何者為非？(1)又稱為可保利益原則(2)存在目 的系避免賭博行為發生(3)要保人對於為其管理財產之人具有保險利益(4) 債權人對債務人之保險利益沒有限制。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(4)債務人，債權人僅能於債務人所欠的債務金額內 具有保險利益。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q11 [第一章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">有關保險利益之敘述，何者有誤？(1)凡基於有效契約而生之利益，得為 保險利益(2)被保險人死亡，保險契約除另有訂定外，仍為繼承人之利益 而存在(3)合夥人為被保險人時，其中一人讓與保險利益於他人者，保險 契約失其效力(4)要保人對於因財產上之現有利益而生之期待利益，有保 險利益。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(3)合夥人或共有人聯合為被保險人時，其中一人或 數人讓與保險利益於他人者，保險契約不因之而失 效。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q13 [第一章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">有關代位原則敘述何者錯誤？(1)財產保險適用(2)因為人身無價，故人壽 保險不適用(3)又稱為權利代位(4)保險人於賠償後須經被保險人同意始得 代位行使被保險人對於第三人之請求權。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>此案屬於受益人有確定者，則被保險人死亡時該死 亡保險金歸此約定受益人。 (4)保險人於賠償後，可直接向加害第三人要求賠 償。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q14 [第一章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">各項保險給付之受益人，何者錯誤？(1)滿期保險金受益人由要保人指 定，變更時由要保人申請(2)紅利給付之受益人皆為要保人(3)醫療給付之 受益人以被保險人為限，且不得事後加以變更(4)身故保險金如作為被保 險人遺產，依民法繼承順位分配。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(4)保險人於賠償後，可直接向加害第三人要求賠 償。 (2)若紅利未特別指定予何人，紅利原則上應由要保 人領取。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q16 [第一章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">有關要保人何者為非？(1)須投保時填寫要保書並善盡告知、通知保險公 司保險事故發生之義務(2)向保險人申請訂立保險契約之人(3)有指定各項 保險金受益人、申請保險單借款及聲明保費自動墊繳之權利(4)以上皆 是。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>失能保險金、醫療保險金、年金保險金之受益人皆 為被保險人本人。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q21 [第一章]</span>
+    <span class="tc-ans">答案：(1)</span>
+  </div>
+  <div class="tc-q">依保險法第20 條規定基於有效契約而生之利益(1)得為保險利益(2)僅得對 有效契約有保險利益(3)不得為保險利益(4)以上皆是。 1 保險法第20 條規定，於有效契約而生之利益，亦 得為保險利益。 下列何者錯誤？(1)失能保險金的受益人原則上為被保險人本人，如要變 更須在保險事故發生前(2)要保人可隨時終止保險契約(3)受益人應在知悉 保險事故發生後，於法定或契約約定期間內通知保險公司，並檢具所</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>被保險人若身體遭受失能必須就醫治療時，為使失 能保險金能確實作為支應被保險人因失能所引起的 各項費用，所以失能保險之受益人以被保險人本人 為限，且不得加以變更。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q28 [第一章]</span>
+    <span class="tc-ans">答案：(1)</span>
+  </div>
+  <div class="tc-q">對於要保人的敘述，何者錯誤(1)要保人訂立保險契約不得委由代理人代 理(2)要保人可以為自然人或法人(3)要保人負有交付保險費之義務(4)要保 人對被保險人須具有保險利益。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>依保險法第46 條：「保險契約由代理人訂立者，應 載明代訂之意旨」之規定辦理，故得委由代理人代 理。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q33 [第一章]</span>
+    <span class="tc-ans">答案：()</span>
+  </div>
+  <div class="tc-q">下列何者不是保險契約之成立要件(1)受益人與被保險人間須有保險利益 (2)意思表示一致(3)要保人須具有行為能力(4)支付對價。 1 (1)要保人與被保險人間須有保險利益。 管理財產或利益之人(4)生活費或教育費所收受之人。 4 要保人對於生活費或教育費所仰給之人有保險利 益。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q43 [第一章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">下列有關保險人之規定，何者為非？(1)目前國內之保險公司，均為股份 有限公司(2)非保險業不得兼營保險業務(3)保險法之規定，保險業之組織 以股份有限公司或合作社為限(4)人身保險人可為法人或自然人。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>全選。 (4)人身保險人僅能為法人。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q54 [第一章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">有關人身保險契約之保險費何者為非？ (1)信託業依信託契約有交付保險 費義務者， 由信託業代為交付 (2)僅應由要保人依保險契約交付 (3)保險 契約簽定時保險費能確 定者，應於保險契約生效前交付之 (4)可分一次 及分期交付兩種</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>B 僅一張即可發生；C 只適用於實支實付健康險； D 可適用於實施時付健康險。 保險法第115 條規定：利害關係人，均得代要保 人交付保險費。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q56 [第二章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">下列有關電子保單的敘述何者為非？ (1)保險人與要保人共同約定 (2)約 定後不能恢復紙本 (3)保費費率應該反映成本 (4)以上皆是 2 約定保單型態為電子保單後，仍舊可以與保險公司 申請補發紙本保單 有關受益人之一為維持契約效力代繳險費之規定，何者錯誤： (1)受益人 領取保險金仍 依保單所載順序及比例給付 (2)受益人待繳保險費屬民法 上無因管理 (3)受益人代繳 保費，不影響與其他受益人間</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>受益人經指定後，要保人得於保險事故發生前，以 契約或遺囑處分。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q66 [第二章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">有關利率變動型年金之敘述，何者為非？(1)若採分紅方式設計應明訂計 算方式及給付方式(2)甲型於給付期間僅採不分紅方式設計(3)於累積期間 不論甲型或乙型，均無紅利給付(4)乙型於給付期間通常無紅利給付。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>ABCD 皆為法定無效事由。 (2)甲型於給付期間可採分紅或不分紅方式。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q75 [第二章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">有關傷害醫療保險金之敘述，何者為非？(1)實支實付型之保險給付，保 險公司僅就符合意外傷害事故，且於登記合格的醫院或診所治療之實際醫 療費用，超過全民健康保險部分給付(2)保險公司基於審核保險金需要， 得對被保險人身體予以檢驗，另得徵詢其他醫師專業意見，所生費用由保 險公司負擔(3)日額型每次傷害給付日數不得超過180 日(4)一般以附約方 式處理，分成實支實付與日額型2 種。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(3)日額型每次傷害給付日數不得超過180 日，但 超過180 日繼續治療者，受益人若能證明被保險 人之治療與該意外傷害事故具有因果關係者，不在 此限。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q77 [第二章]</span>
+    <span class="tc-ans">答案：(1)</span>
+  </div>
+  <div class="tc-q">要保人在保險契約有效期間內得申請減少保險金額，但不得低於最低承保 金額，其減少部分視為(1)解除契約(2)終止契約(3)無效(4)停效。 下列何者為非?(1)要保人希望投保的金額稱為保險金額(2)保險事故發生後 保險公司給付之金額稱為保險金(3)保險公司就平準繳費的保險契約將來 可能發生的給付責任所提存的金額稱為責任準備金(4)保險公司同意承保 之金額稱為保險金額。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>要保人在保險契約有效期間內得申請減少保險金 額，但不得低於最低承保金額，其減少部分視為終 止契約。 (1)保險金額是保險公司同意承保的金額。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q98 [第二章]</span>
+    <span class="tc-ans">答案：(1)</span>
+  </div>
+  <div class="tc-q">為保障被保險人之基本權益，並維護金融之安定，依保險法規定保險業應 設置(1)安定基金(2)業務發展基金(3)消費者保護基金(4)消費者補償基金。 1 維護金融之安定 故名 安定基金。 有關人壽保險單示範條款復效通知之規定，何者有誤？(1)保險人於契約 停效後至得申請復效之期限屆滿前一個月通知要保人復效權利(2)保險人 以書面、電子郵件、簡訊或其他約定方式擇一通知(3)通知須載明未於期 限屆滿前申請</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>自109 年1 月1 日起，保險公司於申請復效期限 屆滿前至少三個月將以書面、電子郵件、簡訊或其 他約定方法擇一通知，要保人行使申請復效之權 利。</div>
+</div>
+</div>
+
+<!-- 以上皆是 -->
+<div class="trap-section">
+  <div class="ts-header">
+    <div class="ts-icon">✅</div>
+    <div class="ts-title">以上皆是（共43題）</div>
+    <div class="ts-count" style="background:#f0fff4;color:#276749;">全選陷阱</div>
+  </div>
+  <div class="tip-box">
+    ⚡ <strong>解題口訣：</strong>不要急著選「以上皆是」！先逐一確認 A/B/C/D 每個選項<br>
+    只要找到一個<strong>明確錯誤</strong>的選項，「以上皆是」就絕對不是答案
+  </div>
+  <div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q16 [第一章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">有關要保人何者為非？(1)須投保時填寫要保書並善盡告知、通知保險公 司保險事故發生之義務(2)向保險人申請訂立保險契約之人(3)有指定各項 保險金受益人、申請保險單借款及聲明保費自動墊繳之權利(4)以上皆 是。</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>失能保險金、醫療保險金、年金保險金之受益人皆 為被保險人本人。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q20 [第一章]</span>
+    <span class="tc-ans">答案：()</span>
+  </div>
+  <div class="tc-q">債權人未經債務人書面承認而逕以債務人為被保險人訂立之年金保險契約 (1)無效(2)失其效力(3)需債務人同意後才有效(4)有效。 4 債權人未經債務人書面承認而逕以債務人為被保險 人訂立之年金保險契約有效。 有效契約有保險利益(3)不得為保險利益(4)以上皆是。 1 保險法第20 條規定，於有效契約而生之利益，亦 得為保險利益。</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q21 [第一章]</span>
+    <span class="tc-ans">答案：(1)</span>
+  </div>
+  <div class="tc-q">依保險法第20 條規定基於有效契約而生之利益(1)得為保險利益(2)僅得對 有效契約有保險利益(3)不得為保險利益(4)以上皆是。 1 保險法第20 條規定，於有效契約而生之利益，亦 得為保險利益。 下列何者錯誤？(1)失能保險金的受益人原則上為被保險人本人，如要變 更須在保險事故發生前(2)要保人可隨時終止保險契約(3)受益人應在知悉 保險事故發生後，於法定或契約約定期間內通知保險公司，並檢具所</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>被保險人若身體遭受失能必須就醫治療時，為使失 能保險金能確實作為支應被保險人因失能所引起的 各項費用，所以失能保險之受益人以被保險人本人 為限，且不得加以變更。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q26 [第一章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">依保險法第17 條之規定，要保人或被保險人，對於保險標的物無保險利 益者，保險契約(1)有效(2)無效(3)失其效力(4)以上皆非。 3 要保人或被保險人，對於保險標的物無保險利益 者，保險契約失其效力。 依據保險法規定，要保人的權力包含A 變更失能及醫療保險金之受益 人；B 行使契約撤銷權；C 申請契約變更；D 申請保險單借款、聲明續期 保險費自動墊繳(1)ABCD(2)ABD(3)ABC(4)</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>A 失能及醫療保險金之受益人以被保險人本人為 限，且不得事後加以變更。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q30 [第一章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">按照我國保險法條規定，受益人有疑義時，推定誰為受益人？(1)要保人 (2)被保險人(3)被保險人之法定繼承人(4)以上三者皆可。 有關保險受益人之規定，何者正確？A 因保險給付不同可區分為滿期、身 故、失能或醫療、年金及紅利等受益人；B 為人身保險契約關係人；C 保 險事故發生時有權受領保險金，而失能保險金之受益人不以被保險人為 限；D 與要保人、被保險人須具有保險利益 (1)BCD(2)AB(3</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>依保險法第45 條第2 項規定：「受益人有疑義 時，推定要保人為自己之利益而訂立」即由法律推 定以要保人為受益人。 C 保險事故發生時有權受領保險金，而失能保險金 之受益人僅以被保險人為限；D 要保人只對被保險 人具有保險利益。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q36 [第一章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">人壽保險契約是以人的生命或身體為保險標的，所以適用(1)損害填補原 則(2)分攤原則(3)保險代位原則(4)以上皆非。</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>人身保險契約僅適用保險利益原則、最大誠信原 則、主力近因原則。產險除了適用上述三項原則 外，另適用損害填補、分攤、保險代位原則。 分攤原則：指保險人和保險人之間，在保險事故發 生後對理賠金額的分攤。除實支實付型的健康險商 品較適用損害填補原則及分攤原則外，在人壽保險 並不適用分攤原則。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q37 [第一章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">A 人壽保險；B 實支實付型的健康保險；C 年金保險；D 日額型健康保 險，以上何者適用分攤原則(1)AB(2)BD(3)ABCD(4)B。 何謂主力近因原則？(1)非民法中的因果關係(2)是指導致被保險人死亡或 受傷的最主要或最有效的原因(3)導致保險事故發生的主要近因不一定是 保險單上所保的危險，且保險人仍應負責(4)以上皆是。</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>主力近因：指導致被保險人死亡或受傷的最主要或 最有效的原因，類似我國民法上的相當因果關係， 如果導致保險事故發生的主要近因為保單上所保的 危險，則保險人自應負責，反之則不必負責。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q47 [第一章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">下列何者依保險法規定得代為交付保險費 A 信託業；B 被保險人；C 受 益人；D 保險業務員 (1)BCD (2)BC (3)ABCD (4)ABC。 4 保險業務員不可代為交付保險費。 下列有關保險代位原則之敘述，何者正確？(1)人壽保險與產物保險依法 均得代位行使請求權(2)人壽保險不得代位行使請求權(3)指事故發生時， 由保險人代位行使被保險對第三人之請求權(4)以上皆是。</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>(1)僅產物保險得行使代位請求權(3)指保險人於給 付賠償後，保險人代位行使被保險對第三人之請求 權。</div>
+</div>
+</div>
+
+<!-- 以上皆非 --><div class='trap-section'><div class='ts-header'><div class='ts-icon'>🚫</div><div class='ts-title'>以上皆非（共16題）</div></div><div class='tip-box'>⚡ <strong>解題口訣：</strong>如果 1/2/3 選項明顯錯誤，考慮「以上皆非」。但要先確認沒有任一正確選項。</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q26 [第一章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">依保險法第17 條之規定，要保人或被保險人，對於保險標的物無保險利 益者，保險契約(1)有效(2)無效(3)失其效力(4)以上皆非。 3 要保人或被保險人，對於保險標的物無保險利益 者，保險契約失其效力。 依據保險法規定，要保人的權力包含A 變更失能及醫療保險金之受益 人；B 行使契約撤銷權；C 申請契約變更；D 申請保險單借款、聲明續期 保險費自動墊繳(1)ABCD(2)ABD(3)ABC(4)</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  <div class='tc-expl'>A 失能及醫療保險金之受益人以被保險人本人為 限，且不得事後加以變更。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q36 [第一章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">人壽保險契約是以人的生命或身體為保險標的，所以適用(1)損害填補原 則(2)分攤原則(3)保險代位原則(4)以上皆非。</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  <div class='tc-expl'>人身保險契約僅適用保險利益原則、最大誠信原 則、主力近因原則。產險除了適用上述三項原則 外，另適用損害填補、分攤、保險代位原則。 分攤原則：指保險人和保險人之間，在保險事故發 生後對理賠金額的分攤。除實支實付型的健康險商 品較適用損害填補原則及分攤原則外，在人壽保險 並不適用分攤原則。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q52 [第一章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">(3)使被保險人不致不當得利(4)以上皆非。 3 分攤原則其主要目的是使被保險人不致不當得利， 由損害填補原則延伸而來。</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  <div class='tc-expl'>要保人對為被保險人所知者應付通知保險人之義 務。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q53 [第一章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">分攤原則其主要目的是(1)確定保險人賠償責任(2)使要保人不致不當得利 (3)使被保險人不致不當得利(4)以上皆非。 3 分攤原則其主要目的是使被保險人不致不當得利， 由損害填補原則延伸而來。 對於損害填補原則之敘述何者正確？A 防止被保險人不當得利；B 需保險 人有二張以上保險單才可能發生；C 僅適用於人身保險；D 僅適用於財產 保險(1)AD(2)A(3)BD(4)ABC。</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  <div class='tc-expl'>B 僅一張即可發生；C 只適用於實支實付健康險； D 可適用於實施時付健康險。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q100 [第二章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">以上皆非。 2 減額繳清之效力：不需再繳保費、險種不變、保險 期間不變、保險金額減少。</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q101 [第二章]</span>
+    <span class="tc-ans">答案：()</span>
+  </div>
+  <div class="tc-q">保險契約變更為繳清保險後，契約之保險種類(1)改變(2)不變(3)不一定(4) 以上皆非。 2 減額繳清之效力：不需再繳保費、險種不變、保險 期間不變、保險金額減少。</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q116 [第二章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">復效的契約其保險費之計算(1)視個別契約而定(2)由要保人與保險公司重 新約定(3)按原投保年齡標準(4)按復效時年齡計算。 3 復效的契約其保險費之計算，是依原保單的保單價 值準備金及原投保年齡的標準繼續繳費。 當要保人屆期未交保費，保險人自動墊繳其應繳保費及利息，若保單價值 準備金之餘額不足墊繳一日的保險費且經催告到達後逾30 天仍未繳費 時，保險契約效力即(1)無效(2)停止(3)終止(4)</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  <div class='tc-expl'>自動墊繳保價金不足，沒有成功墊繳，等於保費沒 有繳，只要保費沒有繳，就是走沒有繳費的流程： 先催告，進入30 天寬限，再來就停效。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q118 [第二章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">責任準備金的提存與下列哪些費率因子有關？A 預定死亡率B 預定營業費 用率C 預定利率(1)AC(2)AB(3)BC(4)ABC。 1 責任準備金的提存與預定死亡率及預定利率有關。 被保險人因犯罪處死或拒捕或越獄致死，如保險費付足2 年以上者，保險 人(1)得給付申請部分保險金(2)不得給付保險金(3)應將其保單價值準備金 返還予應得之人(4)以上皆非。</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  <div class='tc-expl'>被保險人因犯罪處死或拒捕或越獄致死，如保險費 付足2 年以上者，保險人應將其保單價值準備金返 還予應得之人。</div>
+</div></div>
+
+<!-- 數字陷阱 -->
+<div class="trap-section">
+  <div class="ts-header">
+    <div class="ts-icon">🔢</div>
+    <div class="ts-title">數字／期限陷阱（精選9題）</div>
+    <div class="ts-count" style="background:#ebf8ff;color:#2b6cb0;">必背數字</div>
+  </div>
+  <div class="tip-box">
+    ⚡ <strong>數字速記：</strong>撤銷<strong>10天</strong> ▸ 寬限<strong>30天</strong> ▸ 復效門檻<strong>6個月</strong> ▸ 可保要求<strong>5天</strong> ▸ 回覆<strong>15天</strong> ▸ 通知變更<strong>2週</strong>
+  </div>
+  <div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q3 [第一章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">依保險法第146 條之4 規定保險業辦理國外投資總額最高不得超過各該 保險業百分之？(1)35% (2)15% (3)45% (4)30% 保險業得以共保方式承保情形有 A 基於公共利益考量；B 配合政策需 要；C 能有效提升對投保大眾服務；D 有關巨災損失保險 (1)ABC (2)ABCD (3)ABD (4)BCD</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>保險法第144-1 條規定：有下列情形之一者，保 險業得以共保方式承保： 一、有關具災損失之保險者 二、配合政策需要者 三、基於公共利益之考量者 四、能有效提升對投保大眾之服務者 五、其他經主管機關核准者</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q155 [第二章]</span>
+    <span class="tc-ans">答案：(1)</span>
+  </div>
+  <div class="tc-q">有關住院醫療費用保險何者錯誤？(1)如有保證續保條款時，保險人不得 拒絕續保及不得依續保當時之費率規定重新計算保費(2)被保險人於契約 有效期間屆滿出院，因同一疾病於出院後14 日內於同一醫院再住院，保 險人就再住院部分不給付保險金(3)保戶如前往非屬健保特約院所就醫， 保險人於限額內得按實際支出費用不低於65%給付(4)以上皆非。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>(1)保證續保在續保時，保險公司可按續保當時費率 重新起算；(2)(3)均正確。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q230 [第三章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">(2)15% (3)20% (4)30%。 3 依現行規定遺產及贈與稅法規定，遺產稅稅率最高 課稅級距為20%。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q231 [第三章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">依現行規定遺產及贈與稅法規定，遺產稅稅率最高課稅級距為？(1)10% (2)15% (3)20% (4)30%。 3 依現行規定遺產及贈與稅法規定，遺產稅稅率最高 課稅級距為20%。 依遺產及贈與稅法規定，遺產總額包括被繼承人死亡前(1)五年(2)二年(3) 六年(4)一年 內贈與配偶及子女、父母、兄弟姊妹、祖父母等法定繼 承人及上述法定繼承人配偶的財產。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>依遺產及贈與稅法規定，遺產總額包括被繼承人死 亡前2 年內贈與配偶及直系血親卑親屬、父母、兄 弟姊妹、祖父母等法定繼承人及上述法定繼承人配 偶的財產。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q232 [第三章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">甲僅遺有子女乙與丙，甲死後遺留財產1000 萬元，甲於遺囑中表示將其 遺產60%全數捐給慈善機構，僅留40%由乙、丙平均分配，則依民法規 定乙可繼承多少金額？(1)400 萬元(2)250 萬元(3)200 萬元(4)500 萬元。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>因60%遺產侵犯到特留分，因此要計算特留分。 特留分為應繼分1/2，因此先計算乙的應繼分 乙的應繼分為1000 萬/2=500 萬 乙的特留分為500 萬/2=250 萬</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q372 [附錄]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">保險業依保險法第141 條提存保證金之敘述何者正確?(1)應按資本或基金 實收總額20%繳存於國庫(2)應按資本或基金實收總額20%繳存於安定基 金(3)應按資本或基金實收總額15%繳存於安定基金(4)應按資本或基金實 收總額15%繳存於國庫</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>保險業依保險法第141 條提存保證金，應按資本 或基金實收總額15%繳存於國庫。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q382 [附錄]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">依保險法第 141 條規定，保險業應按資本或基金實收總額之多少比例， 繳存保證金於國庫？(1)5%(2)10%(3)15%(4)20%。 3 依保險法第 141 條規定，保險業應按資本或基金 實收總額之15%，繳存保證金於國庫。 有關人身保險契約之保險金信託規定，何者有誤？(1)保險業為該保險金 信託之受託人(2)要保人須於訂立保險契約時，同時洽訂信託契約(3)僅要 保人與被保險人為同一人之保險契</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>(2)要保人於保險事故發生前預先洽定信託契約。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q387 [附錄]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">保險業自有資本與風險資本比率不得低於200%，若保險業有資本嚴重不 足，係指資本適足率低於(1)100%(2)150%(3)10%(4)50% 或淨值低 於零。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>保險業自有資本與風險資本比率不得低於 200%，，其中資本嚴重不足，指資本適足率低於 百分之五十或保險業淨值低於零。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q388 [附錄]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">我國保險法規定，保險業於完納一切稅捐後，分派盈餘時，應先提存多少 為法定盈餘公積？(1)5%(2)10%(3)15%(4)20% ，但法定盈餘公積已達其 資本總額或基金總額時，不在此限。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  
+</div>
+</div>
+
+</div>
+</body>
+</html>

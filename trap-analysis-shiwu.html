@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🪤 保險實務 考題陷阱分析</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans TC',sans-serif;background:#fff9f0;color:#2d3748;}
+.hero{background:linear-gradient(135deg,#e96c9e,#f09a3e);color:#fff;padding:40px 20px 80px;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:900;margin-bottom:6px;}
+.hero p{opacity:.85;}
+.badge{display:inline-block;background:rgba(255,255,255,.2);border-radius:999px;padding:4px 14px;font-size:.8rem;margin:6px 4px;}
+.wrap{max-width:860px;margin:-40px auto 60px;padding:0 16px;}
+.trap-section{background:#fff;border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 4px 20px rgba(0,0,0,.07);}
+.ts-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.ts-icon{font-size:1.8rem;}
+.ts-title{font-size:1.1rem;font-weight:900;}
+.ts-count{margin-left:auto;padding:4px 14px;border-radius:999px;font-size:.8rem;font-weight:700;}
+.tip-box{background:#fffaf0;border:1.5px solid #f6ad55;border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:.88rem;line-height:1.7;}
+.tip-box strong{color:#c05621;}
+.trap-card{background:#f8f9ff;border-radius:10px;padding:14px 16px;margin-bottom:10px;border-left:4px solid #e96c9e;}
+.tc-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
+.tc-type{background:#e96c9e;color:#fff;padding:3px 10px;border-radius:999px;font-size:.75rem;font-weight:700;}
+.tc-num{font-size:.8rem;color:#718096;}
+.tc-ans{margin-left:auto;font-weight:900;color:#e96c9e;font-size:.88rem;}
+.tc-q{font-size:.87rem;line-height:1.6;margin-bottom:6px;}
+.tc-note{font-size:.82rem;color:#c05621;background:#fffaf0;padding:6px 10px;border-radius:6px;margin-bottom:6px;}
+.tc-expl{font-size:.82rem;color:#4a5568;background:#eef2ff;padding:8px 10px;border-radius:6px;line-height:1.6;}
+.strategy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:16px;}
+.strat-card{background:linear-gradient(135deg,#f8f9ff,#eef2ff);border-radius:12px;padding:16px;}
+.strat-card .icon{font-size:1.5rem;margin-bottom:8px;}
+.strat-card .title{font-weight:900;font-size:.9rem;margin-bottom:6px;color:#e96c9e;}
+.strat-card .desc{font-size:.83rem;line-height:1.6;color:#4a5568;}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>🪤 保險實務 考題陷阱分析</h1>
+  <p>常見陷阱題型分析・考前必讀</p>
+  <div>
+    <span class="badge">❌ 何者為非：29題</span>
+    <span class="badge">✅ 以上皆是：23題</span>
+    <span class="badge">🔢 數字陷阱：18題</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- 解題策略 -->
+<div class="trap-section">
+  <div class="ts-header">
+    <div class="ts-icon">🗺️</div>
+    <div class="ts-title">解題策略總覽</div>
+  </div>
+  <div class="strategy-grid">
+    <div class="strat-card">
+      <div class="icon">❌</div>
+      <div class="title">何者為非／錯誤</div>
+      <div class="desc">先找「明顯正確」的選項排除，剩下的就是答案。通常有一個選項改了關鍵字或數字造成錯誤。</div>
+    </div>
+    <div class="strat-card">
+      <div class="icon">✅</div>
+      <div class="title">以上皆是</div>
+      <div class="desc">逐一確認每個選項，只要發現任一選項「明顯錯誤」就排除「以上皆是」。若全部正確則選之。</div>
+    </div>
+    <div class="strat-card">
+      <div class="icon">🔢</div>
+      <div class="title">數字/天數題</div>
+      <div class="desc">把關鍵數字做成口訣：10天撤銷、30天寬限、5天要求可保、15天回覆、6個月復效門檻。</div>
+    </div>
+    <div class="strat-card">
+      <div class="icon">🔄</div>
+      <div class="title">相似概念混淆</div>
+      <div class="desc">頻率=次數，幅度=金額。損失成本=頻率×幅度。特定風險=個人，基本風險=大範圍。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 何者為非 -->
+<div class="trap-section">
+  <div class="ts-header">
+    <div class="ts-icon">❌</div>
+    <div class="ts-title">何者為非／錯誤（共29題）</div>
+    <div class="ts-count" style="background:#fff5f5;color:#c53030;">高頻陷阱</div>
+  </div>
+  <div class="tip-box">
+    ⚡ <strong>解題口訣：</strong>看到「何者為非/錯誤/不正確」→ 找「最像正確但有小錯」的選項<br>
+    常見手法：①關鍵字對調（頻率←→幅度）②數字改錯③多加一個條件④否定詞藏在後半段
+  </div>
+  <div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q10 [第一章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">有關風險管理的方法，何者為非？(1)事故發生前最簡單、經濟且又安全的 風險管理方法是避免(2)事故發生前先購買保險、做好風險控管，屬風險管 理方法的移轉(3)高血壓的人不要吃太油膩的食物，屬事故發生前風險管理 方法的預防(4)有購買保險但投保的保險金額不足造成自己保留了必須承擔 的風險，屬風險管理方法的自留。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(3)高血壓的人不要吃太油膩的食物，屬事故發生中 風險管理方法的抑制。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q21 [第一章]</span>
+    <span class="tc-ans">答案：(1)</span>
+  </div>
+  <div class="tc-q">人身風險事故發生時可能導致A 遺族生活費用增加；B 老年退休費用減 少；C 醫療費用增加；D 收入減少(1)ACD(2)ABCD(3)ABC(4)BCD。 1 B 老年退休費用會增加，因可能需失能或疾病導致 需增添無障礙設施，故退休費用會增加。 下列敘述何者不正確？(1)就全體投保者而言，人壽保險保險費與保險給付 間為交換價值不相等的契約(2)人壽保險之保險費計算，須受政府之嚴格管 制監督(3)同</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(1)保險是集合大多數人的力量來分散風險消化損失 的社會互助經濟保障制度，它是根據公平合理的制 度給予他所需要的補償。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q22 [第一章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">有關因應新型冠狀病毒傳染之風險管理方法，下列何者錯誤？(1)不到人群 匯集的夜市或觀光景點係採用「避免」(2)勤洗手、戴口罩並遵守社交安全 距離的規定係採用「預防」(3)察覺有發燒、咳嗽等症狀時前往指定醫療院 所進行篩檢並自主健康管理係採用「抑制」(4)購買年金型保險商品係採用 「移轉」。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(4)購買年金型保險則屬於儲蓄投資以備未來所需之 風險管理方式。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q24 [第一章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">下列敘述，何者不正確(1)投機風險係指事件發生的結果可能會產生獲利 (2)保險的目的，在於補償因偶然事件的發生所導致經濟上的損失(3)保險 所處理的風險，主要是純粹風險(4)純粹風險係指事件的結果不一定只有損 失機會。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>純粹風險係指只有損失機會，而無獲利機會。保險 所處理的風險，主要是純粹風險。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q47 [第三章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">壽險公司為改善經營技術、培養專業人以適應市場發展趨向，有關公司努 力發展之重點何者為非？(1)經客戶同意透過業務員以行動裝置輸入客戶投 保資料，以電子文件替代紙本要保書及相關文件與保險公司締結契約(2)運 用區塊鏈技術簡化理賠調查，快速支付理賠以服務客戶(3)壽險市場已具備 專業人員生存要件，行銷技術將施以個別化的教育訓練以提高行銷效果(4) 設計更符合客戶需要商品，加強創新及多樣化商品設計。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(3)壽險市場已具備專業人員生存要件，行銷技術將 施以系統化的教育訓練以提高行銷效果。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q54 [第三章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">透過數據分析及金融科技技術的提升，可以協助保險業(1)業務模式更複雜 (2)創造差異化提升競爭力(3)概括消費群(4)以上皆是。 2 數據分析即金融科技技術的提升，使業務模式更加 簡化，並更精確分析客戶所需。 下列何者錯誤？(1)業務員行銷時應先強調保障型商品之重要性(2)壽險業 利用金融科技的目的係為完全取代人的服務以利提升經營效率(3)壽險業應 動態配置資產以因應低利率環境(4)壽險業應加強增</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>壽險業利用金融科技的目的在於提升客戶體驗，使 得保險業與客戶間互動更為緊密。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q88 [第四章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">有關保險費所累積的「責任準備金」之敘述何者錯誤？(1)透過專家的經營 運作，獲利往往較一般利息優厚(2)對保戶而言既是儲蓄又是投資(3)保戶 必須承擔投資風險，沒有確保一定利潤(4)保險公司可用來投資運用孳息。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(3)責任準備金與投資風險無關。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q89 [第四章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">有關分紅保險契約之敘述何者錯誤？(1)契約條文應明訂分紅方式及紅利決 算基準日(2)以紅利購買增額繳清保險的部分，保險公司得依實際狀況決定 分紅與否(3)變更為減額繳清保險後應維持其分紅保單之特性(4)變更為展 期定期保險後應維持其分紅保單之特性。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(3)責任準備金與投資風險無關。 (4)變更成展期定期保險後，得由各保險公司依實際 狀況決定分紅或不分紅保單。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q92 [第四章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">死亡率之計算基礎為A 年初之死亡人數；B 年度內之死亡人數；C 年初之 生存人數；D 年末之生存人數(1)BC(2)BD(3)AC(4)BCD。 1 死亡率計算公式為：年度內之死亡人數/年初之生 存人數。 要保人解約對於保險人的影響，何者錯誤？(1)造成逆選擇的不良影響(2) 保險人通常會再酌收費用作為補償(3)解約對於保險人費用分擔未產生任何 影響(4)造成資金運用不利的不良影響。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>提前解約，會對保險公司造成逆選擇、資金運用不 利及費用無法攤回等不良影響，保險公司通常會酌 收費用作為補償。(3)解約對於保險人將產生額外成 本。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q111 [第五章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">「生存保險」如被保險人在保險期間內死亡時，保險公司 (1)依保險金額 賠償 (2)退還保費 (3)不負賠償責任 (4)退還保單價值準備金 有關重大疾病保險之敘述何者錯誤 (1)販售型態可直接附加在主契約或單 獨之附加特 約 (2)保戶一旦罹患重大疾病可領取一筆保險金作為醫療之補 助 (3)目前市場多針對 7 種重大疾病提供保障 (4)為維持商品開發設計之 彈性，傷病定義無須明確化或標準化</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>生存保險定義為被保險人於保險期間內仍生存時， 保險公司依契約所約定金額給付保險金，被保險人 於保險期間內死亡，保險公司不負賠償責任。 為使醫療保險商品之疾病項目及定義有遵循一致標 準，減少理賠爭議，並維持商品開發設計之彈性， 壽險公會所報「嚴重特定傷病疾病項目及定義」及 「癌症保險」之「癌症定義」經金管會核定，將傷 病定義明確化、標準化。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q121 [第五章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">依國家發展委員會人口推估報告書之說明，何者有誤？(1)我國已邁入高齡 社會(2)我國將進入超高齡社會(3)仰賴人口係指0 至14 歲的人口(4)青壯 年人口係指15 歲至64 歲的人口。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>C 主觀機關為衛生福利部、D 保險人為衛生福利部 中央健康保險署。 仰賴人口為0-14 歲及65 歲以上人口合計</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q124 [第五章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">「臺灣地區傷害保險個人職業分類表」將職業危險程度分成(1)七類(2)四 類(3)六類(4)五類，對從事特別危險職業者另歸入未承保類。 3 「臺灣地區傷害保險個人職業分類表」將職業危險 程度分成六類。 利率變動型年金與利率固定型年金保險商品之敘述，何者為非？(1)利率變 動型年金及利率固定型年金保費繳納皆可躉繳、非躉繳，惟利率固定型年 金非躉繳為定期定額(2)利率變動型年金附加費用由公司自行訂定，利</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(3)利率變動型年金身故保障為保單價值準備金金 額，利率固定型年金身故保障為退還已繳保費或解 約金或保單價值準備金。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q129 [第五章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">業務員行銷投資型保險商品時，何者為非?(1)應主動出示投資型保險商品 業務員資格測驗合格證及人身保險業務員登錄證(2)不得勸誘保戶以保單借 款或貸款方式購買(3)當銷售予65 歳以上保戶未能取得其同意者，免除銷 售過程之錄音或錄影(4)應交付保戶保險商品說明書並詳細解說。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>(4)保險費計算考量個體差異，保費更公平合理，且 能引導保戶規避風險，降低整體社會成本。 (3)當銷售予65 歳以上保戶時應當錄音或錄影，或 以電子設備留存相關作業軌跡，由適當單位或主管 人員覆審，確認客戶投保適當性後使得承保。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q135 [第五章]</span>
+    <span class="tc-ans">答案：(4)</span>
+  </div>
+  <div class="tc-q">下列何者非團體保險之保險金額決定基礎？(1)職位年資(2)員工的工作性 質(3)薪資等級(4)團體定額。 2 團體保險之保險金額決定基礎為薪資等級、職位、 年資、團體定額。 有關學生團體保險之敘述，何者為非？(1)目前保險費由教育部邀集具獨立 性的相關代表組成審議會逐年審議(2)學生團體保險之身故保險金受益人為 被保險人之法定繼承人，醫療保險金之受益人為投保之學生(3)設置學生團 體保險專戶專款專</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>「高級中等以下學校學生及教保服務機構幼兒團體 保險條例」第13 條第3 項：學生及幼兒參加本保 險，於保險契約訂立時，已在疾病中者，保險人對 是項疾病，負給付保險金之責任。但高級中等學校 進修部及國民補習學校學生，保險人不負給付保險 金額之責任。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">❌ 何者為非</span>
+    <span class="tc-num">Q151 [第五章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">有關國民年金制度敘述何者有誤？(1)提供老年年金、生育給付、身心障礙 年金、遺屬年金及喪葬給付等保障(2)投保對象為年滿20 歲以上未滿65 歲於國內設有戶籍的國民(3)被保險人死亡時按其月投保金額一次發給5 個月喪葬給付(4)投保對象須為沒有參加軍保、公教保、勞保及農保的國 民。</div>
+  <div class='tc-note'>💡 找出「錯誤」選項，其餘三項都是正確的</div>
+  <div class='tc-expl'>B 不退還保費；C 滿期金來源為自身所繳保費及其 孽息、保險期間死亡被保險人所繳之保險費。 (2)正確為投保對象為年滿25 歲，未滿65 歲於國 內設有戶籍。</div>
+</div>
+</div>
+
+<!-- 以上皆是 -->
+<div class="trap-section">
+  <div class="ts-header">
+    <div class="ts-icon">✅</div>
+    <div class="ts-title">以上皆是（共23題）</div>
+    <div class="ts-count" style="background:#f0fff4;color:#276749;">全選陷阱</div>
+  </div>
+  <div class="tip-box">
+    ⚡ <strong>解題口訣：</strong>不要急著選「以上皆是」！先逐一確認 A/B/C/D 每個選項<br>
+    只要找到一個<strong>明確錯誤</strong>的選項，「以上皆是」就絕對不是答案
+  </div>
+  <div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q15 [第一章]</span>
+    <span class="tc-ans">答案：(1)</span>
+  </div>
+  <div class="tc-q">下列何者正確？(1)損失幅度分配低的風險可能屬於不重要的風險或重要的 風險(2)損失幅度分配低的風險可能屬於特別嚴重的風險或不重要的風險 (3)損失頻率分配高的風險可能屬於不重要的風險或重要的風險(4)以上皆 非。</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>風險自留：由經濟單位所保留必須承擔的風險皆 是。 依照損失的幅度與頻率可分為： 特別嚴重風險/重要的風險/不重要風險 頻率高+幅度高屬於特別嚴重風險 頻率高+幅度低屬於重要風險 頻率低+幅度高屬於重要風險 頻率低+幅度高低屬於不重要的風險</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q25 [第一章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">風險衡量結果屬於重要的風險，則代表(1)損失頻率分配及幅度分配皆很小 (2)損失頻率分配及幅度分配皆很高(3)損失頻率分配很高及幅度分配很小 (4)以上皆非。</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>純粹風險係指只有損失機會，而無獲利機會。保險 所處理的風險，主要是純粹風險。 重要的風險，具備損失頻率分配很高及幅度分配很 小的屬性。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q32 [第二章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">由內政部以全國國民或地區居民為對象，依人口普查之統計基礎作成 (1) 部分居民生 命表 (2)壽險業經驗生命表 (3)國民生命表 (4)簡易生命表 3 國民生命表是由內政部以全國國民或地區居民為對 象，依人口普查之統計基礎作成。 一個投保人壽保險的人，不論在任何意外事故發生時都有經濟上的保障， 這也就是人身保險功能中的(1)後顧無憂，晚景可恃(2)保證信用，有利投 資(3)安定就業，穩定發展(4)</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>因有經濟上的保障，因此確定了信用和償債能力。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q33 [第二章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">有關保險之敘述何者正確？(1)是一種透過多數人合作以避免風險的經濟保 障制度(2)投保人壽保險的人可以確定她的信用和償還能力(3)是一種風險 避免的方法(4)以上皆是。</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>因有經濟上的保障，因此確定了信用和償債能力。 保險是風險轉移，而非避免風險。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q53 [第三章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">(2)創造差異化提升競爭力(3)概括消費群(4)以上皆是。 2 數據分析即金融科技技術的提升，使業務模式更加 簡化，並更精確分析客戶所需。</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>A 主管機關應為金融監督管理委員會。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q54 [第三章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">透過數據分析及金融科技技術的提升，可以協助保險業(1)業務模式更複雜 (2)創造差異化提升競爭力(3)概括消費群(4)以上皆是。 2 數據分析即金融科技技術的提升，使業務模式更加 簡化，並更精確分析客戶所需。 下列何者錯誤？(1)業務員行銷時應先強調保障型商品之重要性(2)壽險業 利用金融科技的目的係為完全取代人的服務以利提升經營效率(3)壽險業應 動態配置資產以因應低利率環境(4)壽險業應加強增</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>壽險業利用金融科技的目的在於提升客戶體驗，使 得保險業與客戶間互動更為緊密。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q64 [第四章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">如要保人選擇以儲存生息之方式給付紅利之後，當被保險人死亡時，保險 人所給付之 保險金額較原保險金額為 (1)高 (2)不一定 (3)一樣 (4)低 利率變動型年金於累積期間，保險公司依據要保人支付之保險費，減去何 種費用後依宣告利率計算年金保單價值準備 (1)總保費 (2)附加費用 (3)純 保費 (4)以上皆非</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>要保人選擇以儲存生息之方式給付紅利之後，當被 保險人死亡時，保險人所給付之 保險金額較原保 險金額一樣。 利率變動型年金於累積期間，保險公司依據要保人 支付之保險費，減去附加費用後依宣告利率計算年 金保單價值準備。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">✅ 以上皆是</span>
+    <span class="tc-num">Q72 [第四章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">以往傳統型壽險保單皆屬強制分紅，主要是根據利差、死差做為分紅金額 之計算基礎，在此基礎下其強制分紅之標準為何？(1)只要出現利差損或死 差損就必須分紅(2)同時出現利差益及死差益才分紅(3)僅出現死差益，即使 有利差損也必須分紅(4)以上皆非。</div>
+  <div class='tc-note'>💡 四個選項都正確，選「以上皆是」</div>
+  <div class='tc-expl'>D 死亡率會因性別、職業、健康狀況、體格有所影 響，並非絕對人數。 以往傳統型壽險保單屬強制分紅，若僅出現死差益， 即使有利差損也必須分紅。</div>
+</div>
+</div>
+
+<!-- 以上皆非 --><div class='trap-section'><div class='ts-header'><div class='ts-icon'>🚫</div><div class='ts-title'>以上皆非（共4題）</div></div><div class='tip-box'>⚡ <strong>解題口訣：</strong>如果 1/2/3 選項明顯錯誤，考慮「以上皆非」。但要先確認沒有任一正確選項。</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q25 [第一章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">風險衡量結果屬於重要的風險，則代表(1)損失頻率分配及幅度分配皆很小 (2)損失頻率分配及幅度分配皆很高(3)損失頻率分配很高及幅度分配很小 (4)以上皆非。</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  <div class='tc-expl'>純粹風險係指只有損失機會，而無獲利機會。保險 所處理的風險，主要是純粹風險。 重要的風險，具備損失頻率分配很高及幅度分配很 小的屬性。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q64 [第四章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">如要保人選擇以儲存生息之方式給付紅利之後，當被保險人死亡時，保險 人所給付之 保險金額較原保險金額為 (1)高 (2)不一定 (3)一樣 (4)低 利率變動型年金於累積期間，保險公司依據要保人支付之保險費，減去何 種費用後依宣告利率計算年金保單價值準備 (1)總保費 (2)附加費用 (3)純 保費 (4)以上皆非</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  <div class='tc-expl'>要保人選擇以儲存生息之方式給付紅利之後，當被 保險人死亡時，保險人所給付之 保險金額較原保 險金額一樣。 利率變動型年金於累積期間，保險公司依據要保人 支付之保險費，減去附加費用後依宣告利率計算年 金保單價值準備。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q72 [第四章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">以往傳統型壽險保單皆屬強制分紅，主要是根據利差、死差做為分紅金額 之計算基礎，在此基礎下其強制分紅之標準為何？(1)只要出現利差損或死 差損就必須分紅(2)同時出現利差益及死差益才分紅(3)僅出現死差益，即使 有利差損也必須分紅(4)以上皆非。</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  <div class='tc-expl'>D 死亡率會因性別、職業、健康狀況、體格有所影 響，並非絕對人數。 以往傳統型壽險保單屬強制分紅，若僅出現死差益， 即使有利差損也必須分紅。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🚫 以上皆非</span>
+    <span class="tc-num">Q207 [第六章]</span>
+    <span class="tc-ans">答案：(1)</span>
+  </div>
+  <div class="tc-q">依保險業授權代收保險費應注意事項之規定，何者為非？(1)保險業授權所 屬保險業務員、保險經紀人及保險代理人或其所屬保險業務員代收保險費 (2)有權代收保險費之人未將所領之逾期送金單繳回者，保險業不得再發給 新單(3)有權代收保險費之人代收以現金繳納保險費，單張保單當期以新台 幣5 萬元為上限(4)以上皆非。</div>
+  <div class='tc-note'>💡 四個選項都錯誤</div>
+  <div class='tc-expl'>(1)保險業授權所屬保險業務員、保險代理人或其所 屬保險業務員代收保險費。</div>
+</div></div>
+
+<!-- 數字陷阱 -->
+<div class="trap-section">
+  <div class="ts-header">
+    <div class="ts-icon">🔢</div>
+    <div class="ts-title">數字／期限陷阱（精選12題）</div>
+    <div class="ts-count" style="background:#ebf8ff;color:#2b6cb0;">必背數字</div>
+  </div>
+  <div class="tip-box">
+    ⚡ <strong>數字速記：</strong>撤銷<strong>10天</strong> ▸ 寬限<strong>30天</strong> ▸ 復效門檻<strong>6個月</strong> ▸ 可保要求<strong>5天</strong> ▸ 回覆<strong>15天</strong> ▸ 通知變更<strong>2週</strong>
+  </div>
+  <div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q16 [第一章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">某團體員工年平均死亡率為0.326%，若死亡事故發生時，雇主預期需支 付每一位員工一百萬元的撫恤金，何者正確？A 雇主預測損失成本係應用 主觀風險的觀念；B0.326%即損失幅度的預期值；C 一百萬元即損失頻率 的預期值；D 每位員工損失成本為3260 元(1)BCD(2)BC(3)D(4)ABCD。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>A 客觀風險；B0.326%損失頻率；C100 萬為損失 幅度。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q83 [第四章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">利率變動型年金計算責任準備金之預定危險發生率，自民國101 年7 月1 日起以下列何者死亡率為計算基礎(1)臺灣壽險業第二回年金生命表之 90%(2)臺灣壽險業第二回年金生命表之100%(3)臺灣壽險業第一回年金 生命表之100%(4)臺灣壽險業第一回年金生命表之90%。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>C 不是友愛社，為衡平保險社；D 採用10 萬人為 統計對象。 利率變動型年金計算責任準備金之預定危險發生 率，自民國101 年7 月1 日起以台灣壽險業第二 回年金生命表為基礎，由各公司自行訂定。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q85 [第四章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">有關傳統型年金保險費率計算可使用之預定附加費用率標準，何者正確？ (1)繳費期間未滿十年者，費用率不得超過總保費之10%(2)躉繳者，費用 率不得超過總保費之3%(3)繳費期間滿十五年者，費用率不得超過總保費 之11%(4)繳費期間未滿十五年者，費用率不得超過總保費之15%。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>傳統型年金保險費率計算可使用之預定附加費用率 標準： 躉繳：費用率<總保費5％ 繳費期間未滿10 年：費用率<總保費8.5％ 繳費期間未滿15 年：費用率<總保費9.5％ 繳費期間滿15 年：費用率<總保費11％</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q94 [第四章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">亡率的若干百分比為基礎？(1)80%(2)110%(3)90%(4)100%。 4 目前壽險業責任準備金的提存是以「臺灣壽險業第 五回經驗生命表」之死亡率100%為基礎。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q95 [第四章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">目前壽險業責任準備金的提存是以「臺灣壽險業第五回經驗生命表」之死 亡率的若干百分比為基礎？(1)80%(2)110%(3)90%(4)100%。 4 目前壽險業責任準備金的提存是以「臺灣壽險業第 五回經驗生命表」之死亡率100%為基礎。 經驗生命表編製的目的為A 確定被保險人的死亡機率；B 提存責任準備金 的基礎；C 使壽險業者能公平、合理地釐訂費率；D 計算解約金的基礎 (1)ABC(2)BD(</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>經驗生命表編製的目的：應為壽險業釐訂保險費、 計算責任準備金和評價業務營運績效。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q96 [第四章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">人身保險業自92 年元月起銷售之人壽保險單，計算保險費率之生命表為 (1)臺灣壽險業第三回經驗生命表死亡率百分之九十(2)以調降保險費率至 90%計之(3)得自行決定(4)臺灣壽險業第三回經驗生命表。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>經驗生命表編製的目的：應為壽險業釐訂保險費、 計算責任準備金和評價業務營運績效。 92/1/1 起銷售的人壽保險單，保險公司得自行決 定使用第三回或第四回的生命表計算保險費率。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q124 [第五章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">「臺灣地區傷害保險個人職業分類表」將職業危險程度分成(1)七類(2)四 類(3)六類(4)五類，對從事特別危險職業者另歸入未承保類。 3 「臺灣地區傷害保險個人職業分類表」將職業危險 程度分成六類。 利率變動型年金與利率固定型年金保險商品之敘述，何者為非？(1)利率變 動型年金及利率固定型年金保費繳納皆可躉繳、非躉繳，惟利率固定型年 金非躉繳為定期定額(2)利率變動型年金附加費用由公司自行訂定，利</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>(3)利率變動型年金身故保障為保單價值準備金金 額，利率固定型年金身故保障為退還已繳保費或解 約金或保單價值準備金。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q126 [第五章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">利率固定型年金保險商品的繳費方式有A 躉繳；B 非躉繳(定期定額)；C 非躉繳(不定期不定額)(1)BC(2)ABC(3)AB(4)AC。 3 利率固定型年金保險商品的繳費方式有躉繳及非躉 繳(定期定額)。 民國94 年1 月至101 年6 月底止販售之利率變動型年金計算責任準備金 之預定危險發生率，係以年金生命表死亡率之(1)100% (2)90% (3) 100%~120% (4)自行訂定 為</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>94 年1 月1 日至101 年6 月30 日之預定危險發 生率之責任準備金年金生命表死亡率之90%為基 礎。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q127 [第五章]</span>
+    <span class="tc-ans">答案：(1)</span>
+  </div>
+  <div class="tc-q">有關傷害保險何者正確？A 職業類別第2 類之保險費率是第1 類別的1.5 倍；B 個人傷害保險意外失能發生率為意外死亡發生率之40%；C 個人傷 害保險重大事故特別準備金提存率為2%；D 被保險人失能程度屬第2 級 失能者，保險公司按失能保險金額之90%給付保險金 (1)BD(2)ACD(3)BCD(4)ABCD。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>A 為1.25 倍；C 個人傷害保險重大事故特別準備 金提存率為1%。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q136 [第五章]</span>
+    <span class="tc-ans">答案：(3)</span>
+  </div>
+  <div class="tc-q">有關傳統型年金保險費率計算可使用之預定附加費用率標準，何者正確？ (1)繳費期間滿十五年者，費用率不得超過總保費之15%(2)繳費期間未滿 十五年者，費用率不得超過總保費之15%(3)躉繳者，費用率不得超過總 保費之5%(4)繳費期間未滿十年者，費用率不得超過總保費之10%。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>(1)繳費期間滿十五年者，費用率不得超過總保費之 11%(2)繳費期間未滿十五年者，費用率不得超過 總保費之9.5%(4)繳費期間未滿十年者，費用率不 得超過總保費之8.5%。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q143 [第五章]</span>
+    <span class="tc-ans">答案：(1)</span>
+  </div>
+  <div class="tc-q">(1)0%(2)30%(3)20%(4)10%。 3 勞工保險之普通事故保險費之被保險人負擔 20%、雇主負擔70%、政府負擔10%。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>身故保險金受益人之指定及變更，以被保險人家屬 或其法定繼承人為限。</div>
+</div><div class="trap-card">
+  <div class="tc-header">
+    <span class="tc-type">🔢 數字陷阱</span>
+    <span class="tc-num">Q144 [第五章]</span>
+    <span class="tc-ans">答案：(2)</span>
+  </div>
+  <div class="tc-q">勞工保險之普通事故保險費，被保險人應負擔之比率為 (1)0%(2)30%(3)20%(4)10%。 3 勞工保險之普通事故保險費之被保險人負擔 20%、雇主負擔70%、政府負擔10%。 目前學生團體保險之保險給付項目有A 失能及身故保險金；B 燒燙傷及須 重建手術保險金；C 集體中毒保險金；D 生活補助金 (1)BCD(2)ABCD(3)ACD(4)ABC。</div>
+  <div class='tc-note'>💡 數字/天數容易記錯</div>
+  <div class='tc-expl'>學生團體保險給付項目：失能及身故保險金、燒燙 傷及須重建手術保險金、集體中毒保險金、生活補 助金 、住院醫療保險金、傷害門診保險金。</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>

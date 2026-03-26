@@ -8,203 +8,283 @@
 :root{--p:#2b6cb0;--s:#2193b0;--bg:#f8f9fc;--card:#fff;--border:#e2e8f0;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:#2d3748;}
-.hero{background:linear-gradient(135deg,#2b6cb0,#2193b0);color:#fff;padding:36px 20px 48px;text-align:center;}
-.hero h1{font-size:1.6rem;font-weight:900;margin-bottom:6px;}
-.hero p{opacity:.85;font-size:.85rem;}
-.stats{display:flex;justify-content:center;gap:14px;margin-top:16px;flex-wrap:wrap;}
-.stat{background:rgba(255,255,255,.18);border-radius:8px;padding:8px 18px;text-align:center;}
-.stat-n{font-size:1.3rem;font-weight:900;}
-.stat-l{font-size:.7rem;opacity:.8;}
-.prog-wrap{background:#fff;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#2b6cb0,#2193b0);color:#fff;padding:32px 20px 44px;text-align:center;}
+.hero h1{font-size:1.5rem;font-weight:900;margin-bottom:4px;}
+.hero p{opacity:.82;font-size:.83rem;}
+.mode-badge{display:inline-block;background:rgba(255,255,255,.22);border-radius:999px;padding:3px 12px;font-size:.74rem;font-weight:700;margin-bottom:10px;}
+.stats{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap;}
+.stat{background:rgba(255,255,255,.18);border-radius:8px;padding:8px 16px;text-align:center;}
+.stat-n{font-size:1.2rem;font-weight:900;}
+.stat-l{font-size:.68rem;opacity:.78;}
+
+/* Progress */
+.prog-wrap{background:#fff;padding:12px 16px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
 .prog-inner{max-width:680px;margin:0 auto;}
-.prog-bar{height:6px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-bottom:8px;}
-.prog-fill{height:100%;background:linear-gradient(90deg,#2b6cb0,#2193b0);border-radius:999px;transition:.3s;width:0%}
-.prog-text{font-size:.78rem;color:#718096;text-align:center;}
-.wrap{max-width:680px;margin:0 auto;padding:24px 16px 60px;}
-.q-card{background:var(--card);border-radius:16px;padding:22px;box-shadow:0 2px 16px rgba(0,0,0,.07);border:1.5px solid var(--border);margin-bottom:20px;display:none;}
-.q-card.active{display:block;animation:fadeIn .3s;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.q-meta{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.prog-bar{height:5px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-bottom:6px;}
+.prog-fill{height:100%;background:linear-gradient(90deg,#2b6cb0,#2193b0);border-radius:999px;transition:.3s;width:0%;}
+.prog-text{font-size:.76rem;color:#718096;text-align:center;}
+
+/* Main */
+.wrap{max-width:680px;margin:0 auto;padding:22px 16px 60px;}
+.q-card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 2px 16px rgba(0,0,0,.07);border:1.5px solid var(--border);margin-bottom:20px;display:none;}
+.q-card.active{display:block;animation:fadeIn .25s;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.q-meta{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;}
 .q-badge{padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:700;}
 .qb-num{background:var(--p);color:#fff;}
 .qb-ch{background:#edf2f7;color:#4a5568;}
-.q-text{font-size:.93rem;font-weight:500;line-height:1.8;margin-bottom:18px;color:#1a202c;}
-.opts{display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}
-.opt{padding:12px 16px;border-radius:10px;border:2px solid var(--border);cursor:pointer;font-size:.88rem;transition:.2s;background:#fafbfc;display:flex;gap:10px;align-items:flex-start;}
-.opt:hover:not(.disabled){border-color:var(--p);background:rgba(43,108,176,.05);}
+.q-text{font-size:.92rem;font-weight:500;line-height:1.85;margin-bottom:16px;color:#1a202c;}
+.opts{display:flex;flex-direction:column;gap:9px;margin-bottom:16px;}
+.opt{padding:11px 15px;border-radius:10px;border:2px solid var(--border);cursor:pointer;font-size:.87rem;transition:.15s;background:#fafbfc;display:flex;gap:10px;align-items:flex-start;user-select:none;}
+.opt:hover:not(.disabled){border-color:var(--p);background:rgba(0,0,0,.02);}
 .opt.correct{background:#f0fff4;border-color:#48bb78;color:#276749;}
 .opt.wrong{background:#fff5f5;border-color:#fc8181;color:#c53030;}
 .opt.show-correct{background:#f0fff4;border-color:#48bb78;color:#276749;}
 .opt.disabled{cursor:default;}
-.opt-label{font-weight:900;flex-shrink:0;}
-.explain-box{background:#f7fafc;border-radius:10px;padding:14px 16px;font-size:.83rem;line-height:1.7;color:#4a5568;border-left:4px solid var(--p);display:none;margin-bottom:14px;}
+.opt-label{font-weight:900;flex-shrink:0;min-width:24px;}
+
+/* 詳解：僅錯題練習模式顯示 */
+.explain-box{background:#f7fafc;border-radius:10px;padding:13px 16px;font-size:.82rem;line-height:1.7;color:#4a5568;border-left:4px solid var(--p);display:none;margin-bottom:14px;}
 .explain-box.show{display:block;}
-.btn-row{display:flex;gap:10px;flex-wrap:wrap;}
-.btn{padding:11px 22px;border-radius:10px;font-weight:700;font-size:.86rem;cursor:pointer;border:none;font-family:'Noto Sans TC',sans-serif;transition:.2s;}
-.btn-primary{background:var(--p);color:#fff;}
-.btn-primary:hover{opacity:.85;}
-.btn-secondary{background:#edf2f7;color:#4a5568;}
-.result-card{background:var(--card);border-radius:16px;padding:32px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.07);display:none;}
-.result-card.show{display:block;}
-.result-score{font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,#2b6cb0,#2193b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.result-label{font-size:1.1rem;font-weight:700;margin:8px 0 16px;}
-.result-msg{font-size:.9rem;color:#718096;margin-bottom:24px;}
-.wrong-list{text-align:left;}
-.wl-title{font-weight:900;margin-bottom:10px;color:#c53030;}
-.wl-item{background:#fff5f5;border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:.82rem;border-left:3px solid #fc8181;}
+
+.btn-row{display:flex;gap:9px;flex-wrap:wrap;}
+.btn{padding:10px 20px;border-radius:10px;font-weight:700;font-size:.84rem;cursor:pointer;border:none;font-family:'Noto Sans TC',sans-serif;transition:.2s;}
+.btn-primary{background:var(--p);color:#fff;} .btn-primary:hover{opacity:.85;}
+.btn-secondary{background:#edf2f7;color:#4a5568;} .btn-secondary:hover{background:#e2e8f0;}
+
+/* Result */
+.result-card{background:var(--card);border-radius:16px;padding:28px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.07);display:none;}
+.result-card.show{display:block;animation:fadeIn .3s;}
+.result-score{font-size:3.2rem;font-weight:900;background:linear-gradient(135deg,#2b6cb0,#2193b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.result-label{font-size:1.05rem;font-weight:700;margin:6px 0 10px;}
+.result-sub{font-size:.85rem;color:#718096;margin-bottom:20px;}
+.result-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:22px;}
+.wrong-section{text-align:left;border-top:2px solid var(--border);padding-top:16px;}
+.wrong-title{font-weight:900;font-size:.9rem;color:#c53030;margin-bottom:10px;}
+.wrong-item{background:#fff5f5;border-radius:9px;padding:10px 14px;margin-bottom:8px;border-left:3px solid #fc8181;}
+.wi-num{font-size:.72rem;font-weight:900;color:#c53030;margin-bottom:3px;}
+.wi-q{font-size:.82rem;color:#2d3748;line-height:1.5;}
+.wi-ans{font-size:.76rem;color:#718096;margin-top:4px;}
+
+/* 正確提示 icon */
+.ans-icon{font-size:1.1rem;margin-right:4px;}
 </style>
 </head>
 <body>
 <div class="hero">
+  <div class="mode-badge" id="modeBadge">📝 測驗模式</div>
   <h1>📘 保險法規 必考試題</h1>
-  <p>高頻命中精選題目——考場搶分，一舉上榜</p>
+  <p>高頻命中，考場搶分，最後衝刺，一舉上榜</p>
   <div class="stats">
     <div class="stat"><div class="stat-n" id="totalQ">-</div><div class="stat-l">總題數</div></div>
-    <div class="stat"><div class="stat-n" id="doneQ">0</div><div class="stat-l">已作答</div></div>
+    <div class="stat"><div class="stat-n" id="doneQ">0</div><div class="stat-l">已答</div></div>
     <div class="stat"><div class="stat-n" id="correctQ">0</div><div class="stat-l">答對</div></div>
+    <div class="stat"><div class="stat-n" id="wrongQ">0</div><div class="stat-l">答錯</div></div>
   </div>
 </div>
 <div class="prog-wrap">
   <div class="prog-inner">
     <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
-    <div class="prog-text" id="progText">尚未開始</div>
+    <div class="prog-text" id="progText">準備開始</div>
   </div>
 </div>
 <div class="wrap">
   <div id="quizContainer"></div>
-  <div class="result-card" id="resultCard">
-    <div class="result-score" id="resultScore"></div>
-    <div class="result-label" id="resultLabel"></div>
-    <div class="result-msg" id="resultMsg"></div>
-    <button class="btn btn-primary" onclick="restart()" style="margin-bottom:16px;">🔄 重新測驗</button>
-    <div class="wrong-list" id="wrongList"></div>
-  </div>
+  <div class="result-card" id="resultCard"></div>
 </div>
 <script>
-const QUESTIONS = [{"num": "2", "chapter": "第一章", "answer": 2, "question": "張三為要保人，對下列何者生命或身體有保險利益？A借錢給張三的李四；B張三本人；C欠張 三前的王老五", "options": ["A", "BC", "AB", "ABC 要保人對於下列各人之生命或身體有保險利益： 1.本人或其家屬 2.生活費或教育費所仰給之人 3.債務人 4.為本人管理財產或利益之人"], "explanation": "(A)為債權人，對其無生命或身體無保險利益(B)為本人(C)債務人。"}, {"num": "5", "chapter": "第一章", "answer": 3, "question": "下列何者正確？A要保人如尚未成年時，須經法定代理人簽名同意契約始生效力；B被保險人之 職業須確實填寫；C要保人或被保險人不能親自填寫者，保險契約得由業務員代為填寫再由保 戶親自簽名；D保險契約保戶親自簽名處如為保戶親自按指印，其意思表示及效力與親簽一樣", "options": ["BC", "ABC", "ABD", "BCD C業務員不得代為填寫保險契約及代客戶簽名"], "explanation": ""}, {"num": "8", "chapter": "第一章", "answer": 2, "question": "受益人謀害被保險人未致死僅致失能，則保險公司給付", "options": ["保單價值準備金", "全額失能保險金", "全部已繳保險費", "失能保險金 1/2 保險法第121條規定：受益人故意致被保險人於死或雖未致死者，喪失其受益 權。因此保險公司仍需給付全額失能保險金。"], "explanation": ""}, {"num": "13", "chapter": "第一章", "answer": 1, "question": "死亡保險金受益人為被保險人配偶王大華，被保險人亡故前已離婚且再婚，則被保險人死亡時 該死亡保險金歸", "options": ["前配偶王大華", "要保人或其他應得之人", "被保險人遺產", "再婚之配偶。 此案屬於受益人有確定者，則被保險人死亡時該死亡保險金歸此約定受益人。"], "explanation": ""}, {"num": "23", "chapter": "第一章", "answer": 3, "question": "有關主力近因原則之敘述，何者正確？A類似民法上的相當因果關係；B常用於傷害保險與健康 保險之賠償責任認定；C導致被保險人死亡原因有2個以上，而每個原因有因果關係雖有中斷， 其最先發生原因仍為主力近因；D即指最直接或最接近被保險人死亡的原因", "options": ["ABD", "ABCD", "AB", "BC。 主力近因是指致被保險人死亡或受傷最主要或有效的原因，而不是最直接或最 接近的原因，類似民法中的因果關係，假設原因有2個以上，且每個原因之間有 因果關係且未中斷時，則以最先發生並造成一連串事故之原因為主力近因。"], "explanation": ""}, {"num": "25", "chapter": "第一章", "answer": 1, "question": "張三以自己為要保人，對下列何者之生命或身體無保險利益：A 借錢給張三的李四；B張三本 人；C欠張三錢的王老五", "options": ["A", "AC", "ABC", "BC。 要保人對於下列個人之生命或身體有保險利益： 本人或家屬、生活費或教育費養給之人、債務人、為本人管理財產獲利益之 人。"], "explanation": ""}, {"num": "28", "chapter": "第一章", "answer": 3, "question": "某甲為支應其子某乙之學費向丙銀行貸款，請問下列何者對某甲具有保險利益？A甲；B乙；C 丙銀行；D某甲投保的保險公司", "options": ["BCD", "AB", "ABC", "A。 甲提供乙學費，甲即為乙生活費或教育費所仰給之人，則乙對甲有保險利益； 丙銀行借款給甲，甲是債務人，丙是債權人，債權人對債務人有保險利益。Ａ 甲對自己有保險利益；Ｂ乙對甲有保險利益；Ｃ丙銀行是債權人，對甲也有保 險利益"], "explanation": ""}, {"num": "36", "chapter": "第一章", "answer": 4, "question": "人壽保險契約是以人的生命或身體為保險標的，所以適用", "options": ["損害填補原則", "分攤原則", "保險 代位原則", "以上皆非。 人身保險契約僅適用保險利益原則、最大誠信原則、主力近因原則。產險除了 適用上述三項原則外，另適用損害填補、分攤、保險代位原則。"], "explanation": ""}, {"num": "37", "chapter": "第一章", "answer": 4, "question": "A人壽保險；B實支實付型的健康保險；C年金保險；D日額型健康保險，以上何者適用分攤原 則", "options": ["AB", "BD", "ABCD", "B。 分攤原則：指保險人和保險人之間，在保險事故發生後對理賠金額的分攤。除 實支實付型的健康險商品較適用損害填補原則及分攤原則外，在人壽保險並不 適用分攤原則。"], "explanation": ""}, {"num": "62", "chapter": "第二章", "answer": 1, "question": "要保人自停效日起6個月後申請復效者，保險人得於要保人申請復效日起A日內要求提供可保證 明，或於收到前項可保證明後B日內不為拒絕視為同意復效，請問A、B應為", "options": ["A為5，B為 15", "A為5，B為10", "A為10，B為30", "A為10，B為15。 要保人自停效日起6個月後申請復效者，保險人得於要保人申請復效日起5日內 要求提供可保證明，或於收到前項可保證明後15日內不為拒絕者，視為同意復 效。"], "explanation": ""}, {"num": "66", "chapter": "第二章", "answer": 3, "question": "何者為適用人身保險之法定無效事由？A契約訂立時保險標的危險已發生或已消滅；B由第三人 訂立之死亡保險契約，未經被保險人書面同意並約定保險金額；C被保險人以不實年齡投保， 其真實年齡已超過保險人所定保險年齡限度者；D要保人意圖不當得利而為複保險", "options": ["ABD", "BCD", "ABCD", "ABD ABCD皆為法定無效事由。"], "explanation": ""}, {"num": "67", "chapter": "第二章", "answer": 2, "question": "有關利率變動型年金之敘述，何者為非？", "options": ["若採分紅方式設計應明訂計算方式及給付方式", "甲型於給付期間僅採不分紅方式設計", "於累積期間不論甲型或乙型，均無紅利給付", "乙型於 給付期間通常無紅利給付。"], "explanation": "(2)甲型於給付期間可採分紅或不分紅方式。"}, {"num": "72", "chapter": "第二章", "answer": 2, "question": "有關年金保險敘述，何者為是？A保險費不得以訴訟方式請求交付；B利害關係人得代要保人交 付保險費；C保險費到期未交付不適用寬限期間之規定；D由第三人訂立之契約，未經被保險 人書面同意並約定保險金額者契約無效", "options": ["BCD", "ABC", "ABD", "AB。 D由第三人訂立之年金保險契約，未經被保險人書面同意並約定保險金額者契約 仍有效。"], "explanation": ""}, {"num": "76", "chapter": "第二章", "answer": 3, "question": "有關傷害醫療保險金之敘述，何者為非？", "options": ["實支實付型之保險給付，保險公司僅就符合意外傷 害事故，且於登記合格的醫院或診所治療之實際醫療費用，超過全民健康保險部分給付", "保險 公司基於審核保險金需要，得對被保險人身體予以檢驗，另得徵詢其他醫師專業意見，所生費 用由保險公司負擔", "日額型每次傷害給付日數不得超過180日", "一般以附約方式處理，分成實 支實付與日額型2種。"], "explanation": "(3)日額型每次傷害給付日數不得超過180日，但超過180日繼續治療者，受益人 若能證明被保險人之治療與該意外傷害事故具有因果關係者，不在此限。"}, {"num": "91", "chapter": "第二章", "answer": 2, "question": "下列何者不屬於住院醫療保險所稱醫院？A健檢中心；B安養中心；C診所；D國術館", "options": ["BD", "ABCD", "AB", "ABD。 醫院：依照醫療法規定，領有開業執照並設有病房收治病人之公、私立及財團 法人醫院。診所、國術館、安養中心等皆不屬於醫院範疇。"], "explanation": ""}, {"num": "93", "chapter": "第二章", "answer": 4, "question": "保險業因業務或財務狀況顯著惡化，不能支付其債務或無法履行契約責任或有損被保險人之權 益之虞時，下列何者為主管機關得為之處分A監管、接管；B勒令停業清理；C直接處分轉售； D命令解散", "options": ["ABCD", "AC", "ABC", "ABD。 保險法第149條，主管機關應依下列規定對保險為監管、接管、勒令停業清理或 命令解散之處分。"], "explanation": ""}, {"num": "95", "chapter": "第二章", "answer": 3, "question": "下列何者非受益人申領失能保險金應檢具之文件？", "options": ["保險金申請書及受益人之身分證明", "保 險單或其謄本", "意外傷害事故證明文件", "失能診斷書。 受益人申領「失能保險金」時應檢具下列文件： 保險金申請書、保險單或其謄本、失能診斷書；但必要時本公司得要求提供意 外傷害事故證明文件、受益人的身分證明。"], "explanation": ""}, {"num": "107", "chapter": "第二章", "answer": 4, "question": "要保人以保險單為質向保險人借款，借款到期應將本息償還保險公司，逾期未償之本息超過保 單價值準備金時，保險契約？", "options": ["無效", "立即失效", "經書面通知到達後逾三十天仍未繳付時， 保險契約之效力停止", "立即停效。 借款本息如超過保單價值準備金時，保單效力即停止，保險公司應於停效日前 30日內以書面通知要保人。"], "explanation": ""}, {"num": "109", "chapter": "第二章", "answer": 1, "question": "利率變動型年金保險乙型，其給付期間第2年度開始每年可領取之年金金額係以前1年度可領取 之年金金額乘以當年度", "options": ["調整係數", "浮動係數", "風險係數", "變動係數   而得之。 給付期間第二年度開始每年可領取之年金金額係以前一年度可領取之年金金額 乘以當年度「調整係數」而得之"], "explanation": ""}, {"num": "114", "chapter": "第二章", "answer": 3, "question": "要保人終止保險契約，而保險費已付足一年以上者，保險人應於接到通知後一個月內償付解約 金，其金額不得低於要保人應得保單價值準備金之", "options": ["二分之一", "四分之一", "四分之三", "三分 之一。 要保人終止保險契約，而保險費已付足一年以上者，保險人應於接到通知後一 個月內償付解約金，其金額不得低於要保人應得保單價值準備金之四分之三。"], "explanation": ""}, {"num": "120", "chapter": "第二章", "answer": 4, "question": "依民法第八條第三項規定，失蹤人為遭遇特別災難者，得於特別災難終了滿", "options": ["三年", "七年", "五年", "一年 後，為死亡宣告。 特別災難失蹤1年；一般失蹤7年；80歲以上3年。"], "explanation": ""}, {"num": "127", "chapter": "第二章", "answer": 4, "question": "陳光華的父親曾於生前投保傷害保險貳百萬元，並以陳光華為死亡保險金受益人，但陳光華一 直到父親因疾病死亡後二年，始知父親投保，此時保險公司", "options": ["仍應如額給付保險金", "陳光華 須證明確係不知其父投保事實才延遲申請，否則保險公司仍得拒絕給付", "僅給付保單價值準備 金", "以上皆非。 傷害保險契約的定義係指非由疾病引起之突發外來事故所致者。題目陳光華父 親因疾病死亡故不理賠。 訓練 講義 p156 第二章 3 陳光華的父親曾於生前投保傷害保險貳百萬元，並以陳光華為死亡保險金受益人，但陳光華一 直到父親因疾病死亡後二年，始知父親有購買此類保險，此時保險公司"], "explanation": "(1)陳光華須證明確係不 知其父投保事實才延遲申請，否則保險公司仍得拒絕給付(2)仍應如額給付(3)不給付其理賠金 (4)以上皆非 傷害保險契約的定義係指非由疾病引起之突發外來事故所致者。題目陳光華父 親因疾病死亡故不理賠。"}, {"num": "131", "chapter": "第二章", "answer": 3, "question": "保險業因業務或財務狀況顯著惡化，不能支付其債務或無法履行契約責任或有損被保險人之權 益之虞時，下列何者非主管機關得為之處分", "options": ["監管、接管", "勒令停業清理", "直接處分轉售", "得為1、2選項之處分。 主管機關得為之處分：監管、接管、勒令停業清理、命令解散。"], "explanation": ""}, {"num": "135", "chapter": "第二章", "answer": 3, "question": "有關保險法之規定何者正確？", "options": ["傷害保險之受益人故意傷害被保險人未遂時，要保人得撤銷其 受益權利", "要保人故意致被保險人於死者，保險人雖不負給付保險金額之責，但仍應將保單價 值準備金繳交國庫", "人壽保險受益人故意致被保險人於死或雖未致死者，喪失其受益權", "以 上皆是"], "explanation": "(1)受益人故意傷害被保險人未遂時，喪失其受益權，要保人不須要撤銷其受益 權。(2)要保人故意致被保險人於死者，保險人雖不負給付保險金額之責，但仍 應將保單價值準備金返還予應得之人。"}, {"num": "136", "chapter": "第二章", "answer": 4, "question": "傷害保險的被保險人從事下列何種活動，致成死亡或傷害時，除契約另有約定外，保險公司不 負給付保險金之責？A滑翔翼；B汽機車競賽或表演；C跆拳道；D馬術", "options": ["AB", "ABCD", "BC", "BCD。 傷害保險之不保事項：被保險人從事角力、摔跤、柔道、空手道、跆拳道、馬 術、拳擊、特技表演、汽車、機車及自行車競賽或表演。"], "explanation": ""}, {"num": "142", "chapter": "第二章", "answer": 2, "question": "傷害保險費率係按被保險人Ａ薪資；Ｂ性別；Ｃ職業；Ｄ工作環境，之不同作為主要的依據", "options": ["BCD", "CD", "ABC", "ABCD。 傷害保險費率係按被保險人的職業類別做區分。"], "explanation": ""}, {"num": "146", "chapter": "第二章", "answer": 4, "question": "實支實付型住院醫療費用保險之給付內容，不包含下列哪項費用？", "options": ["管灌飲食以外之膳食費", "來往醫院之救護車費", "超等住院之病房費差額", "特別護士之護理費。 住院醫療費用保險單示範條款"], "explanation": "(實支實付型) 每日病房費用保險金之給付 第五條 被保險人因第四條之約定而以全民健康保險之保險對象身分住院診療時，本公 司按被保險人住院期間內所發生，且依全民健康保險規定其保險對象應自行負 擔及不屬全民健康保險給付範圍之下列各項費用核付。 1. 超等住院之病房費差額。 2. 管灌飲食以外之膳食費。 3. 特別護士以外之護理費。 住院醫療費用保險金之給付 第六條 被保險人因第四條之約定而以全民健康保險之保險對象身分住院診療時，本公 司按被保險人住院期間內所發生，且依全民健康保險規定其保險對象應自行負 擔及不屬全民健康保險給付範圍之下列各項費用核付。 1. 醫師指示用藥。 2. 血液（非緊急傷病必要之輸血）。 3. 掛號費及證明文件。 4. 來往醫院之救護車費。 5. 超過全民健康保險給付之住院醫療費用。"}, {"num": "153", "chapter": "第二章", "answer": 3, "question": "關於寬限期間之述敘，何者錯誤？A逾寬限期間仍未繳付保險費者，契約至寬限期間終了之翌 日起終止效力；B如在寬限期間發生保險事故，保險公司仍負給付責任；C年繳或半年繳件，自 保單所載之交付日期之翌日起30日為寬限期間；D季繳或月繳件，至催告到達日期之翌日起30 日為寬限期間", "options": ["ABCD", "BCD", "ACD", "CD。 A人壽保險之保險費到期未交付者，除契約另有訂定外，經催告到達後屆30日 仍不交付時，保險契約之效力停止；B年繳或半年繳者，自催告到達翌日起OO 日"], "explanation": "(不得低於30日)內為寬限期；C月繳或季繳者則不另為催告，自保險單所載交 付日期之翌日起OO日(不得低於30日)為寬限期間。"}, {"num": "183", "chapter": "第二章", "answer": 2, "question": "下列何者為保險契約構成部份A附著之要保書；B批註書；C廣告文宣；D保單條款", "options": ["ABCD", "ABD", "AD", "ACD。 保險契約構成不包括廣告文宣。"], "explanation": ""}, {"num": "184", "chapter": "第二章", "answer": 4, "question": "由第三人訂立之年金保險契約，未經被保險人書面承諾，並約定保險金額，其保險契約", "options": ["效力 未定", "無效", "得撤銷", "有效。 由第三人訂立之年金保險契約，未經被保險人書面承諾，並約定保險金額，其 保險契約有效。"], "explanation": ""}, {"num": "203", "chapter": "第三章", "answer": 1, "question": "依民法第八條對失蹤人為死亡宣告之期限，何者正確？A如遇特別災難於災難終了滿三年後；B 一般失蹤滿七年後；C失蹤人為八十歲以上於失蹤滿一年後；D得由利害關係人向檢察官聲請 宣告", "options": ["B", "BD", "ABCD", "ABC。 失蹤宣告： 一般失蹤滿7年；80歲以上失蹤人滿3年；特別災難事故滿1年。"], "explanation": ""}, {"num": "207", "chapter": "第三章", "answer": 2, "question": "依遺產及贈與稅法第12-1條規定，被繼承人遺有父母者，父母每人可扣除額為", "options": ["100萬", "138 萬", "445萬", "400萬。 依遺產及贈與稅法第12-1條規定，被繼承人遺有父母者，父母每人可扣除額為 138萬。"], "explanation": ""}, {"num": "219", "chapter": "第三章", "answer": 2, "question": "某甲身故後留有死亡保險金1000萬元，因未指定身故受益人，若某甲沒有其他遺產，但立有 遺囑將保險金全部歸配偶所有，在僅有配偶和父母之情形下，則該保險金，某甲父親可領到", "options": ["333萬", "125萬", "250萬", "500萬  元。 遺囑處份：立有遺囑時，依照被保險人遺囑分配， 但必須考慮遺囑內容是否侵害到法定繼承人特留分 應繼分1000*1/2=500；特留分500*1/2=250；父親可領125萬元。"], "explanation": ""}, {"num": "235", "chapter": "第三章", "answer": 3, "question": "若保險金在死亡保險中未指定身故受益人之受領順序及比例時，又被保險人僅列有子女和配偶 ，則該保險金應如何分配？", "options": ["配偶、子女各二分之一", "配偶三分之二、子女三分之一", "按人 數平均分配", "配偶獨領。 若保險金在死亡保險中未指定身故受益人之受領順序及比例時，又被保險人僅 列有子女和配偶，則該保險金按人數平均分配。"], "explanation": ""}, {"num": "238", "chapter": "第三章", "answer": 3, "question": "依遺產及贈與稅法第17條規定，被繼承人僅遺有17歲子女1名及母親，扣除額合計為", "options": ["223", "173", "180", "140 萬元。 依遺產及贈與稅法第17條規定，子女扣除額是40萬、父母扣除額100萬，由於 子女未滿18歲，故子女可再加扣40萬，所以40+40+100=180萬。"], "explanation": ""}, {"num": "245", "chapter": "第三章", "answer": 4, "question": "某甲為自己及其父投保人壽保險，年繳保費各為二萬四千元及一萬五千元，但其父未受其扶養 ，則甲在申報綜合所得稅時如採用列舉扣除法時", "options": ["不得申報扣除", "得扣除一萬五千元", "得扣 除一萬二千元", "得扣除二萬四千元。 依所得稅法規定，納稅義務人本人、配偶或受扶養直系親屬的人身保險費，得 從個人所得總額中採列舉申報方式扣除，但每人每年扣除數額以不超過新台幣 兩萬四千元為限。"], "explanation": ""}, {"num": "249", "chapter": "第三章", "answer": 4, "question": "有關民法各順位繼承人之特留分之敘述，何者錯誤？", "options": ["配偶的特留分是應繼分的二分之一", "祖父母的特留分是應繼分的三分之一", "父母的特留分是應繼分的二分之一", "兄弟姊妹的特留 分是應繼分的二分之一。"], "explanation": "(4)兄弟姊妹的特留分為應繼分的三分之一。"}, {"num": "251", "chapter": "第三章", "answer": 4, "question": "有關贈與稅，何者陳述錯誤？", "options": ["納稅義務人為贈與人", "免稅額之計算係指一年之贈與", "一年 如有二次以上之贈與，不得分別計算", "免稅額為123萬元。"], "explanation": "(4)免稅額：贈與他人每年免稅額為244萬元。"}, {"num": "256", "chapter": "第三章", "answer": 4, "question": "依遺產及贈與稅法第12-1條規定，被繼承人僅遺有配偶及成年子女1名，該遺產扣除額合計為", "options": ["450", "440", "500", "609 萬元。 配偶扣除額：553萬；直系血親卑親屬扣除額：56萬。 合計609萬元。"], "explanation": ""}, {"num": "259", "chapter": "第三章", "answer": 3, "question": "甲僅遺有子女乙與丙，甲死後遺留財產五百萬元，甲於遺囑中表示將其遺產60%全數捐給慈善 機構，僅留40%由乙、丙平均分配，則依民法規定乙可繼承多少金額？", "options": ["100萬元", "250萬元", "125萬元", "500萬元。 子女之應繼分為遺產之1/2，特留分為應繼分之1/2，故子女一人可繼承125萬 元。"], "explanation": ""}, {"num": "263", "chapter": "第三章", "answer": 3, "question": "死亡保險金一千萬且未指定身故受益人，被保險人遺有配偶、子女兩名和父母，則被保險人之 父親可分配到", "options": ["200萬", "500萬", "0萬", "125萬　元。 在繼承開始時有當然繼承人"], "explanation": "(配偶)得與第一順位繼承人同為繼承人，故父母無法 分得遺產。"}, {"num": "264", "chapter": "第三章", "answer": 1, "question": "張三(被繼承人)育有4子，其長子較張三早死，當張三死亡可由其孫A、B代位其父繼承對張三 之應繼分。如張三遺留保險金1000萬元，則其孫各可代位繼承", "options": ["125萬", "250萬", "300萬", "100萬。 張三之遺留保險金1000萬分給四個孩子"], "explanation": "(1人250萬)，而長子早死，其子A.B可 代位繼承長子分得之財產，各可得125萬元。"}, {"num": "273", "chapter": "第四章", "answer": 4, "question": "有關金融服務業公平待客原則，何者正確？", "options": ["公司對商品銷售獎勵核給，在酬金與業績衡平原 則下應注意僅以業績目標達成做為計算基礎", "公司應於業務員一賣出商品就發給高額酬金以符 合酬金與業績衡平原則", "公司應該將該原則納入教育訓練課程每年至少2小時，業務員未完成 該訓練應辦理撤銷登錄", "該原則共9大指標，並增訂第10項董事會重視情況。"], "explanation": "(1)公司對商品銷售獎勵核給，在酬金與業績衡平原則下不應僅以業績目標達成 做為計算基礎(2)公司不應於業務員一賣出商品就發給高額酬金，而應將業務員 所涉稽核缺失、客戶紛爭、KYC等非財務指標納入考量(3)公司應該將該原則納 入教育訓練課程每年至少3小時，業務員未完成該訓練應辦理撤銷登錄。"}, {"num": "305", "chapter": "第四章", "answer": 1, "question": "下列之金融機構何者適用洗錢防制法？A證券商；B保險公司；C信用卡公司；D郵政機構", "options": ["ABCD", "AB", "BD", "BCD。 洗錢防制法金融機構包括：銀行、信用合作社、辦理儲金匯兌之郵政機構、票 券金融公司、信用卡公司及信託業、證券商、證券投資信託事業、證券金融事 業、證券投資顧問事業、證券集中保管事業、期貨商、保險公司、專業再保險 公司及辦理簡易人壽保險業務之郵政機構、電子票證發行機構、電子支付機 構、槓桿交易商、期貨信託事業、期貨經理事業，以及保險代理人公司、保險 經紀人公司及個人執業之保險代理人、保險經紀人。"], "explanation": ""}, {"num": "307", "chapter": "第四章", "answer": 1, "question": "依金消法規定，金融服務業包括 A期貨業；B保險業；C證券交易所；D證券集中保管事業", "options": ["AB", "ABCD", "BCD", "ABC。 金融服務業包括：銀行業、證券業、期貨業、保險業、電子支付業及其他經主 管機關公告之金融服務業；但不包括證交所、櫃買中心、集保事業、期交所及 其他經主管機關公告之事業等。"], "explanation": ""}, {"num": "343", "chapter": "第五章", "answer": 1, "question": "業務員因離職、轉任而異動時，所屬公司應向壽險公會申報", "options": ["註銷登錄", "停止招攬登錄", "變 更登錄", "撤銷登錄。 業務員因離職、轉任而異動時，所屬公司應向壽險公會申報註銷登錄。"], "explanation": ""}, {"num": "346", "chapter": "第五章", "answer": 1, "question": "申請登錄之業務員若曾受偽造文書、侵占、詐欺、背信等徒刑處分執行完畢或經赦免未滿", "options": ["三 年", "二年", "五年", "一年   者，不得申請登錄為業務員。 徒刑處分完畢、緩刑期滿或經赦免後未滿三年；組織犯罪五年。 371 附錄 3 保險業務員管理規則係由主管機關依保險法第177條訂定，並於民國"], "explanation": "(1)81年10月15日(2)80年 4月15日(3)82年4月15日(4)83年10月15日 起實施，自此保險業務員邁入一個新的里程碑。 保險業務員管理規則係由主管機關依保險法第177條訂定，民國81年10月15日 發布「保險業務員管理規則」，並於民國82年4月15日起實施。 385 附錄 1 下列何者不是團體保險條款規定被保險人請領失能保險金應檢具之文件(1)被保險人印鑑證明書 (2)保險金申請書(3)受益人身分證明(4)失能診斷書。 受益人申領失能保險金，應檢具下列文件：保險金申請書、受益人之身分證 件、失能診斷書，但必要時本公司得要求提供意外傷害事故證明文件。 389 附錄 4 我國保險法規定，保險業於完納一切稅捐後，分派盈餘時，應先提存多少為法定盈餘公積？ (1)5%(2)10%(3)15%(4)20% ，但法定盈餘公積已達其資本總額或基金總額時，不在此限。 保險業於完納一切稅捐後，分派盈餘時，應先提百分之二十為法定盈餘公積。"}];
-let current = 0, answered = 0, correct = 0, wrongNums = [];
+const ALL_QUESTIONS = [{"num": "2", "chapter": "第一章", "answer": 2, "question": "張三為要保人，對下列何者生命或身體有保險利益？A借錢給張三的李四；B張三本人；C欠張 三前的王老五", "options": ["A", "BC", "AB", "ABC 要保人對於下列各人之生命或身體有保險利益： 1.本人或其家屬 2.生活費或教育費所仰給之人 3.債務人 4.為本人管理財產或利益之人"], "explanation": "(A)為債權人，對其無生命或身體無保險利益(B)為本人(C)債務人。"}, {"num": "5", "chapter": "第一章", "answer": 3, "question": "下列何者正確？A要保人如尚未成年時，須經法定代理人簽名同意契約始生效力；B被保險人之 職業須確實填寫；C要保人或被保險人不能親自填寫者，保險契約得由業務員代為填寫再由保 戶親自簽名；D保險契約保戶親自簽名處如為保戶親自按指印，其意思表示及效力與親簽一樣", "options": ["BC", "ABC", "ABD", "BCD C業務員不得代為填寫保險契約及代客戶簽名"], "explanation": ""}, {"num": "8", "chapter": "第一章", "answer": 2, "question": "受益人謀害被保險人未致死僅致失能，則保險公司給付", "options": ["保單價值準備金", "全額失能保險金", "全部已繳保險費", "失能保險金 1/2 保險法第121條規定：受益人故意致被保險人於死或雖未致死者，喪失其受益 權。因此保險公司仍需給付全額失能保險金。"], "explanation": ""}, {"num": "13", "chapter": "第一章", "answer": 1, "question": "死亡保險金受益人為被保險人配偶王大華，被保險人亡故前已離婚且再婚，則被保險人死亡時 該死亡保險金歸", "options": ["前配偶王大華", "要保人或其他應得之人", "被保險人遺產", "再婚之配偶。 此案屬於受益人有確定者，則被保險人死亡時該死亡保險金歸此約定受益人。"], "explanation": ""}, {"num": "23", "chapter": "第一章", "answer": 3, "question": "有關主力近因原則之敘述，何者正確？A類似民法上的相當因果關係；B常用於傷害保險與健康 保險之賠償責任認定；C導致被保險人死亡原因有2個以上，而每個原因有因果關係雖有中斷， 其最先發生原因仍為主力近因；D即指最直接或最接近被保險人死亡的原因", "options": ["ABD", "ABCD", "AB", "BC。 主力近因是指致被保險人死亡或受傷最主要或有效的原因，而不是最直接或最 接近的原因，類似民法中的因果關係，假設原因有2個以上，且每個原因之間有 因果關係且未中斷時，則以最先發生並造成一連串事故之原因為主力近因。"], "explanation": ""}, {"num": "25", "chapter": "第一章", "answer": 1, "question": "張三以自己為要保人，對下列何者之生命或身體無保險利益：A 借錢給張三的李四；B張三本 人；C欠張三錢的王老五", "options": ["A", "AC", "ABC", "BC。 要保人對於下列個人之生命或身體有保險利益： 本人或家屬、生活費或教育費養給之人、債務人、為本人管理財產獲利益之 人。"], "explanation": ""}, {"num": "28", "chapter": "第一章", "answer": 3, "question": "某甲為支應其子某乙之學費向丙銀行貸款，請問下列何者對某甲具有保險利益？A甲；B乙；C 丙銀行；D某甲投保的保險公司", "options": ["BCD", "AB", "ABC", "A。 甲提供乙學費，甲即為乙生活費或教育費所仰給之人，則乙對甲有保險利益； 丙銀行借款給甲，甲是債務人，丙是債權人，債權人對債務人有保險利益。Ａ 甲對自己有保險利益；Ｂ乙對甲有保險利益；Ｃ丙銀行是債權人，對甲也有保 險利益"], "explanation": ""}, {"num": "36", "chapter": "第一章", "answer": 4, "question": "人壽保險契約是以人的生命或身體為保險標的，所以適用", "options": ["損害填補原則", "分攤原則", "保險 代位原則", "以上皆非。 人身保險契約僅適用保險利益原則、最大誠信原則、主力近因原則。產險除了 適用上述三項原則外，另適用損害填補、分攤、保險代位原則。"], "explanation": ""}, {"num": "37", "chapter": "第一章", "answer": 4, "question": "A人壽保險；B實支實付型的健康保險；C年金保險；D日額型健康保險，以上何者適用分攤原 則", "options": ["AB", "BD", "ABCD", "B。 分攤原則：指保險人和保險人之間，在保險事故發生後對理賠金額的分攤。除 實支實付型的健康險商品較適用損害填補原則及分攤原則外，在人壽保險並不 適用分攤原則。"], "explanation": ""}, {"num": "62", "chapter": "第二章", "answer": 1, "question": "要保人自停效日起6個月後申請復效者，保險人得於要保人申請復效日起A日內要求提供可保證 明，或於收到前項可保證明後B日內不為拒絕視為同意復效，請問A、B應為", "options": ["A為5，B為 15", "A為5，B為10", "A為10，B為30", "A為10，B為15。 要保人自停效日起6個月後申請復效者，保險人得於要保人申請復效日起5日內 要求提供可保證明，或於收到前項可保證明後15日內不為拒絕者，視為同意復 效。"], "explanation": ""}, {"num": "66", "chapter": "第二章", "answer": 3, "question": "何者為適用人身保險之法定無效事由？A契約訂立時保險標的危險已發生或已消滅；B由第三人 訂立之死亡保險契約，未經被保險人書面同意並約定保險金額；C被保險人以不實年齡投保， 其真實年齡已超過保險人所定保險年齡限度者；D要保人意圖不當得利而為複保險", "options": ["ABD", "BCD", "ABCD", "ABD ABCD皆為法定無效事由。"], "explanation": ""}, {"num": "67", "chapter": "第二章", "answer": 2, "question": "有關利率變動型年金之敘述，何者為非？", "options": ["若採分紅方式設計應明訂計算方式及給付方式", "甲型於給付期間僅採不分紅方式設計", "於累積期間不論甲型或乙型，均無紅利給付", "乙型於 給付期間通常無紅利給付。"], "explanation": "(2)甲型於給付期間可採分紅或不分紅方式。"}, {"num": "72", "chapter": "第二章", "answer": 2, "question": "有關年金保險敘述，何者為是？A保險費不得以訴訟方式請求交付；B利害關係人得代要保人交 付保險費；C保險費到期未交付不適用寬限期間之規定；D由第三人訂立之契約，未經被保險 人書面同意並約定保險金額者契約無效", "options": ["BCD", "ABC", "ABD", "AB。 D由第三人訂立之年金保險契約，未經被保險人書面同意並約定保險金額者契約 仍有效。"], "explanation": ""}, {"num": "76", "chapter": "第二章", "answer": 3, "question": "有關傷害醫療保險金之敘述，何者為非？", "options": ["實支實付型之保險給付，保險公司僅就符合意外傷 害事故，且於登記合格的醫院或診所治療之實際醫療費用，超過全民健康保險部分給付", "保險 公司基於審核保險金需要，得對被保險人身體予以檢驗，另得徵詢其他醫師專業意見，所生費 用由保險公司負擔", "日額型每次傷害給付日數不得超過180日", "一般以附約方式處理，分成實 支實付與日額型2種。"], "explanation": "(3)日額型每次傷害給付日數不得超過180日，但超過180日繼續治療者，受益人 若能證明被保險人之治療與該意外傷害事故具有因果關係者，不在此限。"}, {"num": "91", "chapter": "第二章", "answer": 2, "question": "下列何者不屬於住院醫療保險所稱醫院？A健檢中心；B安養中心；C診所；D國術館", "options": ["BD", "ABCD", "AB", "ABD。 醫院：依照醫療法規定，領有開業執照並設有病房收治病人之公、私立及財團 法人醫院。診所、國術館、安養中心等皆不屬於醫院範疇。"], "explanation": ""}, {"num": "93", "chapter": "第二章", "answer": 4, "question": "保險業因業務或財務狀況顯著惡化，不能支付其債務或無法履行契約責任或有損被保險人之權 益之虞時，下列何者為主管機關得為之處分A監管、接管；B勒令停業清理；C直接處分轉售； D命令解散", "options": ["ABCD", "AC", "ABC", "ABD。 保險法第149條，主管機關應依下列規定對保險為監管、接管、勒令停業清理或 命令解散之處分。"], "explanation": ""}, {"num": "95", "chapter": "第二章", "answer": 3, "question": "下列何者非受益人申領失能保險金應檢具之文件？", "options": ["保險金申請書及受益人之身分證明", "保 險單或其謄本", "意外傷害事故證明文件", "失能診斷書。 受益人申領「失能保險金」時應檢具下列文件： 保險金申請書、保險單或其謄本、失能診斷書；但必要時本公司得要求提供意 外傷害事故證明文件、受益人的身分證明。"], "explanation": ""}, {"num": "107", "chapter": "第二章", "answer": 4, "question": "要保人以保險單為質向保險人借款，借款到期應將本息償還保險公司，逾期未償之本息超過保 單價值準備金時，保險契約？", "options": ["無效", "立即失效", "經書面通知到達後逾三十天仍未繳付時， 保險契約之效力停止", "立即停效。 借款本息如超過保單價值準備金時，保單效力即停止，保險公司應於停效日前 30日內以書面通知要保人。"], "explanation": ""}, {"num": "109", "chapter": "第二章", "answer": 1, "question": "利率變動型年金保險乙型，其給付期間第2年度開始每年可領取之年金金額係以前1年度可領取 之年金金額乘以當年度", "options": ["調整係數", "浮動係數", "風險係數", "變動係數   而得之。 給付期間第二年度開始每年可領取之年金金額係以前一年度可領取之年金金額 乘以當年度「調整係數」而得之"], "explanation": ""}, {"num": "114", "chapter": "第二章", "answer": 3, "question": "要保人終止保險契約，而保險費已付足一年以上者，保險人應於接到通知後一個月內償付解約 金，其金額不得低於要保人應得保單價值準備金之", "options": ["二分之一", "四分之一", "四分之三", "三分 之一。 要保人終止保險契約，而保險費已付足一年以上者，保險人應於接到通知後一 個月內償付解約金，其金額不得低於要保人應得保單價值準備金之四分之三。"], "explanation": ""}, {"num": "120", "chapter": "第二章", "answer": 4, "question": "依民法第八條第三項規定，失蹤人為遭遇特別災難者，得於特別災難終了滿", "options": ["三年", "七年", "五年", "一年 後，為死亡宣告。 特別災難失蹤1年；一般失蹤7年；80歲以上3年。"], "explanation": ""}, {"num": "127", "chapter": "第二章", "answer": 4, "question": "陳光華的父親曾於生前投保傷害保險貳百萬元，並以陳光華為死亡保險金受益人，但陳光華一 直到父親因疾病死亡後二年，始知父親投保，此時保險公司", "options": ["仍應如額給付保險金", "陳光華 須證明確係不知其父投保事實才延遲申請，否則保險公司仍得拒絕給付", "僅給付保單價值準備 金", "以上皆非。 傷害保險契約的定義係指非由疾病引起之突發外來事故所致者。題目陳光華父 親因疾病死亡故不理賠。 訓練 講義 p156 第二章 3 陳光華的父親曾於生前投保傷害保險貳百萬元，並以陳光華為死亡保險金受益人，但陳光華一 直到父親因疾病死亡後二年，始知父親有購買此類保險，此時保險公司"], "explanation": "(1)陳光華須證明確係不 知其父投保事實才延遲申請，否則保險公司仍得拒絕給付(2)仍應如額給付(3)不給付其理賠金 (4)以上皆非 傷害保險契約的定義係指非由疾病引起之突發外來事故所致者。題目陳光華父 親因疾病死亡故不理賠。"}, {"num": "131", "chapter": "第二章", "answer": 3, "question": "保險業因業務或財務狀況顯著惡化，不能支付其債務或無法履行契約責任或有損被保險人之權 益之虞時，下列何者非主管機關得為之處分", "options": ["監管、接管", "勒令停業清理", "直接處分轉售", "得為1、2選項之處分。 主管機關得為之處分：監管、接管、勒令停業清理、命令解散。"], "explanation": ""}, {"num": "135", "chapter": "第二章", "answer": 3, "question": "有關保險法之規定何者正確？", "options": ["傷害保險之受益人故意傷害被保險人未遂時，要保人得撤銷其 受益權利", "要保人故意致被保險人於死者，保險人雖不負給付保險金額之責，但仍應將保單價 值準備金繳交國庫", "人壽保險受益人故意致被保險人於死或雖未致死者，喪失其受益權", "以 上皆是"], "explanation": "(1)受益人故意傷害被保險人未遂時，喪失其受益權，要保人不須要撤銷其受益 權。(2)要保人故意致被保險人於死者，保險人雖不負給付保險金額之責，但仍 應將保單價值準備金返還予應得之人。"}, {"num": "136", "chapter": "第二章", "answer": 4, "question": "傷害保險的被保險人從事下列何種活動，致成死亡或傷害時，除契約另有約定外，保險公司不 負給付保險金之責？A滑翔翼；B汽機車競賽或表演；C跆拳道；D馬術", "options": ["AB", "ABCD", "BC", "BCD。 傷害保險之不保事項：被保險人從事角力、摔跤、柔道、空手道、跆拳道、馬 術、拳擊、特技表演、汽車、機車及自行車競賽或表演。"], "explanation": ""}, {"num": "142", "chapter": "第二章", "answer": 2, "question": "傷害保險費率係按被保險人Ａ薪資；Ｂ性別；Ｃ職業；Ｄ工作環境，之不同作為主要的依據", "options": ["BCD", "CD", "ABC", "ABCD。 傷害保險費率係按被保險人的職業類別做區分。"], "explanation": ""}, {"num": "146", "chapter": "第二章", "answer": 4, "question": "實支實付型住院醫療費用保險之給付內容，不包含下列哪項費用？", "options": ["管灌飲食以外之膳食費", "來往醫院之救護車費", "超等住院之病房費差額", "特別護士之護理費。 住院醫療費用保險單示範條款"], "explanation": "(實支實付型) 每日病房費用保險金之給付 第五條 被保險人因第四條之約定而以全民健康保險之保險對象身分住院診療時，本公 司按被保險人住院期間內所發生，且依全民健康保險規定其保險對象應自行負 擔及不屬全民健康保險給付範圍之下列各項費用核付。 1. 超等住院之病房費差額。 2. 管灌飲食以外之膳食費。 3. 特別護士以外之護理費。 住院醫療費用保險金之給付 第六條 被保險人因第四條之約定而以全民健康保險之保險對象身分住院診療時，本公 司按被保險人住院期間內所發生，且依全民健康保險規定其保險對象應自行負 擔及不屬全民健康保險給付範圍之下列各項費用核付。 1. 醫師指示用藥。 2. 血液（非緊急傷病必要之輸血）。 3. 掛號費及證明文件。 4. 來往醫院之救護車費。 5. 超過全民健康保險給付之住院醫療費用。"}, {"num": "153", "chapter": "第二章", "answer": 3, "question": "關於寬限期間之述敘，何者錯誤？A逾寬限期間仍未繳付保險費者，契約至寬限期間終了之翌 日起終止效力；B如在寬限期間發生保險事故，保險公司仍負給付責任；C年繳或半年繳件，自 保單所載之交付日期之翌日起30日為寬限期間；D季繳或月繳件，至催告到達日期之翌日起30 日為寬限期間", "options": ["ABCD", "BCD", "ACD", "CD。 A人壽保險之保險費到期未交付者，除契約另有訂定外，經催告到達後屆30日 仍不交付時，保險契約之效力停止；B年繳或半年繳者，自催告到達翌日起OO 日"], "explanation": "(不得低於30日)內為寬限期；C月繳或季繳者則不另為催告，自保險單所載交 付日期之翌日起OO日(不得低於30日)為寬限期間。"}, {"num": "183", "chapter": "第二章", "answer": 2, "question": "下列何者為保險契約構成部份A附著之要保書；B批註書；C廣告文宣；D保單條款", "options": ["ABCD", "ABD", "AD", "ACD。 保險契約構成不包括廣告文宣。"], "explanation": ""}, {"num": "184", "chapter": "第二章", "answer": 4, "question": "由第三人訂立之年金保險契約，未經被保險人書面承諾，並約定保險金額，其保險契約", "options": ["效力 未定", "無效", "得撤銷", "有效。 由第三人訂立之年金保險契約，未經被保險人書面承諾，並約定保險金額，其 保險契約有效。"], "explanation": ""}, {"num": "203", "chapter": "第三章", "answer": 1, "question": "依民法第八條對失蹤人為死亡宣告之期限，何者正確？A如遇特別災難於災難終了滿三年後；B 一般失蹤滿七年後；C失蹤人為八十歲以上於失蹤滿一年後；D得由利害關係人向檢察官聲請 宣告", "options": ["B", "BD", "ABCD", "ABC。 失蹤宣告： 一般失蹤滿7年；80歲以上失蹤人滿3年；特別災難事故滿1年。"], "explanation": ""}, {"num": "207", "chapter": "第三章", "answer": 2, "question": "依遺產及贈與稅法第12-1條規定，被繼承人遺有父母者，父母每人可扣除額為", "options": ["100萬", "138 萬", "445萬", "400萬。 依遺產及贈與稅法第12-1條規定，被繼承人遺有父母者，父母每人可扣除額為 138萬。"], "explanation": ""}, {"num": "219", "chapter": "第三章", "answer": 2, "question": "某甲身故後留有死亡保險金1000萬元，因未指定身故受益人，若某甲沒有其他遺產，但立有 遺囑將保險金全部歸配偶所有，在僅有配偶和父母之情形下，則該保險金，某甲父親可領到", "options": ["333萬", "125萬", "250萬", "500萬  元。 遺囑處份：立有遺囑時，依照被保險人遺囑分配， 但必須考慮遺囑內容是否侵害到法定繼承人特留分 應繼分1000*1/2=500；特留分500*1/2=250；父親可領125萬元。"], "explanation": ""}, {"num": "235", "chapter": "第三章", "answer": 3, "question": "若保險金在死亡保險中未指定身故受益人之受領順序及比例時，又被保險人僅列有子女和配偶 ，則該保險金應如何分配？", "options": ["配偶、子女各二分之一", "配偶三分之二、子女三分之一", "按人 數平均分配", "配偶獨領。 若保險金在死亡保險中未指定身故受益人之受領順序及比例時，又被保險人僅 列有子女和配偶，則該保險金按人數平均分配。"], "explanation": ""}, {"num": "238", "chapter": "第三章", "answer": 3, "question": "依遺產及贈與稅法第17條規定，被繼承人僅遺有17歲子女1名及母親，扣除額合計為", "options": ["223", "173", "180", "140 萬元。 依遺產及贈與稅法第17條規定，子女扣除額是40萬、父母扣除額100萬，由於 子女未滿18歲，故子女可再加扣40萬，所以40+40+100=180萬。"], "explanation": ""}, {"num": "245", "chapter": "第三章", "answer": 4, "question": "某甲為自己及其父投保人壽保險，年繳保費各為二萬四千元及一萬五千元，但其父未受其扶養 ，則甲在申報綜合所得稅時如採用列舉扣除法時", "options": ["不得申報扣除", "得扣除一萬五千元", "得扣 除一萬二千元", "得扣除二萬四千元。 依所得稅法規定，納稅義務人本人、配偶或受扶養直系親屬的人身保險費，得 從個人所得總額中採列舉申報方式扣除，但每人每年扣除數額以不超過新台幣 兩萬四千元為限。"], "explanation": ""}, {"num": "249", "chapter": "第三章", "answer": 4, "question": "有關民法各順位繼承人之特留分之敘述，何者錯誤？", "options": ["配偶的特留分是應繼分的二分之一", "祖父母的特留分是應繼分的三分之一", "父母的特留分是應繼分的二分之一", "兄弟姊妹的特留 分是應繼分的二分之一。"], "explanation": "(4)兄弟姊妹的特留分為應繼分的三分之一。"}, {"num": "251", "chapter": "第三章", "answer": 4, "question": "有關贈與稅，何者陳述錯誤？", "options": ["納稅義務人為贈與人", "免稅額之計算係指一年之贈與", "一年 如有二次以上之贈與，不得分別計算", "免稅額為123萬元。"], "explanation": "(4)免稅額：贈與他人每年免稅額為244萬元。"}, {"num": "256", "chapter": "第三章", "answer": 4, "question": "依遺產及贈與稅法第12-1條規定，被繼承人僅遺有配偶及成年子女1名，該遺產扣除額合計為", "options": ["450", "440", "500", "609 萬元。 配偶扣除額：553萬；直系血親卑親屬扣除額：56萬。 合計609萬元。"], "explanation": ""}, {"num": "259", "chapter": "第三章", "answer": 3, "question": "甲僅遺有子女乙與丙，甲死後遺留財產五百萬元，甲於遺囑中表示將其遺產60%全數捐給慈善 機構，僅留40%由乙、丙平均分配，則依民法規定乙可繼承多少金額？", "options": ["100萬元", "250萬元", "125萬元", "500萬元。 子女之應繼分為遺產之1/2，特留分為應繼分之1/2，故子女一人可繼承125萬 元。"], "explanation": ""}, {"num": "263", "chapter": "第三章", "answer": 3, "question": "死亡保險金一千萬且未指定身故受益人，被保險人遺有配偶、子女兩名和父母，則被保險人之 父親可分配到", "options": ["200萬", "500萬", "0萬", "125萬　元。 在繼承開始時有當然繼承人"], "explanation": "(配偶)得與第一順位繼承人同為繼承人，故父母無法 分得遺產。"}, {"num": "264", "chapter": "第三章", "answer": 1, "question": "張三(被繼承人)育有4子，其長子較張三早死，當張三死亡可由其孫A、B代位其父繼承對張三 之應繼分。如張三遺留保險金1000萬元，則其孫各可代位繼承", "options": ["125萬", "250萬", "300萬", "100萬。 張三之遺留保險金1000萬分給四個孩子"], "explanation": "(1人250萬)，而長子早死，其子A.B可 代位繼承長子分得之財產，各可得125萬元。"}, {"num": "273", "chapter": "第四章", "answer": 4, "question": "有關金融服務業公平待客原則，何者正確？", "options": ["公司對商品銷售獎勵核給，在酬金與業績衡平原 則下應注意僅以業績目標達成做為計算基礎", "公司應於業務員一賣出商品就發給高額酬金以符 合酬金與業績衡平原則", "公司應該將該原則納入教育訓練課程每年至少2小時，業務員未完成 該訓練應辦理撤銷登錄", "該原則共9大指標，並增訂第10項董事會重視情況。"], "explanation": "(1)公司對商品銷售獎勵核給，在酬金與業績衡平原則下不應僅以業績目標達成 做為計算基礎(2)公司不應於業務員一賣出商品就發給高額酬金，而應將業務員 所涉稽核缺失、客戶紛爭、KYC等非財務指標納入考量(3)公司應該將該原則納 入教育訓練課程每年至少3小時，業務員未完成該訓練應辦理撤銷登錄。"}, {"num": "305", "chapter": "第四章", "answer": 1, "question": "下列之金融機構何者適用洗錢防制法？A證券商；B保險公司；C信用卡公司；D郵政機構", "options": ["ABCD", "AB", "BD", "BCD。 洗錢防制法金融機構包括：銀行、信用合作社、辦理儲金匯兌之郵政機構、票 券金融公司、信用卡公司及信託業、證券商、證券投資信託事業、證券金融事 業、證券投資顧問事業、證券集中保管事業、期貨商、保險公司、專業再保險 公司及辦理簡易人壽保險業務之郵政機構、電子票證發行機構、電子支付機 構、槓桿交易商、期貨信託事業、期貨經理事業，以及保險代理人公司、保險 經紀人公司及個人執業之保險代理人、保險經紀人。"], "explanation": ""}, {"num": "307", "chapter": "第四章", "answer": 1, "question": "依金消法規定，金融服務業包括 A期貨業；B保險業；C證券交易所；D證券集中保管事業", "options": ["AB", "ABCD", "BCD", "ABC。 金融服務業包括：銀行業、證券業、期貨業、保險業、電子支付業及其他經主 管機關公告之金融服務業；但不包括證交所、櫃買中心、集保事業、期交所及 其他經主管機關公告之事業等。"], "explanation": ""}, {"num": "343", "chapter": "第五章", "answer": 1, "question": "業務員因離職、轉任而異動時，所屬公司應向壽險公會申報", "options": ["註銷登錄", "停止招攬登錄", "變 更登錄", "撤銷登錄。 業務員因離職、轉任而異動時，所屬公司應向壽險公會申報註銷登錄。"], "explanation": ""}, {"num": "346", "chapter": "第五章", "answer": 1, "question": "申請登錄之業務員若曾受偽造文書、侵占、詐欺、背信等徒刑處分執行完畢或經赦免未滿", "options": ["三 年", "二年", "五年", "一年   者，不得申請登錄為業務員。 徒刑處分完畢、緩刑期滿或經赦免後未滿三年；組織犯罪五年。 371 附錄 3 保險業務員管理規則係由主管機關依保險法第177條訂定，並於民國"], "explanation": "(1)81年10月15日(2)80年 4月15日(3)82年4月15日(4)83年10月15日 起實施，自此保險業務員邁入一個新的里程碑。 保險業務員管理規則係由主管機關依保險法第177條訂定，民國81年10月15日 發布「保險業務員管理規則」，並於民國82年4月15日起實施。 385 附錄 1 下列何者不是團體保險條款規定被保險人請領失能保險金應檢具之文件(1)被保險人印鑑證明書 (2)保險金申請書(3)受益人身分證明(4)失能診斷書。 受益人申領失能保險金，應檢具下列文件：保險金申請書、受益人之身分證 件、失能診斷書，但必要時本公司得要求提供意外傷害事故證明文件。 389 附錄 4 我國保險法規定，保險業於完納一切稅捐後，分派盈餘時，應先提存多少為法定盈餘公積？ (1)5%(2)10%(3)15%(4)20% ，但法定盈餘公積已達其資本總額或基金總額時，不在此限。 保險業於完納一切稅捐後，分派盈餘時，應先提百分之二十為法定盈餘公積。"}];
 
-function init() {
-  document.getElementById('totalQ').textContent = QUESTIONS.length;
+let mode = 'quiz';      // 'quiz' | 'review'
+let queue = [];         // 當前題目清單
+let cur = 0;
+let answered = 0, correctCnt = 0;
+let wrongIdxList = [];  // ALL_QUESTIONS 的索引
+let reviewQueue = [];   // 錯題索引清單（練習時用）
+let reviewAnswered = 0, reviewCorrect = 0;
+
+function startQuiz() {
+  mode = 'quiz';
+  queue = ALL_QUESTIONS;
+  cur = 0; answered = 0; correctCnt = 0; wrongIdxList = [];
+  document.getElementById('modeBadge').textContent = '📝 測驗模式';
+  document.getElementById('totalQ').textContent = queue.length;
+  document.getElementById('doneQ').textContent = 0;
+  document.getElementById('correctQ').textContent = 0;
+  document.getElementById('wrongQ').textContent = 0;
+  document.getElementById('resultCard').classList.remove('show');
   render(0);
 }
 
-function render(idx) {
-  const container = document.getElementById('quizContainer');
-  container.innerHTML = '';
+function startReview() {
+  mode = 'review';
+  reviewQueue = wrongIdxList.slice();
+  cur = 0; reviewAnswered = 0; reviewCorrect = 0;
+  document.getElementById('modeBadge').textContent = '🔁 錯題練習';
+  document.getElementById('totalQ').textContent = reviewQueue.length;
+  document.getElementById('doneQ').textContent = 0;
+  document.getElementById('correctQ').textContent = 0;
+  document.getElementById('wrongQ').textContent = 0;
   document.getElementById('resultCard').classList.remove('show');
-  
-  const q = QUESTIONS[idx];
+  renderReview(0);
+}
+
+function getQ() {
+  if (mode === 'quiz') return queue[cur];
+  return ALL_QUESTIONS[reviewQueue[cur]];
+}
+
+function render(idx) {
+  document.getElementById('resultCard').classList.remove('show');
+  const container = document.getElementById('quizContainer');
+  const q = queue[idx];
   const labels = ['(1)', '(2)', '(3)', '(4)'];
-  
-  const card = document.createElement('div');
-  card.className = 'q-card active';
-  card.id = 'qcard';
-  
-  const optHtml = q.options.map((o, i) => 
-    `<div class="opt" id="opt-${i}" onclick="choose(${i+1}, ${q.answer})">
+  container.innerHTML = buildCard(q, labels, false);
+  updateProgress(idx, queue.length, answered);
+}
+
+function renderReview(idx) {
+  document.getElementById('resultCard').classList.remove('show');
+  const container = document.getElementById('quizContainer');
+  const q = ALL_QUESTIONS[reviewQueue[idx]];
+  const labels = ['(1)', '(2)', '(3)', '(4)'];
+  container.innerHTML = buildCard(q, labels, false);
+  updateProgress(idx, reviewQueue.length, reviewAnswered);
+}
+
+function buildCard(q, labels, showExplain) {
+  const optHtml = q.options.map((o, i) =>
+    `<div class="opt" id="opt-${i}" onclick="choose(${i+1})">
       <span class="opt-label">${labels[i]}</span>
       <span>${o || '（選項）'}</span>
     </div>`
   ).join('');
-  
-  card.innerHTML = `
+  return `<div class="q-card active" id="qcard">
     <div class="q-meta">
       <span class="q-badge qb-num">題 ${q.num}</span>
       <span class="q-badge qb-ch">${q.chapter}</span>
+      ${mode==='review' ? '<span class="q-badge" style="background:#fef3c7;color:#92400e;">🔁 錯題練習</span>' : ''}
     </div>
     <div class="q-text">${q.question}</div>
     <div class="opts" id="opts">${optHtml}</div>
-    <div class="explain-box" id="explain">${q.explanation || '詳解見上方題目說明'}</div>
-    <div class="btn-row" id="btnRow">
-      ${idx > 0 ? '<button class="btn btn-secondary" onclick="prevQ()">← 上一題</button>' : ''}
-    </div>
-  `;
-  container.appendChild(card);
-  updateProgress();
+    <div class="explain-box${showExplain?' show':''}" id="explain">${q.explanation || '詳解見題目說明'}</div>
+    <div class="btn-row" id="btnRow"></div>
+  </div>`;
 }
 
-function choose(selected, correct) {
-  const opts = document.querySelectorAll('.opt');
-  opts.forEach(o => o.classList.add('disabled'));
-  
-  const selOpt = document.getElementById('opt-' + (selected-1));
-  const corrOpt = document.getElementById('opt-' + (correct-1));
-  
-  if (selected === correct) {
-    selOpt.classList.add('correct');
-    correct_count();
-  } else {
-    selOpt.classList.add('wrong');
-    corrOpt.classList.add('show-correct');
-    wrongNums.push(QUESTIONS[current].num);
+function choose(selected) {
+  const q = getQ();
+  const correct = q.answer;
+  document.querySelectorAll('.opt').forEach(o => o.classList.add('disabled'));
+  document.getElementById('opt-'+(selected-1)).classList.add(selected===correct ? 'correct' : 'wrong');
+  if (selected !== correct) document.getElementById('opt-'+(correct-1)).classList.add('show-correct');
+
+  // 詳解：只在錯題練習模式顯示
+  if (mode === 'review') {
+    document.getElementById('explain').classList.add('show');
   }
-  
-  document.getElementById('explain').classList.add('show');
-  
+
+  const isCorrect = selected === correct;
   const btnRow = document.getElementById('btnRow');
-  const nextBtn = document.createElement('button');
-  nextBtn.className = 'btn btn-primary';
-  nextBtn.textContent = current < QUESTIONS.length - 1 ? '下一題 →' : '查看成績 🏆';
-  nextBtn.onclick = nextQ;
-  btnRow.appendChild(nextBtn);
-  
-  answered++;
-  document.getElementById('doneQ').textContent = answered;
-  updateProgress();
-}
 
-function correct_count() { correct++; document.getElementById('correctQ').textContent = correct; }
-
-function nextQ() {
-  if (current < QUESTIONS.length - 1) {
-    current++;
-    render(current);
+  if (mode === 'quiz') {
+    answered++;
+    if (isCorrect) correctCnt++;
+    else wrongIdxList.push(cur);
+    document.getElementById('doneQ').textContent = answered;
+    document.getElementById('correctQ').textContent = correctCnt;
+    document.getElementById('wrongQ').textContent = wrongIdxList.length;
+    updateProgress(cur, queue.length, answered);
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'btn btn-primary';
+    nextBtn.textContent = cur < queue.length-1 ? '下一題 →' : '查看成績 🏆';
+    nextBtn.onclick = () => { cur < queue.length-1 ? (cur++, render(cur)) : showResult(); };
+    btnRow.appendChild(nextBtn);
   } else {
-    showResult();
+    reviewAnswered++;
+    if (isCorrect) reviewCorrect++;
+    document.getElementById('doneQ').textContent = reviewAnswered;
+    document.getElementById('correctQ').textContent = reviewCorrect;
+    document.getElementById('wrongQ').textContent = reviewAnswered - reviewCorrect;
+    updateProgress(cur, reviewQueue.length, reviewAnswered);
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'btn btn-primary';
+    nextBtn.textContent = cur < reviewQueue.length-1 ? '下一題 →' : '查看成績 🏆';
+    nextBtn.onclick = () => { cur < reviewQueue.length-1 ? (cur++, renderReview(cur)) : showReviewResult(); };
+    btnRow.appendChild(nextBtn);
   }
 }
 
-function prevQ() {
-  if (current > 0) { current--; render(current); }
-}
-
-function updateProgress() {
-  const pct = Math.round((answered / QUESTIONS.length) * 100);
+function updateProgress(idx, total, done) {
+  const pct = Math.round((done / total) * 100);
   document.getElementById('progFill').style.width = pct + '%';
-  document.getElementById('progText').textContent = `第 ${current+1} / ${QUESTIONS.length} 題 | 完成 ${pct}%`;
+  document.getElementById('progText').textContent = `第 ${idx+1} / ${total} 題　已完成 ${pct}%`;
 }
 
 function showResult() {
   document.getElementById('quizContainer').innerHTML = '';
   const card = document.getElementById('resultCard');
-  card.classList.add('show');
-  const pct = Math.round((correct / QUESTIONS.length) * 100);
-  document.getElementById('resultScore').textContent = pct + '%';
-  let label, msg;
-  if (pct >= 90) { label = '🏆 優秀！'; msg = '準備充分，考試加油！'; }
-  else if (pct >= 70) { label = '👍 良好'; msg = '再複習錯題，就能更穩！'; }
-  else if (pct >= 50) { label = '📚 需加強'; msg = '重點複習錯題，提升正確率'; }
-  else { label = '💪 繼續努力'; msg = '建議先複習必背重點再來測驗'; }
-  document.getElementById('resultLabel').textContent = label;
-  document.getElementById('resultMsg').textContent = `答對 ${correct} / ${QUESTIONS.length} 題（${msg}）`;
-  
-  if (wrongNums.length > 0) {
-    const wl = document.getElementById('wrongList');
-    wl.innerHTML = `<div class="wl-title">❌ 答錯的題目（題號）</div>` +
-      wrongNums.map(n => `<div class="wl-item">題號 ${n}</div>`).join('');
+  const pct = Math.round((correctCnt / queue.length) * 100);
+  let emoji, label, msg;
+  if(pct>=90){emoji='🏆';label='優秀！';msg='準備充分，考場加油！';}
+  else if(pct>=70){emoji='👍';label='良好';msg='再加強錯題就能更穩！';}
+  else if(pct>=50){emoji='📚';label='需加強';msg='建議重點複習錯題';}
+  else{emoji='💪';label='繼續努力';msg='先複習必背重點再來測驗';}
+
+  let wrongHtml = '';
+  if(wrongIdxList.length > 0) {
+    const items = wrongIdxList.map(i => {
+      const q = queue[i];
+      const corrOpt = q.options[q.answer-1] || '';
+      return `<div class="wrong-item">
+        <div class="wi-num">題 ${q.num} · ${q.chapter}</div>
+        <div class="wi-q">${q.question.substring(0,80)}${q.question.length>80?'…':''}</div>
+        <div class="wi-ans">✅ 正確答案：(${q.answer}) ${corrOpt.substring(0,40)}</div>
+      </div>`;
+    }).join('');
+    wrongHtml = `<div class="wrong-section">
+      <div class="wrong-title">❌ 答錯 ${wrongIdxList.length} 題</div>
+      ${items}
+    </div>`;
   }
+
+  card.innerHTML = `
+    <div class="result-score">${pct}%</div>
+    <div class="result-label">${emoji} ${label}</div>
+    <div class="result-sub">答對 ${correctCnt} / ${queue.length} 題 · ${msg}</div>
+    <div class="result-btns">
+      <button class="btn btn-secondary" onclick="startQuiz()">🔄 重新測驗</button>
+      ${wrongIdxList.length > 0 ? `<button class="btn btn-primary" onclick="startReview()">🔁 練習錯題（${wrongIdxList.length}題）</button>` : ''}
+    </div>
+    ${wrongHtml}
+  `;
+  card.classList.add('show');
 }
 
-function restart() {
-  current = 0; answered = 0; correct = 0; wrongNums = [];
-  document.getElementById('doneQ').textContent = 0;
-  document.getElementById('correctQ').textContent = 0;
-  document.getElementById('resultCard').classList.remove('show');
-  render(0);
+function showReviewResult() {
+  document.getElementById('quizContainer').innerHTML = '';
+  const card = document.getElementById('resultCard');
+  const pct = Math.round((reviewCorrect / reviewQueue.length) * 100);
+  let emoji, label;
+  if(pct>=90){emoji='🏆';label='全部搞懂了！';}
+  else if(pct>=70){emoji='👍';label='大部分掌握了';}
+  else{emoji='📚';label='再練一次吧';}
+
+  card.innerHTML = `
+    <div class="result-score">${pct}%</div>
+    <div class="result-label">${emoji} ${label}</div>
+    <div class="result-sub">錯題練習：答對 ${reviewCorrect} / ${reviewQueue.length} 題</div>
+    <div class="result-btns">
+      <button class="btn btn-secondary" onclick="startQuiz()">🔄 重頭測驗</button>
+      <button class="btn btn-primary" onclick="startReview()">🔁 再練一次錯題</button>
+    </div>
+  `;
+  card.classList.add('show');
 }
 
-init();
+startQuiz();
 </script>
 </body>
 </html>

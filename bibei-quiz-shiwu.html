@@ -8,203 +8,283 @@
 :root{--p:#e53e3e;--s:#dd6b20;--bg:#f8f9fc;--card:#fff;--border:#e2e8f0;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:#2d3748;}
-.hero{background:linear-gradient(135deg,#e53e3e,#dd6b20);color:#fff;padding:36px 20px 48px;text-align:center;}
-.hero h1{font-size:1.6rem;font-weight:900;margin-bottom:6px;}
-.hero p{opacity:.85;font-size:.85rem;}
-.stats{display:flex;justify-content:center;gap:14px;margin-top:16px;flex-wrap:wrap;}
-.stat{background:rgba(255,255,255,.18);border-radius:8px;padding:8px 18px;text-align:center;}
-.stat-n{font-size:1.3rem;font-weight:900;}
-.stat-l{font-size:.7rem;opacity:.8;}
-.prog-wrap{background:#fff;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#e53e3e,#dd6b20);color:#fff;padding:32px 20px 44px;text-align:center;}
+.hero h1{font-size:1.5rem;font-weight:900;margin-bottom:4px;}
+.hero p{opacity:.82;font-size:.83rem;}
+.mode-badge{display:inline-block;background:rgba(255,255,255,.22);border-radius:999px;padding:3px 12px;font-size:.74rem;font-weight:700;margin-bottom:10px;}
+.stats{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap;}
+.stat{background:rgba(255,255,255,.18);border-radius:8px;padding:8px 16px;text-align:center;}
+.stat-n{font-size:1.2rem;font-weight:900;}
+.stat-l{font-size:.68rem;opacity:.78;}
+
+/* Progress */
+.prog-wrap{background:#fff;padding:12px 16px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
 .prog-inner{max-width:680px;margin:0 auto;}
-.prog-bar{height:6px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-bottom:8px;}
-.prog-fill{height:100%;background:linear-gradient(90deg,#e53e3e,#dd6b20);border-radius:999px;transition:.3s;width:0%}
-.prog-text{font-size:.78rem;color:#718096;text-align:center;}
-.wrap{max-width:680px;margin:0 auto;padding:24px 16px 60px;}
-.q-card{background:var(--card);border-radius:16px;padding:22px;box-shadow:0 2px 16px rgba(0,0,0,.07);border:1.5px solid var(--border);margin-bottom:20px;display:none;}
-.q-card.active{display:block;animation:fadeIn .3s;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.q-meta{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.prog-bar{height:5px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-bottom:6px;}
+.prog-fill{height:100%;background:linear-gradient(90deg,#e53e3e,#dd6b20);border-radius:999px;transition:.3s;width:0%;}
+.prog-text{font-size:.76rem;color:#718096;text-align:center;}
+
+/* Main */
+.wrap{max-width:680px;margin:0 auto;padding:22px 16px 60px;}
+.q-card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 2px 16px rgba(0,0,0,.07);border:1.5px solid var(--border);margin-bottom:20px;display:none;}
+.q-card.active{display:block;animation:fadeIn .25s;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.q-meta{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;}
 .q-badge{padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:700;}
 .qb-num{background:var(--p);color:#fff;}
 .qb-ch{background:#edf2f7;color:#4a5568;}
-.q-text{font-size:.93rem;font-weight:500;line-height:1.8;margin-bottom:18px;color:#1a202c;}
-.opts{display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}
-.opt{padding:12px 16px;border-radius:10px;border:2px solid var(--border);cursor:pointer;font-size:.88rem;transition:.2s;background:#fafbfc;display:flex;gap:10px;align-items:flex-start;}
-.opt:hover:not(.disabled){border-color:var(--p);background:rgba(229,62,62,.05);}
+.q-text{font-size:.92rem;font-weight:500;line-height:1.85;margin-bottom:16px;color:#1a202c;}
+.opts{display:flex;flex-direction:column;gap:9px;margin-bottom:16px;}
+.opt{padding:11px 15px;border-radius:10px;border:2px solid var(--border);cursor:pointer;font-size:.87rem;transition:.15s;background:#fafbfc;display:flex;gap:10px;align-items:flex-start;user-select:none;}
+.opt:hover:not(.disabled){border-color:var(--p);background:rgba(0,0,0,.02);}
 .opt.correct{background:#f0fff4;border-color:#48bb78;color:#276749;}
 .opt.wrong{background:#fff5f5;border-color:#fc8181;color:#c53030;}
 .opt.show-correct{background:#f0fff4;border-color:#48bb78;color:#276749;}
 .opt.disabled{cursor:default;}
-.opt-label{font-weight:900;flex-shrink:0;}
-.explain-box{background:#f7fafc;border-radius:10px;padding:14px 16px;font-size:.83rem;line-height:1.7;color:#4a5568;border-left:4px solid var(--p);display:none;margin-bottom:14px;}
+.opt-label{font-weight:900;flex-shrink:0;min-width:24px;}
+
+/* 詳解：僅錯題練習模式顯示 */
+.explain-box{background:#f7fafc;border-radius:10px;padding:13px 16px;font-size:.82rem;line-height:1.7;color:#4a5568;border-left:4px solid var(--p);display:none;margin-bottom:14px;}
 .explain-box.show{display:block;}
-.btn-row{display:flex;gap:10px;flex-wrap:wrap;}
-.btn{padding:11px 22px;border-radius:10px;font-weight:700;font-size:.86rem;cursor:pointer;border:none;font-family:'Noto Sans TC',sans-serif;transition:.2s;}
-.btn-primary{background:var(--p);color:#fff;}
-.btn-primary:hover{opacity:.85;}
-.btn-secondary{background:#edf2f7;color:#4a5568;}
-.result-card{background:var(--card);border-radius:16px;padding:32px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.07);display:none;}
-.result-card.show{display:block;}
-.result-score{font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,#e53e3e,#dd6b20);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.result-label{font-size:1.1rem;font-weight:700;margin:8px 0 16px;}
-.result-msg{font-size:.9rem;color:#718096;margin-bottom:24px;}
-.wrong-list{text-align:left;}
-.wl-title{font-weight:900;margin-bottom:10px;color:#c53030;}
-.wl-item{background:#fff5f5;border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:.82rem;border-left:3px solid #fc8181;}
+
+.btn-row{display:flex;gap:9px;flex-wrap:wrap;}
+.btn{padding:10px 20px;border-radius:10px;font-weight:700;font-size:.84rem;cursor:pointer;border:none;font-family:'Noto Sans TC',sans-serif;transition:.2s;}
+.btn-primary{background:var(--p);color:#fff;} .btn-primary:hover{opacity:.85;}
+.btn-secondary{background:#edf2f7;color:#4a5568;} .btn-secondary:hover{background:#e2e8f0;}
+
+/* Result */
+.result-card{background:var(--card);border-radius:16px;padding:28px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.07);display:none;}
+.result-card.show{display:block;animation:fadeIn .3s;}
+.result-score{font-size:3.2rem;font-weight:900;background:linear-gradient(135deg,#e53e3e,#dd6b20);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.result-label{font-size:1.05rem;font-weight:700;margin:6px 0 10px;}
+.result-sub{font-size:.85rem;color:#718096;margin-bottom:20px;}
+.result-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:22px;}
+.wrong-section{text-align:left;border-top:2px solid var(--border);padding-top:16px;}
+.wrong-title{font-weight:900;font-size:.9rem;color:#c53030;margin-bottom:10px;}
+.wrong-item{background:#fff5f5;border-radius:9px;padding:10px 14px;margin-bottom:8px;border-left:3px solid #fc8181;}
+.wi-num{font-size:.72rem;font-weight:900;color:#c53030;margin-bottom:3px;}
+.wi-q{font-size:.82rem;color:#2d3748;line-height:1.5;}
+.wi-ans{font-size:.76rem;color:#718096;margin-top:4px;}
+
+/* 正確提示 icon */
+.ans-icon{font-size:1.1rem;margin-right:4px;}
 </style>
 </head>
 <body>
 <div class="hero">
+  <div class="mode-badge" id="modeBadge">📝 測驗模式</div>
   <h1>📕 保險實務 必考試題</h1>
-  <p>高頻命中精選題目——考場搶分，一舉上榜</p>
+  <p>高頻命中，考場搶分，最後衝刺，一舉上榜</p>
   <div class="stats">
     <div class="stat"><div class="stat-n" id="totalQ">-</div><div class="stat-l">總題數</div></div>
-    <div class="stat"><div class="stat-n" id="doneQ">0</div><div class="stat-l">已作答</div></div>
+    <div class="stat"><div class="stat-n" id="doneQ">0</div><div class="stat-l">已答</div></div>
     <div class="stat"><div class="stat-n" id="correctQ">0</div><div class="stat-l">答對</div></div>
+    <div class="stat"><div class="stat-n" id="wrongQ">0</div><div class="stat-l">答錯</div></div>
   </div>
 </div>
 <div class="prog-wrap">
   <div class="prog-inner">
     <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
-    <div class="prog-text" id="progText">尚未開始</div>
+    <div class="prog-text" id="progText">準備開始</div>
   </div>
 </div>
 <div class="wrap">
   <div id="quizContainer"></div>
-  <div class="result-card" id="resultCard">
-    <div class="result-score" id="resultScore"></div>
-    <div class="result-label" id="resultLabel"></div>
-    <div class="result-msg" id="resultMsg"></div>
-    <button class="btn btn-primary" onclick="restart()" style="margin-bottom:16px;">🔄 重新測驗</button>
-    <div class="wrong-list" id="wrongList"></div>
-  </div>
+  <div class="result-card" id="resultCard"></div>
 </div>
 <script>
-const QUESTIONS = [{"num": "2", "chapter": "第一章", "answer": 3, "question": "關於風險管理之方法，下列敘述何者為錯誤?", "options": ["避免是一種簡單經濟又安全的風險管理方法", "投保保險 屬於風險移轉方法", "高血壓患者注意飲食，食物少鹽、少油，屬預防方法", "保險金額規劃不足，使得損 失無法得到充分的補償，屬於風險自留 當「避免」丶「預防」等措施皆不能發揮功能，而不幸『事故依然發生』時，在 處理上應力求減輕損失發生的程度，亦即對損失加以「抑制」。"], "explanation": ""}, {"num": "3", "chapter": "第一章", "answer": 1, "question": "風險頻率和幅度的定義？A損失頻率：指的是在一定期間內，一危險單位發生一特定危險事故之次；B損 失幅度：係指某一特定期間內，每一次損失事故之平均損失金額，也可稱之為損失額度；C損失頻率： 係指某一特定期間內，每一次損失事故之平均損失金額，也可稱之為損失額度；D損失幅度：指的是在 一定期間內，一危險單位發生一特定危險事故之次數", "options": ["AB", "CD", "ABCD", "BC 損失頻率：指的是在一定期間內，一危險單位發生一特定危險事故之次數。 損失幅度：係指某一特定期間內，每一次損失事故之平均損失金額，也可稱之為 損失額度。"], "explanation": ""}, {"num": "7", "chapter": "第一章", "answer": 2, "question": "事故發生時波及範圍大，影響整個大環境且較難以控制的風險為", "options": ["常屬純粹風險", "基本風險", "特定 風險", "僅第 1、3 選項為是 事故發生時波及範圍大，較難控制的風險為基本風險。"], "explanation": ""}, {"num": "9", "chapter": "第一章", "answer": 3, "question": "首先根據生命表計算合理的保險費，促使現代人壽保險制度的建立始於何時？", "options": ["中世紀歐洲的基爾特組 織", "法國相互救濟會", "英國衡平保險社", "德國救濟金庫 首先根據生命表計算合理保險費，促使現代人壽保險制度建立的為英國衡平保險 社。"], "explanation": ""}, {"num": "11", "chapter": "第一章", "answer": 3, "question": "有關風險管理的方法，何者為非？", "options": ["事故發生前最簡單、經濟且又安全的風險管理方法是避免", "事故發 生前先購買保險、做好風險控管，屬風險管理方法的移轉", "高血壓的人不要吃太油膩的食物，屬事故發 生前風險管理方法的預防", "有購買保險但投保的保險金額不足造成自己保留了必須承擔的風險，屬風險 管理方法的自留。"], "explanation": "(3)高血壓的人不要吃太油膩的食物，屬事故發生中風險管理方法的抑制。"}, {"num": "13", "chapter": "第一章", "answer": 4, "question": "下列何者非屬特定風險之特性？", "options": ["不含投機風險", "僅影響特定之人", "處理方式以保險為主", "通常與經 濟、政治、社會、及天然災害有關。 特定風險：指波及範圍小"], "explanation": "(只影響個人)、較易控制的風險 。 基本風險：指波及範圍大、較難控制的風險。"}, {"num": "17", "chapter": "第一章", "answer": 3, "question": "某團體員工年平均死亡率為0.326%，若死亡事故發生時，雇主預期需支付每一位員工一百萬元的撫恤金 ，何者正確？A 雇主預測損失成本係應用主觀風險的觀念；B 0.326%即損失幅度的預期值；C 一百萬元 即損失頻率的預期值；D 每位員工損失成本為3260元", "options": ["BCD", "BC", "D", "ABCD。 A客觀風險；B0.326%損失頻率；C100萬為損失幅度。"], "explanation": ""}, {"num": "18", "chapter": "第一章", "answer": 1, "question": "阿華將其最近購買的一棟房子投保財產保險後，就疏忽房子之維護與管理，這種風險因素係屬於", "options": ["心理 風險", "實質風險", "有形風險", "道德風險。 因個人的不小心、冷漠、缺乏注意力，而增加風險發生的機會，稱之為心理風險"], "explanation": "(無形風險)。"}, {"num": "21", "chapter": "第一章", "answer": 1, "question": "人身風險事故發生時可能導致A遺族生活費用增加；B老年退休費用減少；C醫療費用增加；D收入減少", "options": ["ACD", "ABCD", "ABC", "BCD。 B老年退休費用會增加，因可能需失能或疾病導致需增添無障礙設施，故退休費用 會增加。"], "explanation": ""}, {"num": "35", "chapter": "第二章", "answer": 1, "question": "人身保險對國家有哪些功能？A透過再保、拓展外交；B互助共濟、社會安寧；C健全經營、整合金融； D形成資本、以增國富", "options": ["ACD", "ABCD", "BCD", "ABC。 人身保險對國家有以下功能 形成資本、以增國富 穩定經濟，安定政治 透過再保、拓展外交 健全經營、整合金融。"], "explanation": ""}, {"num": "36", "chapter": "第二章", "answer": 2, "question": "人身保險對個人的功能有那些？A安定就業、穩定發展；B享受優惠、稅捐減免；C保險理財，一舉兩 得；D鼓勵儲蓄，平均財富", "options": ["BCD", "ABC", "ACD", "ABCD。 人身保險對個人的功能： 後故無憂，晚景可恃 安定就業，穩定發展 保證信用，有利投資 享受優惠、稅捐減免 保險理財，一舉兩得 D是對社會的功能"], "explanation": ""}, {"num": "39", "chapter": "第三章", "answer": 2, "question": "家庭模式改變，夫妻皆有所得的家庭持續增加，婦女在家庭經濟上掌握更多權力，婦女壽險市場", "options": ["躍居 主導地位", "逐漸受到重視", "無多大改變", "日漸式微 家庭模式改變，夫妻皆有所得的家庭持續增加，婦女在家庭經濟上掌握更多權力 ，婦女壽險市場逐漸受到重視。"], "explanation": ""}, {"num": "46", "chapter": "第三章", "answer": 4, "question": "A小額終老保險；B無保單價值準備金之人身保險；C進入年金給付期間且約定採分期給付的遞延年金保 險；D即期年金保險", "options": ["ACD", "ABD", "AD", "ABCD 符合主管機關對於保障型及高齡化保險商品之定義。 保障型及高齡化保險商品的認定標準共有四大類，包括即期年金保險、進入年金 給付期間且約定採分期給付的遞延年金保險、小額終老保險、無保單價值準備金 之人身保險、其他具保單價值準備金之非投資型人壽保險"], "explanation": "(不含萬能人壽保險)與投 保年齡在55歲以下之投資型人壽保險(乙型)。"}, {"num": "47", "chapter": "第三章", "answer": 1, "question": "有關金融科技創新及大數據應用何者正確？A科技業者透過法律許可方式進行沙盒實驗不會受到既有法 律追訴；B為落實業務員親晤保戶取得其親簽要保文件，可透過保戶證件掃描搭配生物辨識判別其真實 身分；C透過數據分析協助保險公司統一將消費客群導向一致性業務模式；D結合科技可設計外溢效果之 保險商品，藉以改變要保人的生活作息", "options": ["AB", "CD", "ABCD", "ABD。 C透過數據分析協助保險公司細分消費客群導向更精準的業務模式；D結合科技可 設計外溢效果之保險商品，藉以改變被保險人的生活作息。"], "explanation": ""}, {"num": "58", "chapter": "第四章", "answer": 1, "question": "關於繳費期滿後解約金的敘述，何者正確?A躉繳解約金等於保單價值準備金；B分期繳費解約金等於保 單價值準備金；C躉繳解約金小於保單價值準備金；D分期繳費解約金小於保單價值準備金", "options": ["AB", "CD", "A", "C 自88年起簽發之人壽保險單，躉繳保險單："], "explanation": "(解約金)t＝(保單值準備金)t二、分期 繳費保險單：(一)繳費期間內： 1.當繳費年期(n)＜10者，(解約金)t＝(保單價值準備金)t×(0.85＋0.15×t／n) 2.當繳年期(n)≧10者，(1)當t＜10，（解約金)t＝(保單價值準備金)t×(0.85+0.15× t／10)(2)當t≧10，（解約金)t＝(保單價值準備金)t│(二)繳費期滿後：(解約金)t＝ (保單價值準備金)t"}, {"num": "59", "chapter": "第四章", "answer": 1, "question": "自民國88年起簽發之人壽保險單，有關解約金，下列何者敘述正確？A躉繳之解約金等於保單價值準備 金；B分期付款期滿期約金等於保單價值準備金；C躉繳解約金小於保單價值準備金；D分期付款期滿解 約金小於保單價值準備金", "options": ["AB", "CD", "AD", "BC 自民國八十八年起簽發之人壽保險單。 一、躉繳保險單:"], "explanation": "(解約金)t=(保單價值準備金)t 二、分期繳費保險單: (一)繳費期間內: 1.當繳費年期(n)<10者,(解約金)t=(保單價值準備金)tx(0.85+0.15xt/n) 2.當繳年期(n)>=10者, (1)當t<10,(解約金)t=(保單價值準備金)tx(0.85+0.15xt/10) (2)當t>=10,(解約金)t=(保單價值準備金)t (二)繳費期滿後:(解約金)t=(保單價值準備金)t"}, {"num": "66", "chapter": "第四章", "answer": 4, "question": "利率變動型年金乙型於給付期間，保戶可領取之年金金額與下列何者無關", "options": ["預定死亡率", "宣告利率", "預定利率", "預定附加費用率 乙型給付期的重要因素：預定死亡率、預定利率、宣告利率。宣告利率為第二年 的調整係數帶入的。"], "explanation": ""}, {"num": "71", "chapter": "第四章", "answer": 2, "question": "有關解約金敘述何者正確？A躉繳保單之解約金等於保單價值準備金；B分期繳費保單繳費期滿後之解約 金等於保單價值準備金；C躉繳保單之解約金小於保單價值準備金；D分期繳費保單繳費期滿後之解約金 小於保單價值準備金", "options": ["BC", "AB", "AD", "CD。 C躉繳保單之解約金等於保單價值準備金；D分期繳費保單繳費期滿後之解約金等 於保單價值準備金。"], "explanation": ""}, {"num": "72", "chapter": "第四章", "answer": 1, "question": "依生命表顯示30歲女性死亡率是千分之三，若有一千名30歲女性各投保2千萬一年期的死亡保險，則： A每位女性保費是由投保人比例負擔為每人6萬；B每人應收保費係依據收支相等原則來計算；C保險入應 支出的死亡保險金額總計為6千萬；D一年間死亡人數為6人", "options": ["ABC", "BC", "BD", "AC。 D死亡率會因性別、職業、健康狀況、體格有所影響，並非絕對人數。"], "explanation": ""}, {"num": "75", "chapter": "第四章", "answer": 3, "question": "首度將台灣壽險業經驗生命表區分為男、女性，並於民國78年6月奉准採用作為責任準備金提存標準的 是台灣壽險業", "options": ["第四回經驗生命表", "第五回經驗生命表", "第三回經驗生命表", "第二回經驗生命表 民國78年6月奉准採用作為責任準備金提存標準的是台灣壽險業第三回經驗生命 表。"], "explanation": ""}, {"num": "81", "chapter": "第四章", "answer": 3, "question": "1千名45歲的男人各投保1千萬元的死亡保險(保險期間1年)，生命表顯示45歲男人的死亡率是千分之4， 則每人的保險費是", "options": ["5千元", "5萬元", "4萬元", "4千元。 依收支相等原則，全體保戶保費總額=全體受益人的保險金額 保險金總額=1,000萬*"], "explanation": "(1,000人*0.004)=4,000萬 保戶每人保險費=4,000萬/1,000人=4萬"}, {"num": "91", "chapter": "第四章", "answer": 4, "question": "自民國94年1月1日起至101年6月30日銷售之傳統年金保險計算保險費之預定危險發生率，採用之年金 生命表以死亡率多少為基礎？", "options": ["80%~100%", "90%", "100%~120%", "由各公司依主管機關規定自行訂 定。 自民國94年1月1日起至101年6月30日銷售之傳統年金保險計算保險費之預定危險 發生率，是以年金生命表為基礎，由各公司自行決定。"], "explanation": ""}, {"num": "92", "chapter": "第四章", "answer": 1, "question": "死亡率之計算基礎為A年初之死亡人數；B年度內之死亡人數；C年初之生存人數；D年末之生存人數", "options": ["BC", "BD", "AC", "BCD。 死亡率計算公式為：年度內之死亡人數/年初之生存人數。"], "explanation": ""}, {"num": "97", "chapter": "第四章", "answer": 3, "question": "人身保險業自92年元月起銷售之人壽保險單，計算保險費率之生命表為", "options": ["臺灣壽險業第三回經驗生命表 死亡率百分之九十", "以調降保險費率至90%計之", "得自行決定", "臺灣壽險業第三回經驗生命表。 92/1/1 起銷售的人壽保險單，保險公司得自行決定使用第三回或第四回的生命表 計算保險費率。"], "explanation": ""}, {"num": "113", "chapter": "第五章", "answer": 2, "question": "關於傷害失能 11 級 79 項新增第 80 項，以下敘述何者正確？", "options": ["鼻未缺損，而鼻機能暫時遺存顯著障害 者", "鼻未缺損，而鼻機能永久遺存顯著障害者", "鼻有缺損，而鼻機能暫時遺存顯著障害者", "鼻有缺損 ，而鼻機能永久遺存顯著障害者 108年新增鼻末缺損、但鼻機能永久顯著障害者，屬第11級失能會理賠5%，該給 付標準自109年1月1日起增為第80項。"], "explanation": ""}, {"num": "121", "chapter": "第五章", "answer": 2, "question": "有關全民健康保險敘述何者正確？A保險事故包含疾病、傷害、生育；B以強制投保為原則；C主管機關 為中央健康保健署；D保險人為衛生福利部", "options": ["ABCD", "AB", "ABD", "B。 C主觀機關為衛生福利部、D保險人為衛生福利部中央健康保險署。 訓練 講義 p.82 第五章 4 下列何者為公務人員保險在全民健康保險實施後不給付項目"], "explanation": "(1)殘廢(2)死亡(3)養老(4)疾病 自民國84/3/1起因實施全民健康保險，全民健保中公務員保險項目中的生育、疾 病、傷害等給付於民國84/3/1在全民健康保險開辦後已予終止，並由全民健保辦 理該項業務。"}, {"num": "122", "chapter": "第五章", "answer": 3, "question": "依國家發展委員會人口推估報告書之說明，何者有誤？", "options": ["我國已邁入高齡社會", "我國將進入超高齡社會", "仰賴人口係指0至14歲的人口", "青壯年人口係指15歲至64歲的人口。 仰賴人口為0-14歲及65歲以上人口合計"], "explanation": ""}, {"num": "123", "chapter": "第五章", "answer": 2, "question": "長期照顧保險之被保險人經專科醫師診斷後判定符合長期照顧狀態者給予保險給付，而長期照顧狀態係 指被保險人符合？", "options": ["持續6個月以上失智且依臨床失智量表評估達中度以上者", "依巴氏量表判定3個月內 有移位、如廁及沐浴等3項障礙者", "依臨床專業評量表診斷判定5個月內有進食及移位等2項障礙者", "以 上皆是。"], "explanation": "(1)不得高於6個月(3)要有3項障礙者以上"}, {"num": "131", "chapter": "第五章", "answer": 3, "question": "有關旅行平安保險何者正確？A醫療費用之給付包含日額型及實支實付型；B發生意外傷害醫療時，給付 最高以保險金額1/10為限；C屬於國際性保險，承保對象以實際從事旅遊的國內、國外旅客為限；D保險 期間原則上最長以180天為限，旅客如有需要經保險公司同意可延長", "options": ["BC", "ABD", "BCD", "ACD。 A醫療費用之給付以實支實付為限。"], "explanation": ""}, {"num": "133", "chapter": "第五章", "answer": 3, "question": "有關政府推動的長期照顧保險，何者錯誤？", "options": ["屬於一種福利政策且為基本保障，可考慮加保一般商業長 期照顧保險商品", "由政府、雇主及民眾共同負責保險費", "屬於強制性社會保險，保險人為衛生福利部", "目前提供的服務皆屬實物給付。 長期照顧保險保險人為中央健康保險署。"], "explanation": ""}, {"num": "134", "chapter": "第五章", "answer": 3, "question": "以下何者為微型保險所指之經濟弱勢或特定身分者？A依農民健康保險條例投保農民健康保險之被保險 人；B符合社會救助法規定低收入戶或中低收入戶之家庭成員；C符合身心障礙者權益保障法定義之身心 障礙者；D符合老人福利法規定領取中低收入老人生活津貼之老人", "options": ["ABC", "ABD", "ABCD", "BCD。 以上皆為微型保險所指之經濟弱勢或特定身分者。"], "explanation": ""}, {"num": "142", "chapter": "第五章", "answer": 4, "question": "現行長期照顧保險有關認知功能障礙之認定，何者正確？", "options": ["被保險人經專科醫師診斷判定該障礙為終身 無法治癒者，仍受限於免責期間的約定", "認知功能障礙常運用簡易智能測驗（MMSE）進行評估", "被保 險人依臨床失智量表（CDR）評估達嚴重程度以上者", "被保險人經專科醫師診斷判定達5個月以上仍為 持續失智狀態。"], "explanation": "(1)被保險人經專科醫師診斷辦定該障礙為終身無法治癒者，不受限於免責期間的 約定(2)認知功能障礙常運用簡易智能測驗（MMSE）進行評估-108年11月金管會 取消(3)被保險人依臨床失智量表（CDR）評估達中度程度以上者(4)被保險人經專 科醫師診斷判定達5個月以上仍為持續失智狀態-不得高於6個月。"}, {"num": "144", "chapter": "第五章", "answer": 3, "question": "勞工保險之普通事故保險費，被保險人應負擔之比率為", "options": ["0%", "30%", "20%", "10%。 勞工保險之普通事故保險費之被保險人負擔20%、雇主負擔70%、政府負擔 10%。"], "explanation": ""}, {"num": "153", "chapter": "第五章", "answer": 2, "question": "勞工保險之職業災害保險給付項目不包括A傷病及醫療；B失業及年老；C失能及死亡；D生育及避孕", "options": ["AB", "BD", "ABC", "AD。 勞工保險之職業災害保險給付項目為職災、傷病、失能、死亡。"], "explanation": ""}, {"num": "163", "chapter": "第五章", "answer": 4, "question": "利率變動型年金乙型在年金給付開始第一次，以當時何者換算年金金額。", "options": ["年齡", "年金生命表", "預定 利率", "以上皆是。 乙型給付期的重要因素：預定死亡率、預定利率、宣告利率。宣告利率為第二年 的調整係數帶入的，考題問第一次，所以答案為預定利率、預定死亡率。死亡率 在考題上可能為年金生命表、年紀、性別。"], "explanation": ""}, {"num": "164", "chapter": "第五章", "answer": 3, "question": "依國家發展委員會人口推估報告書之說明，下列何者有誤？", "options": ["我國自民國107年起邁入高齡社會", "預估 於民國114年將進入超高齡社會", "仰賴人口係指0至14歲的人口", "青壯年人口係指15歲至64歲的人口。"], "explanation": "(3)仰賴人口：0-14歲以及65歲以上人口。"}, {"num": "167", "chapter": "第五章", "answer": 3, "question": "長期照顧保險之被保險人經專科醫師診斷後依診斷書判定符合長期照顧狀態者，給予保險給付，所謂長 期照顧狀態係指被保險人經專科醫師診斷符合下列哪些情形者", "options": ["持續6個月以上失智並有分辨上障礙且 依臨床失智量表評估中等以上", "依臨床專業評量表診斷判定5個月內有進食及移位障礙", "依巴氏量表判 定3個月內有移位、如廁及沐浴等3項障礙", "以上皆是。 所謂長期照顧狀態係指被保險人經專科醫師診斷符合下列二項情形之一者，1.生理 功能障礙：指被保險人經專科醫師依巴氏量表診斷判定不得高於6個月以上，其進 食、移位、如廁、沐浴、平地行動及更衣等六項日常生活自理能力持續存有3項以 上障礙。2.認知功能障礙：指被保險人經專科醫師依巴氏量表診斷判定不得高於6 個月以上，仍維持續失智狀態，並有時間、場所及人物三項分辨障礙之2項分辨障 礙"], "explanation": ""}, {"num": "170", "chapter": "第五章", "answer": 2, "question": "所謂團體一年定期壽險之「平均保險費率」是依A被保險團體的危險程度；B每一被保險員工的年齡；C 每一被保險員工的保險金額；D每一被保險員工的性別；所計算出的保險費總和除以全體被保險員工保 險金額總和計算", "options": ["ABD", "BCD", "ABCD", "ABC。 所謂團體一年定期壽險之「平均保險費率」是按訂定本契約或續保時，依要保人 的危險程度及每一被保險人的性別、年齡、保險金額所算出的保險費總和除以全 體被保險人保險金額總和計算。 『被保險團體』的危險程度→應改為『要保人』 答案為2"], "explanation": ""}, {"num": "172", "chapter": "第五章", "answer": 2, "question": "依據「保險業辦理微型保險業務應注意事項」規定，微型保險附加費用率上限為", "options": ["純保費之10%", "總保 費之15%", "純保費之15%", "總保費之10%。 依據「保險業辦理微型保險業務應注意事項」規定，微型保險附加費用率上限為 總保費之15%。"], "explanation": ""}, {"num": "180", "chapter": "第五章", "answer": 3, "question": "年金給付開始日為民國94年以前之利率變動型年金保險，下列何者可能被引用作為計算保險費之基礎？", "options": ["年金生命表死亡率之90%", "年金生命表死亡率之130%", "年金生命表死亡率之110%", "年金生命表死 亡率之70%。 94年以前以年金生命表死亡率之100%-120%為基礎。"], "explanation": ""}, {"num": "181", "chapter": "第五章", "answer": 1, "question": "利率變動型年金甲型於給付期間，保戶可領取之年金金額與下列何者有關：A預定死亡率；B預定附加費 用率；C預定利率；D宣告利率", "options": ["AC", "AB", "AD", "ABC。 利率變動型年金甲型於給付期間，是以預定死亡率、預定利率來換算定額年金。"], "explanation": ""}, {"num": "186", "chapter": "第五章", "answer": 4, "question": "利率變動型年金甲型在年金給付開始時，以當時之", "options": ["預定利率", "年金生命表", "年齡", "以上皆是 換算定 額年金。 利率變動型年金甲型：年金給付開始時，以當時之預定死亡率"], "explanation": "(年齡、性別、年金 生命表)、及預定利率換算定額年金。"}, {"num": "193", "chapter": "第五章", "answer": 1, "question": "有關小額終老保險何者正確？A主約、附約的預定附加費用率皆不得超過總保費之10%；B保險費約為其 他終身壽險的七成左右；C主約、附約個別被保險人之投保年齡加計繳費期間之數值最高皆不超過90；D 主約、附約皆不得有增額或加倍給付之設計，並以承保單一保險事故為限", "options": ["BCD", "ABC", "ABCD", "BC。 正確答案是1 A.附約預定附加費用率不得超過總保費之15%"], "explanation": ""}, {"num": "202", "chapter": "第六章", "answer": 4, "question": "下列何者非壽險公司承保新契約時契約選擇之程序？", "options": ["業務員的選擇", "核保人員的選擇", "公司體檢醫 師的選擇", "生存調查人員的選擇。 壽險公司承保新契約時，契約選擇的程序可以分為三個階段"], "explanation": "(一)業務員的選擇(二) 公司體檢醫師的選擇(三)核保人員的選擇。"}, {"num": "214", "chapter": "第六章", "answer": 2, "question": "下列何者正確？A要保人如尚未成年，皆須經過法定代理人簽章同意契約始生效；B被保險人之職業須確 實填寫；C要保人或被保險人不能親自填寫者，保險契約得由業務員代為填寫再由保戶親自簽名；D保險 契約保戶親自簽名處如為保戶親自按摺印，其意思表示及效力與親簽一樣", "options": ["ABD", "BD", "BC", "ABC。 A未成年人已婚者，為有行為能力之人C如要保人或被保險人不能親自填寫，得由 其家屬代寫，但要註明經過，填寫完成，仍應由要保人及被保險人親自簽章。"], "explanation": ""}, {"num": "239", "chapter": "第七章", "answer": 4, "question": "人身保險業初年度保費收入之行銷通路來源占率由大至小順序為", "options": ["壽險公司、保險經紀人/代理人、銀 行保險、其他通路", "銀行保險、壽險公司、其他通路、保險經紀人/代理人", "銀行保險、壽險公司、保 險經紀人/代理人、其他通路", "壽險公司、銀行保險、保險經紀人/代理人、其他通路。 人身保險業初年度保費收入之行銷通路來源占率：壽險公司49.13%>銀行保險 36.58%>保險經紀人/代理人14.28%>其他通路"], "explanation": "(截至112/12)。"}, {"num": "256", "chapter": "第七章", "answer": 3, "question": "壽險行銷通路若分為仲介行銷及直接行銷，下列何者係屬直接行銷通路？A郵寄行銷；B電話行銷；C職 域或關係企業行銷；D架設網路平台行銷", "options": ["AB", "ABD", "ABCD", "BC。 直接通路： 賣方主動-郵寄、電話行銷、職域或關係企業 行銷、架設網路平台 買方主動-語音電話、網路、櫃台行銷、電視 行銷 266 附錄 4 某甲投保每年複利增值3%之二十年期養老保險，保額20萬元，某甲在投保後第二年死亡，則其可獲得 的死亡保險金為"], "explanation": "(1)206,000(2)20萬(3)218,545(4)212,180   元。 保險金算法為 20萬*1.03*1.03=212,180"}];
-let current = 0, answered = 0, correct = 0, wrongNums = [];
+const ALL_QUESTIONS = [{"num": "2", "chapter": "第一章", "answer": 3, "question": "關於風險管理之方法，下列敘述何者為錯誤?", "options": ["避免是一種簡單經濟又安全的風險管理方法", "投保保險 屬於風險移轉方法", "高血壓患者注意飲食，食物少鹽、少油，屬預防方法", "保險金額規劃不足，使得損 失無法得到充分的補償，屬於風險自留 當「避免」丶「預防」等措施皆不能發揮功能，而不幸『事故依然發生』時，在 處理上應力求減輕損失發生的程度，亦即對損失加以「抑制」。"], "explanation": ""}, {"num": "3", "chapter": "第一章", "answer": 1, "question": "風險頻率和幅度的定義？A損失頻率：指的是在一定期間內，一危險單位發生一特定危險事故之次；B損 失幅度：係指某一特定期間內，每一次損失事故之平均損失金額，也可稱之為損失額度；C損失頻率： 係指某一特定期間內，每一次損失事故之平均損失金額，也可稱之為損失額度；D損失幅度：指的是在 一定期間內，一危險單位發生一特定危險事故之次數", "options": ["AB", "CD", "ABCD", "BC 損失頻率：指的是在一定期間內，一危險單位發生一特定危險事故之次數。 損失幅度：係指某一特定期間內，每一次損失事故之平均損失金額，也可稱之為 損失額度。"], "explanation": ""}, {"num": "7", "chapter": "第一章", "answer": 2, "question": "事故發生時波及範圍大，影響整個大環境且較難以控制的風險為", "options": ["常屬純粹風險", "基本風險", "特定 風險", "僅第 1、3 選項為是 事故發生時波及範圍大，較難控制的風險為基本風險。"], "explanation": ""}, {"num": "9", "chapter": "第一章", "answer": 3, "question": "首先根據生命表計算合理的保險費，促使現代人壽保險制度的建立始於何時？", "options": ["中世紀歐洲的基爾特組 織", "法國相互救濟會", "英國衡平保險社", "德國救濟金庫 首先根據生命表計算合理保險費，促使現代人壽保險制度建立的為英國衡平保險 社。"], "explanation": ""}, {"num": "11", "chapter": "第一章", "answer": 3, "question": "有關風險管理的方法，何者為非？", "options": ["事故發生前最簡單、經濟且又安全的風險管理方法是避免", "事故發 生前先購買保險、做好風險控管，屬風險管理方法的移轉", "高血壓的人不要吃太油膩的食物，屬事故發 生前風險管理方法的預防", "有購買保險但投保的保險金額不足造成自己保留了必須承擔的風險，屬風險 管理方法的自留。"], "explanation": "(3)高血壓的人不要吃太油膩的食物，屬事故發生中風險管理方法的抑制。"}, {"num": "13", "chapter": "第一章", "answer": 4, "question": "下列何者非屬特定風險之特性？", "options": ["不含投機風險", "僅影響特定之人", "處理方式以保險為主", "通常與經 濟、政治、社會、及天然災害有關。 特定風險：指波及範圍小"], "explanation": "(只影響個人)、較易控制的風險 。 基本風險：指波及範圍大、較難控制的風險。"}, {"num": "17", "chapter": "第一章", "answer": 3, "question": "某團體員工年平均死亡率為0.326%，若死亡事故發生時，雇主預期需支付每一位員工一百萬元的撫恤金 ，何者正確？A 雇主預測損失成本係應用主觀風險的觀念；B 0.326%即損失幅度的預期值；C 一百萬元 即損失頻率的預期值；D 每位員工損失成本為3260元", "options": ["BCD", "BC", "D", "ABCD。 A客觀風險；B0.326%損失頻率；C100萬為損失幅度。"], "explanation": ""}, {"num": "18", "chapter": "第一章", "answer": 1, "question": "阿華將其最近購買的一棟房子投保財產保險後，就疏忽房子之維護與管理，這種風險因素係屬於", "options": ["心理 風險", "實質風險", "有形風險", "道德風險。 因個人的不小心、冷漠、缺乏注意力，而增加風險發生的機會，稱之為心理風險"], "explanation": "(無形風險)。"}, {"num": "21", "chapter": "第一章", "answer": 1, "question": "人身風險事故發生時可能導致A遺族生活費用增加；B老年退休費用減少；C醫療費用增加；D收入減少", "options": ["ACD", "ABCD", "ABC", "BCD。 B老年退休費用會增加，因可能需失能或疾病導致需增添無障礙設施，故退休費用 會增加。"], "explanation": ""}, {"num": "35", "chapter": "第二章", "answer": 1, "question": "人身保險對國家有哪些功能？A透過再保、拓展外交；B互助共濟、社會安寧；C健全經營、整合金融； D形成資本、以增國富", "options": ["ACD", "ABCD", "BCD", "ABC。 人身保險對國家有以下功能 形成資本、以增國富 穩定經濟，安定政治 透過再保、拓展外交 健全經營、整合金融。"], "explanation": ""}, {"num": "36", "chapter": "第二章", "answer": 2, "question": "人身保險對個人的功能有那些？A安定就業、穩定發展；B享受優惠、稅捐減免；C保險理財，一舉兩 得；D鼓勵儲蓄，平均財富", "options": ["BCD", "ABC", "ACD", "ABCD。 人身保險對個人的功能： 後故無憂，晚景可恃 安定就業，穩定發展 保證信用，有利投資 享受優惠、稅捐減免 保險理財，一舉兩得 D是對社會的功能"], "explanation": ""}, {"num": "39", "chapter": "第三章", "answer": 2, "question": "家庭模式改變，夫妻皆有所得的家庭持續增加，婦女在家庭經濟上掌握更多權力，婦女壽險市場", "options": ["躍居 主導地位", "逐漸受到重視", "無多大改變", "日漸式微 家庭模式改變，夫妻皆有所得的家庭持續增加，婦女在家庭經濟上掌握更多權力 ，婦女壽險市場逐漸受到重視。"], "explanation": ""}, {"num": "46", "chapter": "第三章", "answer": 4, "question": "A小額終老保險；B無保單價值準備金之人身保險；C進入年金給付期間且約定採分期給付的遞延年金保 險；D即期年金保險", "options": ["ACD", "ABD", "AD", "ABCD 符合主管機關對於保障型及高齡化保險商品之定義。 保障型及高齡化保險商品的認定標準共有四大類，包括即期年金保險、進入年金 給付期間且約定採分期給付的遞延年金保險、小額終老保險、無保單價值準備金 之人身保險、其他具保單價值準備金之非投資型人壽保險"], "explanation": "(不含萬能人壽保險)與投 保年齡在55歲以下之投資型人壽保險(乙型)。"}, {"num": "47", "chapter": "第三章", "answer": 1, "question": "有關金融科技創新及大數據應用何者正確？A科技業者透過法律許可方式進行沙盒實驗不會受到既有法 律追訴；B為落實業務員親晤保戶取得其親簽要保文件，可透過保戶證件掃描搭配生物辨識判別其真實 身分；C透過數據分析協助保險公司統一將消費客群導向一致性業務模式；D結合科技可設計外溢效果之 保險商品，藉以改變要保人的生活作息", "options": ["AB", "CD", "ABCD", "ABD。 C透過數據分析協助保險公司細分消費客群導向更精準的業務模式；D結合科技可 設計外溢效果之保險商品，藉以改變被保險人的生活作息。"], "explanation": ""}, {"num": "58", "chapter": "第四章", "answer": 1, "question": "關於繳費期滿後解約金的敘述，何者正確?A躉繳解約金等於保單價值準備金；B分期繳費解約金等於保 單價值準備金；C躉繳解約金小於保單價值準備金；D分期繳費解約金小於保單價值準備金", "options": ["AB", "CD", "A", "C 自88年起簽發之人壽保險單，躉繳保險單："], "explanation": "(解約金)t＝(保單值準備金)t二、分期 繳費保險單：(一)繳費期間內： 1.當繳費年期(n)＜10者，(解約金)t＝(保單價值準備金)t×(0.85＋0.15×t／n) 2.當繳年期(n)≧10者，(1)當t＜10，（解約金)t＝(保單價值準備金)t×(0.85+0.15× t／10)(2)當t≧10，（解約金)t＝(保單價值準備金)t│(二)繳費期滿後：(解約金)t＝ (保單價值準備金)t"}, {"num": "59", "chapter": "第四章", "answer": 1, "question": "自民國88年起簽發之人壽保險單，有關解約金，下列何者敘述正確？A躉繳之解約金等於保單價值準備 金；B分期付款期滿期約金等於保單價值準備金；C躉繳解約金小於保單價值準備金；D分期付款期滿解 約金小於保單價值準備金", "options": ["AB", "CD", "AD", "BC 自民國八十八年起簽發之人壽保險單。 一、躉繳保險單:"], "explanation": "(解約金)t=(保單價值準備金)t 二、分期繳費保險單: (一)繳費期間內: 1.當繳費年期(n)<10者,(解約金)t=(保單價值準備金)tx(0.85+0.15xt/n) 2.當繳年期(n)>=10者, (1)當t<10,(解約金)t=(保單價值準備金)tx(0.85+0.15xt/10) (2)當t>=10,(解約金)t=(保單價值準備金)t (二)繳費期滿後:(解約金)t=(保單價值準備金)t"}, {"num": "66", "chapter": "第四章", "answer": 4, "question": "利率變動型年金乙型於給付期間，保戶可領取之年金金額與下列何者無關", "options": ["預定死亡率", "宣告利率", "預定利率", "預定附加費用率 乙型給付期的重要因素：預定死亡率、預定利率、宣告利率。宣告利率為第二年 的調整係數帶入的。"], "explanation": ""}, {"num": "71", "chapter": "第四章", "answer": 2, "question": "有關解約金敘述何者正確？A躉繳保單之解約金等於保單價值準備金；B分期繳費保單繳費期滿後之解約 金等於保單價值準備金；C躉繳保單之解約金小於保單價值準備金；D分期繳費保單繳費期滿後之解約金 小於保單價值準備金", "options": ["BC", "AB", "AD", "CD。 C躉繳保單之解約金等於保單價值準備金；D分期繳費保單繳費期滿後之解約金等 於保單價值準備金。"], "explanation": ""}, {"num": "72", "chapter": "第四章", "answer": 1, "question": "依生命表顯示30歲女性死亡率是千分之三，若有一千名30歲女性各投保2千萬一年期的死亡保險，則： A每位女性保費是由投保人比例負擔為每人6萬；B每人應收保費係依據收支相等原則來計算；C保險入應 支出的死亡保險金額總計為6千萬；D一年間死亡人數為6人", "options": ["ABC", "BC", "BD", "AC。 D死亡率會因性別、職業、健康狀況、體格有所影響，並非絕對人數。"], "explanation": ""}, {"num": "75", "chapter": "第四章", "answer": 3, "question": "首度將台灣壽險業經驗生命表區分為男、女性，並於民國78年6月奉准採用作為責任準備金提存標準的 是台灣壽險業", "options": ["第四回經驗生命表", "第五回經驗生命表", "第三回經驗生命表", "第二回經驗生命表 民國78年6月奉准採用作為責任準備金提存標準的是台灣壽險業第三回經驗生命 表。"], "explanation": ""}, {"num": "81", "chapter": "第四章", "answer": 3, "question": "1千名45歲的男人各投保1千萬元的死亡保險(保險期間1年)，生命表顯示45歲男人的死亡率是千分之4， 則每人的保險費是", "options": ["5千元", "5萬元", "4萬元", "4千元。 依收支相等原則，全體保戶保費總額=全體受益人的保險金額 保險金總額=1,000萬*"], "explanation": "(1,000人*0.004)=4,000萬 保戶每人保險費=4,000萬/1,000人=4萬"}, {"num": "91", "chapter": "第四章", "answer": 4, "question": "自民國94年1月1日起至101年6月30日銷售之傳統年金保險計算保險費之預定危險發生率，採用之年金 生命表以死亡率多少為基礎？", "options": ["80%~100%", "90%", "100%~120%", "由各公司依主管機關規定自行訂 定。 自民國94年1月1日起至101年6月30日銷售之傳統年金保險計算保險費之預定危險 發生率，是以年金生命表為基礎，由各公司自行決定。"], "explanation": ""}, {"num": "92", "chapter": "第四章", "answer": 1, "question": "死亡率之計算基礎為A年初之死亡人數；B年度內之死亡人數；C年初之生存人數；D年末之生存人數", "options": ["BC", "BD", "AC", "BCD。 死亡率計算公式為：年度內之死亡人數/年初之生存人數。"], "explanation": ""}, {"num": "97", "chapter": "第四章", "answer": 3, "question": "人身保險業自92年元月起銷售之人壽保險單，計算保險費率之生命表為", "options": ["臺灣壽險業第三回經驗生命表 死亡率百分之九十", "以調降保險費率至90%計之", "得自行決定", "臺灣壽險業第三回經驗生命表。 92/1/1 起銷售的人壽保險單，保險公司得自行決定使用第三回或第四回的生命表 計算保險費率。"], "explanation": ""}, {"num": "113", "chapter": "第五章", "answer": 2, "question": "關於傷害失能 11 級 79 項新增第 80 項，以下敘述何者正確？", "options": ["鼻未缺損，而鼻機能暫時遺存顯著障害 者", "鼻未缺損，而鼻機能永久遺存顯著障害者", "鼻有缺損，而鼻機能暫時遺存顯著障害者", "鼻有缺損 ，而鼻機能永久遺存顯著障害者 108年新增鼻末缺損、但鼻機能永久顯著障害者，屬第11級失能會理賠5%，該給 付標準自109年1月1日起增為第80項。"], "explanation": ""}, {"num": "121", "chapter": "第五章", "answer": 2, "question": "有關全民健康保險敘述何者正確？A保險事故包含疾病、傷害、生育；B以強制投保為原則；C主管機關 為中央健康保健署；D保險人為衛生福利部", "options": ["ABCD", "AB", "ABD", "B。 C主觀機關為衛生福利部、D保險人為衛生福利部中央健康保險署。 訓練 講義 p.82 第五章 4 下列何者為公務人員保險在全民健康保險實施後不給付項目"], "explanation": "(1)殘廢(2)死亡(3)養老(4)疾病 自民國84/3/1起因實施全民健康保險，全民健保中公務員保險項目中的生育、疾 病、傷害等給付於民國84/3/1在全民健康保險開辦後已予終止，並由全民健保辦 理該項業務。"}, {"num": "122", "chapter": "第五章", "answer": 3, "question": "依國家發展委員會人口推估報告書之說明，何者有誤？", "options": ["我國已邁入高齡社會", "我國將進入超高齡社會", "仰賴人口係指0至14歲的人口", "青壯年人口係指15歲至64歲的人口。 仰賴人口為0-14歲及65歲以上人口合計"], "explanation": ""}, {"num": "123", "chapter": "第五章", "answer": 2, "question": "長期照顧保險之被保險人經專科醫師診斷後判定符合長期照顧狀態者給予保險給付，而長期照顧狀態係 指被保險人符合？", "options": ["持續6個月以上失智且依臨床失智量表評估達中度以上者", "依巴氏量表判定3個月內 有移位、如廁及沐浴等3項障礙者", "依臨床專業評量表診斷判定5個月內有進食及移位等2項障礙者", "以 上皆是。"], "explanation": "(1)不得高於6個月(3)要有3項障礙者以上"}, {"num": "131", "chapter": "第五章", "answer": 3, "question": "有關旅行平安保險何者正確？A醫療費用之給付包含日額型及實支實付型；B發生意外傷害醫療時，給付 最高以保險金額1/10為限；C屬於國際性保險，承保對象以實際從事旅遊的國內、國外旅客為限；D保險 期間原則上最長以180天為限，旅客如有需要經保險公司同意可延長", "options": ["BC", "ABD", "BCD", "ACD。 A醫療費用之給付以實支實付為限。"], "explanation": ""}, {"num": "133", "chapter": "第五章", "answer": 3, "question": "有關政府推動的長期照顧保險，何者錯誤？", "options": ["屬於一種福利政策且為基本保障，可考慮加保一般商業長 期照顧保險商品", "由政府、雇主及民眾共同負責保險費", "屬於強制性社會保險，保險人為衛生福利部", "目前提供的服務皆屬實物給付。 長期照顧保險保險人為中央健康保險署。"], "explanation": ""}, {"num": "134", "chapter": "第五章", "answer": 3, "question": "以下何者為微型保險所指之經濟弱勢或特定身分者？A依農民健康保險條例投保農民健康保險之被保險 人；B符合社會救助法規定低收入戶或中低收入戶之家庭成員；C符合身心障礙者權益保障法定義之身心 障礙者；D符合老人福利法規定領取中低收入老人生活津貼之老人", "options": ["ABC", "ABD", "ABCD", "BCD。 以上皆為微型保險所指之經濟弱勢或特定身分者。"], "explanation": ""}, {"num": "142", "chapter": "第五章", "answer": 4, "question": "現行長期照顧保險有關認知功能障礙之認定，何者正確？", "options": ["被保險人經專科醫師診斷判定該障礙為終身 無法治癒者，仍受限於免責期間的約定", "認知功能障礙常運用簡易智能測驗（MMSE）進行評估", "被保 險人依臨床失智量表（CDR）評估達嚴重程度以上者", "被保險人經專科醫師診斷判定達5個月以上仍為 持續失智狀態。"], "explanation": "(1)被保險人經專科醫師診斷辦定該障礙為終身無法治癒者，不受限於免責期間的 約定(2)認知功能障礙常運用簡易智能測驗（MMSE）進行評估-108年11月金管會 取消(3)被保險人依臨床失智量表（CDR）評估達中度程度以上者(4)被保險人經專 科醫師診斷判定達5個月以上仍為持續失智狀態-不得高於6個月。"}, {"num": "144", "chapter": "第五章", "answer": 3, "question": "勞工保險之普通事故保險費，被保險人應負擔之比率為", "options": ["0%", "30%", "20%", "10%。 勞工保險之普通事故保險費之被保險人負擔20%、雇主負擔70%、政府負擔 10%。"], "explanation": ""}, {"num": "153", "chapter": "第五章", "answer": 2, "question": "勞工保險之職業災害保險給付項目不包括A傷病及醫療；B失業及年老；C失能及死亡；D生育及避孕", "options": ["AB", "BD", "ABC", "AD。 勞工保險之職業災害保險給付項目為職災、傷病、失能、死亡。"], "explanation": ""}, {"num": "163", "chapter": "第五章", "answer": 4, "question": "利率變動型年金乙型在年金給付開始第一次，以當時何者換算年金金額。", "options": ["年齡", "年金生命表", "預定 利率", "以上皆是。 乙型給付期的重要因素：預定死亡率、預定利率、宣告利率。宣告利率為第二年 的調整係數帶入的，考題問第一次，所以答案為預定利率、預定死亡率。死亡率 在考題上可能為年金生命表、年紀、性別。"], "explanation": ""}, {"num": "164", "chapter": "第五章", "answer": 3, "question": "依國家發展委員會人口推估報告書之說明，下列何者有誤？", "options": ["我國自民國107年起邁入高齡社會", "預估 於民國114年將進入超高齡社會", "仰賴人口係指0至14歲的人口", "青壯年人口係指15歲至64歲的人口。"], "explanation": "(3)仰賴人口：0-14歲以及65歲以上人口。"}, {"num": "167", "chapter": "第五章", "answer": 3, "question": "長期照顧保險之被保險人經專科醫師診斷後依診斷書判定符合長期照顧狀態者，給予保險給付，所謂長 期照顧狀態係指被保險人經專科醫師診斷符合下列哪些情形者", "options": ["持續6個月以上失智並有分辨上障礙且 依臨床失智量表評估中等以上", "依臨床專業評量表診斷判定5個月內有進食及移位障礙", "依巴氏量表判 定3個月內有移位、如廁及沐浴等3項障礙", "以上皆是。 所謂長期照顧狀態係指被保險人經專科醫師診斷符合下列二項情形之一者，1.生理 功能障礙：指被保險人經專科醫師依巴氏量表診斷判定不得高於6個月以上，其進 食、移位、如廁、沐浴、平地行動及更衣等六項日常生活自理能力持續存有3項以 上障礙。2.認知功能障礙：指被保險人經專科醫師依巴氏量表診斷判定不得高於6 個月以上，仍維持續失智狀態，並有時間、場所及人物三項分辨障礙之2項分辨障 礙"], "explanation": ""}, {"num": "170", "chapter": "第五章", "answer": 2, "question": "所謂團體一年定期壽險之「平均保險費率」是依A被保險團體的危險程度；B每一被保險員工的年齡；C 每一被保險員工的保險金額；D每一被保險員工的性別；所計算出的保險費總和除以全體被保險員工保 險金額總和計算", "options": ["ABD", "BCD", "ABCD", "ABC。 所謂團體一年定期壽險之「平均保險費率」是按訂定本契約或續保時，依要保人 的危險程度及每一被保險人的性別、年齡、保險金額所算出的保險費總和除以全 體被保險人保險金額總和計算。 『被保險團體』的危險程度→應改為『要保人』 答案為2"], "explanation": ""}, {"num": "172", "chapter": "第五章", "answer": 2, "question": "依據「保險業辦理微型保險業務應注意事項」規定，微型保險附加費用率上限為", "options": ["純保費之10%", "總保 費之15%", "純保費之15%", "總保費之10%。 依據「保險業辦理微型保險業務應注意事項」規定，微型保險附加費用率上限為 總保費之15%。"], "explanation": ""}, {"num": "180", "chapter": "第五章", "answer": 3, "question": "年金給付開始日為民國94年以前之利率變動型年金保險，下列何者可能被引用作為計算保險費之基礎？", "options": ["年金生命表死亡率之90%", "年金生命表死亡率之130%", "年金生命表死亡率之110%", "年金生命表死 亡率之70%。 94年以前以年金生命表死亡率之100%-120%為基礎。"], "explanation": ""}, {"num": "181", "chapter": "第五章", "answer": 1, "question": "利率變動型年金甲型於給付期間，保戶可領取之年金金額與下列何者有關：A預定死亡率；B預定附加費 用率；C預定利率；D宣告利率", "options": ["AC", "AB", "AD", "ABC。 利率變動型年金甲型於給付期間，是以預定死亡率、預定利率來換算定額年金。"], "explanation": ""}, {"num": "186", "chapter": "第五章", "answer": 4, "question": "利率變動型年金甲型在年金給付開始時，以當時之", "options": ["預定利率", "年金生命表", "年齡", "以上皆是 換算定 額年金。 利率變動型年金甲型：年金給付開始時，以當時之預定死亡率"], "explanation": "(年齡、性別、年金 生命表)、及預定利率換算定額年金。"}, {"num": "193", "chapter": "第五章", "answer": 1, "question": "有關小額終老保險何者正確？A主約、附約的預定附加費用率皆不得超過總保費之10%；B保險費約為其 他終身壽險的七成左右；C主約、附約個別被保險人之投保年齡加計繳費期間之數值最高皆不超過90；D 主約、附約皆不得有增額或加倍給付之設計，並以承保單一保險事故為限", "options": ["BCD", "ABC", "ABCD", "BC。 正確答案是1 A.附約預定附加費用率不得超過總保費之15%"], "explanation": ""}, {"num": "202", "chapter": "第六章", "answer": 4, "question": "下列何者非壽險公司承保新契約時契約選擇之程序？", "options": ["業務員的選擇", "核保人員的選擇", "公司體檢醫 師的選擇", "生存調查人員的選擇。 壽險公司承保新契約時，契約選擇的程序可以分為三個階段"], "explanation": "(一)業務員的選擇(二) 公司體檢醫師的選擇(三)核保人員的選擇。"}, {"num": "214", "chapter": "第六章", "answer": 2, "question": "下列何者正確？A要保人如尚未成年，皆須經過法定代理人簽章同意契約始生效；B被保險人之職業須確 實填寫；C要保人或被保險人不能親自填寫者，保險契約得由業務員代為填寫再由保戶親自簽名；D保險 契約保戶親自簽名處如為保戶親自按摺印，其意思表示及效力與親簽一樣", "options": ["ABD", "BD", "BC", "ABC。 A未成年人已婚者，為有行為能力之人C如要保人或被保險人不能親自填寫，得由 其家屬代寫，但要註明經過，填寫完成，仍應由要保人及被保險人親自簽章。"], "explanation": ""}, {"num": "239", "chapter": "第七章", "answer": 4, "question": "人身保險業初年度保費收入之行銷通路來源占率由大至小順序為", "options": ["壽險公司、保險經紀人/代理人、銀 行保險、其他通路", "銀行保險、壽險公司、其他通路、保險經紀人/代理人", "銀行保險、壽險公司、保 險經紀人/代理人、其他通路", "壽險公司、銀行保險、保險經紀人/代理人、其他通路。 人身保險業初年度保費收入之行銷通路來源占率：壽險公司49.13%>銀行保險 36.58%>保險經紀人/代理人14.28%>其他通路"], "explanation": "(截至112/12)。"}, {"num": "256", "chapter": "第七章", "answer": 3, "question": "壽險行銷通路若分為仲介行銷及直接行銷，下列何者係屬直接行銷通路？A郵寄行銷；B電話行銷；C職 域或關係企業行銷；D架設網路平台行銷", "options": ["AB", "ABD", "ABCD", "BC。 直接通路： 賣方主動-郵寄、電話行銷、職域或關係企業 行銷、架設網路平台 買方主動-語音電話、網路、櫃台行銷、電視 行銷 266 附錄 4 某甲投保每年複利增值3%之二十年期養老保險，保額20萬元，某甲在投保後第二年死亡，則其可獲得 的死亡保險金為"], "explanation": "(1)206,000(2)20萬(3)218,545(4)212,180   元。 保險金算法為 20萬*1.03*1.03=212,180"}];
 
-function init() {
-  document.getElementById('totalQ').textContent = QUESTIONS.length;
+let mode = 'quiz';      // 'quiz' | 'review'
+let queue = [];         // 當前題目清單
+let cur = 0;
+let answered = 0, correctCnt = 0;
+let wrongIdxList = [];  // ALL_QUESTIONS 的索引
+let reviewQueue = [];   // 錯題索引清單（練習時用）
+let reviewAnswered = 0, reviewCorrect = 0;
+
+function startQuiz() {
+  mode = 'quiz';
+  queue = ALL_QUESTIONS;
+  cur = 0; answered = 0; correctCnt = 0; wrongIdxList = [];
+  document.getElementById('modeBadge').textContent = '📝 測驗模式';
+  document.getElementById('totalQ').textContent = queue.length;
+  document.getElementById('doneQ').textContent = 0;
+  document.getElementById('correctQ').textContent = 0;
+  document.getElementById('wrongQ').textContent = 0;
+  document.getElementById('resultCard').classList.remove('show');
   render(0);
 }
 
-function render(idx) {
-  const container = document.getElementById('quizContainer');
-  container.innerHTML = '';
+function startReview() {
+  mode = 'review';
+  reviewQueue = wrongIdxList.slice();
+  cur = 0; reviewAnswered = 0; reviewCorrect = 0;
+  document.getElementById('modeBadge').textContent = '🔁 錯題練習';
+  document.getElementById('totalQ').textContent = reviewQueue.length;
+  document.getElementById('doneQ').textContent = 0;
+  document.getElementById('correctQ').textContent = 0;
+  document.getElementById('wrongQ').textContent = 0;
   document.getElementById('resultCard').classList.remove('show');
-  
-  const q = QUESTIONS[idx];
+  renderReview(0);
+}
+
+function getQ() {
+  if (mode === 'quiz') return queue[cur];
+  return ALL_QUESTIONS[reviewQueue[cur]];
+}
+
+function render(idx) {
+  document.getElementById('resultCard').classList.remove('show');
+  const container = document.getElementById('quizContainer');
+  const q = queue[idx];
   const labels = ['(1)', '(2)', '(3)', '(4)'];
-  
-  const card = document.createElement('div');
-  card.className = 'q-card active';
-  card.id = 'qcard';
-  
-  const optHtml = q.options.map((o, i) => 
-    `<div class="opt" id="opt-${i}" onclick="choose(${i+1}, ${q.answer})">
+  container.innerHTML = buildCard(q, labels, false);
+  updateProgress(idx, queue.length, answered);
+}
+
+function renderReview(idx) {
+  document.getElementById('resultCard').classList.remove('show');
+  const container = document.getElementById('quizContainer');
+  const q = ALL_QUESTIONS[reviewQueue[idx]];
+  const labels = ['(1)', '(2)', '(3)', '(4)'];
+  container.innerHTML = buildCard(q, labels, false);
+  updateProgress(idx, reviewQueue.length, reviewAnswered);
+}
+
+function buildCard(q, labels, showExplain) {
+  const optHtml = q.options.map((o, i) =>
+    `<div class="opt" id="opt-${i}" onclick="choose(${i+1})">
       <span class="opt-label">${labels[i]}</span>
       <span>${o || '（選項）'}</span>
     </div>`
   ).join('');
-  
-  card.innerHTML = `
+  return `<div class="q-card active" id="qcard">
     <div class="q-meta">
       <span class="q-badge qb-num">題 ${q.num}</span>
       <span class="q-badge qb-ch">${q.chapter}</span>
+      ${mode==='review' ? '<span class="q-badge" style="background:#fef3c7;color:#92400e;">🔁 錯題練習</span>' : ''}
     </div>
     <div class="q-text">${q.question}</div>
     <div class="opts" id="opts">${optHtml}</div>
-    <div class="explain-box" id="explain">${q.explanation || '詳解見上方題目說明'}</div>
-    <div class="btn-row" id="btnRow">
-      ${idx > 0 ? '<button class="btn btn-secondary" onclick="prevQ()">← 上一題</button>' : ''}
-    </div>
-  `;
-  container.appendChild(card);
-  updateProgress();
+    <div class="explain-box${showExplain?' show':''}" id="explain">${q.explanation || '詳解見題目說明'}</div>
+    <div class="btn-row" id="btnRow"></div>
+  </div>`;
 }
 
-function choose(selected, correct) {
-  const opts = document.querySelectorAll('.opt');
-  opts.forEach(o => o.classList.add('disabled'));
-  
-  const selOpt = document.getElementById('opt-' + (selected-1));
-  const corrOpt = document.getElementById('opt-' + (correct-1));
-  
-  if (selected === correct) {
-    selOpt.classList.add('correct');
-    correct_count();
-  } else {
-    selOpt.classList.add('wrong');
-    corrOpt.classList.add('show-correct');
-    wrongNums.push(QUESTIONS[current].num);
+function choose(selected) {
+  const q = getQ();
+  const correct = q.answer;
+  document.querySelectorAll('.opt').forEach(o => o.classList.add('disabled'));
+  document.getElementById('opt-'+(selected-1)).classList.add(selected===correct ? 'correct' : 'wrong');
+  if (selected !== correct) document.getElementById('opt-'+(correct-1)).classList.add('show-correct');
+
+  // 詳解：只在錯題練習模式顯示
+  if (mode === 'review') {
+    document.getElementById('explain').classList.add('show');
   }
-  
-  document.getElementById('explain').classList.add('show');
-  
+
+  const isCorrect = selected === correct;
   const btnRow = document.getElementById('btnRow');
-  const nextBtn = document.createElement('button');
-  nextBtn.className = 'btn btn-primary';
-  nextBtn.textContent = current < QUESTIONS.length - 1 ? '下一題 →' : '查看成績 🏆';
-  nextBtn.onclick = nextQ;
-  btnRow.appendChild(nextBtn);
-  
-  answered++;
-  document.getElementById('doneQ').textContent = answered;
-  updateProgress();
-}
 
-function correct_count() { correct++; document.getElementById('correctQ').textContent = correct; }
-
-function nextQ() {
-  if (current < QUESTIONS.length - 1) {
-    current++;
-    render(current);
+  if (mode === 'quiz') {
+    answered++;
+    if (isCorrect) correctCnt++;
+    else wrongIdxList.push(cur);
+    document.getElementById('doneQ').textContent = answered;
+    document.getElementById('correctQ').textContent = correctCnt;
+    document.getElementById('wrongQ').textContent = wrongIdxList.length;
+    updateProgress(cur, queue.length, answered);
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'btn btn-primary';
+    nextBtn.textContent = cur < queue.length-1 ? '下一題 →' : '查看成績 🏆';
+    nextBtn.onclick = () => { cur < queue.length-1 ? (cur++, render(cur)) : showResult(); };
+    btnRow.appendChild(nextBtn);
   } else {
-    showResult();
+    reviewAnswered++;
+    if (isCorrect) reviewCorrect++;
+    document.getElementById('doneQ').textContent = reviewAnswered;
+    document.getElementById('correctQ').textContent = reviewCorrect;
+    document.getElementById('wrongQ').textContent = reviewAnswered - reviewCorrect;
+    updateProgress(cur, reviewQueue.length, reviewAnswered);
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'btn btn-primary';
+    nextBtn.textContent = cur < reviewQueue.length-1 ? '下一題 →' : '查看成績 🏆';
+    nextBtn.onclick = () => { cur < reviewQueue.length-1 ? (cur++, renderReview(cur)) : showReviewResult(); };
+    btnRow.appendChild(nextBtn);
   }
 }
 
-function prevQ() {
-  if (current > 0) { current--; render(current); }
-}
-
-function updateProgress() {
-  const pct = Math.round((answered / QUESTIONS.length) * 100);
+function updateProgress(idx, total, done) {
+  const pct = Math.round((done / total) * 100);
   document.getElementById('progFill').style.width = pct + '%';
-  document.getElementById('progText').textContent = `第 ${current+1} / ${QUESTIONS.length} 題 | 完成 ${pct}%`;
+  document.getElementById('progText').textContent = `第 ${idx+1} / ${total} 題　已完成 ${pct}%`;
 }
 
 function showResult() {
   document.getElementById('quizContainer').innerHTML = '';
   const card = document.getElementById('resultCard');
-  card.classList.add('show');
-  const pct = Math.round((correct / QUESTIONS.length) * 100);
-  document.getElementById('resultScore').textContent = pct + '%';
-  let label, msg;
-  if (pct >= 90) { label = '🏆 優秀！'; msg = '準備充分，考試加油！'; }
-  else if (pct >= 70) { label = '👍 良好'; msg = '再複習錯題，就能更穩！'; }
-  else if (pct >= 50) { label = '📚 需加強'; msg = '重點複習錯題，提升正確率'; }
-  else { label = '💪 繼續努力'; msg = '建議先複習必背重點再來測驗'; }
-  document.getElementById('resultLabel').textContent = label;
-  document.getElementById('resultMsg').textContent = `答對 ${correct} / ${QUESTIONS.length} 題（${msg}）`;
-  
-  if (wrongNums.length > 0) {
-    const wl = document.getElementById('wrongList');
-    wl.innerHTML = `<div class="wl-title">❌ 答錯的題目（題號）</div>` +
-      wrongNums.map(n => `<div class="wl-item">題號 ${n}</div>`).join('');
+  const pct = Math.round((correctCnt / queue.length) * 100);
+  let emoji, label, msg;
+  if(pct>=90){emoji='🏆';label='優秀！';msg='準備充分，考場加油！';}
+  else if(pct>=70){emoji='👍';label='良好';msg='再加強錯題就能更穩！';}
+  else if(pct>=50){emoji='📚';label='需加強';msg='建議重點複習錯題';}
+  else{emoji='💪';label='繼續努力';msg='先複習必背重點再來測驗';}
+
+  let wrongHtml = '';
+  if(wrongIdxList.length > 0) {
+    const items = wrongIdxList.map(i => {
+      const q = queue[i];
+      const corrOpt = q.options[q.answer-1] || '';
+      return `<div class="wrong-item">
+        <div class="wi-num">題 ${q.num} · ${q.chapter}</div>
+        <div class="wi-q">${q.question.substring(0,80)}${q.question.length>80?'…':''}</div>
+        <div class="wi-ans">✅ 正確答案：(${q.answer}) ${corrOpt.substring(0,40)}</div>
+      </div>`;
+    }).join('');
+    wrongHtml = `<div class="wrong-section">
+      <div class="wrong-title">❌ 答錯 ${wrongIdxList.length} 題</div>
+      ${items}
+    </div>`;
   }
+
+  card.innerHTML = `
+    <div class="result-score">${pct}%</div>
+    <div class="result-label">${emoji} ${label}</div>
+    <div class="result-sub">答對 ${correctCnt} / ${queue.length} 題 · ${msg}</div>
+    <div class="result-btns">
+      <button class="btn btn-secondary" onclick="startQuiz()">🔄 重新測驗</button>
+      ${wrongIdxList.length > 0 ? `<button class="btn btn-primary" onclick="startReview()">🔁 練習錯題（${wrongIdxList.length}題）</button>` : ''}
+    </div>
+    ${wrongHtml}
+  `;
+  card.classList.add('show');
 }
 
-function restart() {
-  current = 0; answered = 0; correct = 0; wrongNums = [];
-  document.getElementById('doneQ').textContent = 0;
-  document.getElementById('correctQ').textContent = 0;
-  document.getElementById('resultCard').classList.remove('show');
-  render(0);
+function showReviewResult() {
+  document.getElementById('quizContainer').innerHTML = '';
+  const card = document.getElementById('resultCard');
+  const pct = Math.round((reviewCorrect / reviewQueue.length) * 100);
+  let emoji, label;
+  if(pct>=90){emoji='🏆';label='全部搞懂了！';}
+  else if(pct>=70){emoji='👍';label='大部分掌握了';}
+  else{emoji='📚';label='再練一次吧';}
+
+  card.innerHTML = `
+    <div class="result-score">${pct}%</div>
+    <div class="result-label">${emoji} ${label}</div>
+    <div class="result-sub">錯題練習：答對 ${reviewCorrect} / ${reviewQueue.length} 題</div>
+    <div class="result-btns">
+      <button class="btn btn-secondary" onclick="startQuiz()">🔄 重頭測驗</button>
+      <button class="btn btn-primary" onclick="startReview()">🔁 再練一次錯題</button>
+    </div>
+  `;
+  card.classList.add('show');
 }
 
-init();
+startQuiz();
 </script>
 </body>
 </html>

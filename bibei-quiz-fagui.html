@@ -14,8 +14,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:#2d3748;}
 .mode-badge{display:inline-block;background:rgba(255,255,255,.22);border-radius:999px;padding:3px 12px;font-size:.74rem;font-weight:700;margin-bottom:10px;}
 .stats{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap;}
 .stat{background:rgba(255,255,255,.18);border-radius:8px;padding:8px 16px;text-align:center;}
-.stat-n{font-size:1.2rem;font-weight:900;}
-.stat-l{font-size:.68rem;opacity:.78;}
+.stat-n{font-size:1.2rem;font-weight:900;} .stat-l{font-size:.68rem;opacity:.78;}
 .prog-wrap{background:#fff;padding:12px 16px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
 .prog-inner{max-width:680px;margin:0 auto;}
 .prog-bar{height:5px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-bottom:6px;}
@@ -26,8 +25,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:#2d3748;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .q-meta{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;}
 .q-badge{padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:700;}
-.qb-num{background:var(--p);color:#fff;}
-.qb-ch{background:#edf2f7;color:#4a5568;}
+.qb-num{background:var(--p);color:#fff;} .qb-ch{background:#edf2f7;color:#4a5568;}
 .qb-rev{background:#fef3c7;color:#92400e;}
 .q-text{font-size:.92rem;font-weight:500;line-height:1.85;margin-bottom:16px;color:#1a202c;}
 .opts{display:flex;flex-direction:column;gap:9px;margin-bottom:16px;}
@@ -38,7 +36,8 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:#2d3748;}
 .opt.show-correct{background:#f0fff4;border-color:#48bb78;color:#276749;}
 .opt.disabled{cursor:default;}
 .opt-label{font-weight:900;flex-shrink:0;min-width:24px;}
-.explain-box{background:#f7fafc;border-radius:10px;padding:13px 16px;font-size:.82rem;line-height:1.7;color:#4a5568;border-left:4px solid var(--p);margin-bottom:14px;animation:fadeIn .2s;}
+.explain-box{background:#fffbeb;border-radius:10px;padding:13px 16px;font-size:.83rem;line-height:1.75;color:#4a5568;border-left:4px solid #f59e0b;margin-bottom:14px;animation:fadeIn .2s;}
+.explain-label{font-weight:900;color:#92400e;font-size:.78rem;margin-bottom:5px;}
 .btn-row{display:flex;gap:9px;flex-wrap:wrap;}
 .btn{padding:10px 20px;border-radius:10px;font-weight:700;font-size:.84rem;cursor:pointer;border:none;font-family:'Noto Sans TC',sans-serif;transition:.2s;}
 .btn-p{background:var(--p);color:#fff;} .btn-p:hover{opacity:.85;}
@@ -127,41 +126,44 @@ function choose(sel){
   document.querySelectorAll('.opt').forEach(o=>o.classList.add('disabled'));
   document.getElementById('opt'+(sel-1)).classList.add(sel===corr?'correct':'wrong');
   if(sel!==corr) document.getElementById('opt'+(corr-1)).classList.add('show-correct');
+
   const zone=document.getElementById('afterZone');
-  // 詳解只在錯題練習模式，答完後才插入 DOM
-  if(mode==='review' && q.explanation){
-    const box=document.createElement('div');
-    box.className='explain-box';
-    box.textContent=q.explanation;
-    zone.appendChild(box);
-  }
-  const row=document.createElement('div');
-  row.className='btn-row';
   const total=mode==='quiz'?ALL_Q.length:reviewQueue.length;
   const isLast=cur>=total-1;
+
+  // 答完後顯示解說（答對答錯都顯示）
+  if(q.explanation){
+    const box=document.createElement('div');
+    box.className='explain-box';
+    box.innerHTML=`<div class="explain-label">💡 解說</div>${q.explanation}`;
+    zone.appendChild(box);
+  }
+
+  const row=document.createElement('div');
+  row.className='btn-row';
+
   if(mode==='quiz'){
     answered++;if(sel===corr)correctCnt++;else wrongIdxList.push(cur);
     document.getElementById('doneQ').textContent=answered;
     document.getElementById('correctQ').textContent=correctCnt;
     document.getElementById('wrongQ').textContent=wrongIdxList.length;
     updateProg(cur,total,answered);
-    const btn=document.createElement('button');
-    btn.className='btn btn-p';
-    btn.textContent=isLast?'查看成績 🏆':'下一題 →';
-    btn.onclick=()=>{isLast?showResult():(cur++,renderQ());};
-    row.appendChild(btn);
   }else{
     reviewAnswered++;if(sel===corr)reviewCorrect++;
     document.getElementById('doneQ').textContent=reviewAnswered;
     document.getElementById('correctQ').textContent=reviewCorrect;
     document.getElementById('wrongQ').textContent=reviewAnswered-reviewCorrect;
     updateProg(cur,total,reviewAnswered);
-    const btn=document.createElement('button');
-    btn.className='btn btn-p';
-    btn.textContent=isLast?'查看成績 🏆':'下一題 →';
-    btn.onclick=()=>{isLast?showReviewResult():(cur++,renderQ());};
-    row.appendChild(btn);
   }
+
+  const btn=document.createElement('button');
+  btn.className='btn btn-p';
+  btn.textContent=isLast?'查看成績 🏆':'下一題 →';
+  if(mode==='quiz')
+    btn.onclick=()=>{isLast?showResult():(cur++,renderQ());};
+  else
+    btn.onclick=()=>{isLast?showReviewResult():(cur++,renderQ());};
+  row.appendChild(btn);
   zone.appendChild(row);
 }
 

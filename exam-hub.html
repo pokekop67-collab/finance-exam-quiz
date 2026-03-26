@@ -7,78 +7,84 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
 :root{
-  --shi:#e53e3e;--shi-l:#fff5f5;--shi-b:#feb2b2;
+  --shi:#e53e3e;--shi-l:#fff5f5;--shi-b:#fed7d7;
   --fa:#2b6cb0;--fa-l:#ebf8ff;--fa-b:#bee3f8;
-  --both:#2d8a4e;--both-l:#f0fff4;
-  --bg:#f7f8fc;--card:#fff;--text:#2d3748;--m:#718096;
-  --border:#e2e8f0;
+  --bg:#f7f8fc;--card:#fff;--text:#2d3748;--m:#718096;--border:#e2e8f0;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);}
-.hero{background:linear-gradient(135deg,#1a202c 0%,#2d3748 60%,#4a5568 100%);color:#fff;padding:48px 20px 60px;text-align:center;}
-.hero .tag{display:inline-block;background:rgba(255,255,255,.15);border-radius:999px;padding:4px 14px;font-size:.76rem;margin-bottom:14px;letter-spacing:.1em;}
-.hero h1{font-size:1.8rem;font-weight:900;margin-bottom:6px;}
-.hero p{opacity:.75;font-size:.88rem;max-width:460px;margin:0 auto 20px;}
-.stats{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
-.stat{background:rgba(255,255,255,.12);border-radius:10px;padding:10px 20px;text-align:center;}
-.stat-num{font-size:1.4rem;font-weight:900;}
-.stat-lbl{font-size:.72rem;opacity:.7;margin-top:2px;}
-.wrap{max-width:900px;margin:0 auto;padding:32px 16px 60px;}
 
-/* 科目切換標籤 */
-.tab-bar{display:flex;gap:0;margin-bottom:28px;background:#fff;border-radius:14px;padding:6px;box-shadow:0 2px 12px rgba(0,0,0,.08);border:1.5px solid var(--border);}
-.tab{flex:1;padding:11px;text-align:center;border-radius:10px;cursor:pointer;font-weight:700;font-size:.88rem;transition:.2s;color:var(--m);}
+.hero{background:linear-gradient(135deg,#1a202c,#2d3748,#4a5568);color:#fff;padding:44px 20px 56px;text-align:center;}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.15);border-radius:999px;padding:4px 14px;font-size:.76rem;margin-bottom:12px;letter-spacing:.1em;}
+.hero h1{font-size:1.7rem;font-weight:900;margin-bottom:6px;}
+.hero p{opacity:.72;font-size:.86rem;max-width:440px;margin:0 auto 18px;}
+.stats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.stat{background:rgba(255,255,255,.12);border-radius:10px;padding:10px 18px;text-align:center;}
+.stat-num{font-size:1.3rem;font-weight:900;}
+.stat-lbl{font-size:.7rem;opacity:.7;margin-top:2px;}
+
+.wrap{max-width:900px;margin:0 auto;padding:28px 16px 60px;}
+
+/* 必背 Banner */
+.bibei-banner{background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #f59e0b;border-radius:16px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:flex-start;gap:14px;}
+.bibei-icon{font-size:1.8rem;flex-shrink:0;}
+.bibei-body .title{font-weight:900;font-size:.95rem;color:#92400e;margin-bottom:4px;}
+.bibei-body p{font-size:.81rem;color:#78350f;line-height:1.5;}
+.bibei-links{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
+.bibei-btn{padding:7px 16px;border-radius:8px;font-weight:700;font-size:.8rem;text-decoration:none;transition:.2s;}
+.bs{background:var(--shi);color:#fff;} .bs:hover{background:#c53030;}
+.bf{background:var(--fa);color:#fff;} .bf:hover{background:#2c5282;}
+
+/* Tab */
+.tab-bar{display:flex;gap:0;margin-bottom:24px;background:#fff;border-radius:14px;padding:5px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1.5px solid var(--border);}
+.tab{flex:1;padding:10px;text-align:center;border-radius:10px;cursor:pointer;font-weight:700;font-size:.86rem;transition:.2s;color:var(--m);}
 .tab.active-shi{background:var(--shi);color:#fff;}
 .tab.active-fa{background:var(--fa);color:#fff;}
-.tab:not(.active-shi):not(.active-fa):hover{background:var(--bg);}
 
-/* 科目卡片 */
+/* 科目 */
 .subject-section{display:none;}
 .subject-section.show{display:block;}
-.sec-title{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
-.sec-badge{padding:5px 16px;border-radius:999px;font-weight:900;font-size:.88rem;color:#fff;}
+.sec-title{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.sec-badge{padding:4px 14px;border-radius:999px;font-weight:900;font-size:.86rem;color:#fff;}
 .sec-shi{background:var(--shi);}
 .sec-fa{background:var(--fa);}
-.sec-count{font-size:.82rem;color:var(--m);margin-left:4px;}
 
-/* 資源卡片 Grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:32px;}
-.res-card{background:var(--card);border-radius:16px;padding:18px;border:1.5px solid var(--border);text-decoration:none;color:var(--text);transition:.2s;display:flex;flex-direction:column;gap:8px;box-shadow:0 1px 8px rgba(0,0,0,.05);}
-.res-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1);}
+/* 新增：必考試題測驗區塊 */
+.new-section{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border:2px solid #7dd3fc;border-radius:16px;padding:18px 20px;margin-bottom:20px;}
+.new-badge{display:inline-block;background:#0ea5e9;color:#fff;padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:900;margin-bottom:10px;}
+.new-title{font-weight:900;font-size:.95rem;color:#0c4a6e;margin-bottom:6px;}
+.new-desc{font-size:.81rem;color:#075985;margin-bottom:12px;line-height:1.5;}
+.new-links{display:flex;gap:10px;flex-wrap:wrap;}
+.new-btn{padding:9px 18px;border-radius:9px;font-weight:700;font-size:.82rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:.2s;}
+.nb-shi{background:var(--shi);color:#fff;} .nb-shi:hover{background:#c53030;}
+.nb-fa{background:var(--fa);color:#fff;} .nb-fa:hover{background:#2c5282;}
+
+/* 資源格 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:28px;}
+.res-card{background:var(--card);border-radius:14px;padding:16px;border:1.5px solid var(--border);text-decoration:none;color:var(--text);transition:.2s;display:flex;flex-direction:column;gap:6px;box-shadow:0 1px 6px rgba(0,0,0,.05);}
+.res-card:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.09);}
 .res-card.shi:hover{border-color:var(--shi-b);}
 .res-card.fa:hover{border-color:var(--fa-b);}
-.res-icon{font-size:1.8rem;}
-.res-title{font-weight:900;font-size:.95rem;}
-.res-desc{font-size:.8rem;color:var(--m);line-height:1.5;}
-.res-tag{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:700;margin-top:4px;align-self:flex-start;}
+.res-icon{font-size:1.6rem;}
+.res-title{font-weight:900;font-size:.92rem;}
+.res-desc{font-size:.78rem;color:var(--m);line-height:1.5;}
+.res-tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.7rem;font-weight:700;margin-top:2px;align-self:flex-start;}
+.tag-hot{background:#fce7f3;color:#9d174d;}
+.tag-core{background:#fef3c7;color:#92400e;}
 .tag-shi{background:var(--shi-l);color:var(--shi);}
 .tag-fa{background:var(--fa-l);color:var(--fa);}
-.tag-core{background:#fef3c7;color:#92400e;}
-.tag-hot{background:#fce7f3;color:#9d174d;}
+.tag-new{background:#dcfce7;color:#166534;}
 
-/* 必背專區 highlight */
-.bibei-banner{background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #f59e0b;border-radius:16px;padding:18px 20px;margin-bottom:24px;display:flex;align-items:center;gap:14px;}
-.bibei-icon{font-size:2rem;}
-.bibei-body .title{font-weight:900;font-size:1rem;color:#92400e;margin-bottom:4px;}
-.bibei-body p{font-size:.83rem;color:#78350f;line-height:1.5;}
-.bibei-links{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
-.bibei-btn{padding:8px 18px;border-radius:8px;font-weight:700;font-size:.82rem;text-decoration:none;transition:.2s;}
-.bibei-shi{background:var(--shi);color:#fff;}
-.bibei-shi:hover{background:#c53030;}
-.bibei-fa{background:var(--fa);color:#fff;}
-.bibei-fa:hover{background:#2c5282;}
-
-/* 考前必讀 */
-.quick-banner{background:linear-gradient(135deg,#f0fff4,#dcfce7);border:2px solid #86efac;border-radius:16px;padding:18px 20px;margin-bottom:24px;}
-.quick-title{font-weight:900;color:#166534;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.quick-item{background:#fff;border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--text);border:1.5px solid #bbf7d0;transition:.2s;}
+/* 快速跳轉 */
+.quick-banner{background:linear-gradient(135deg,#f0fff4,#dcfce7);border:2px solid #86efac;border-radius:14px;padding:16px 18px;margin-bottom:20px;}
+.quick-title{font-weight:900;color:#166534;margin-bottom:10px;font-size:.9rem;}
+.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.quick-item{background:#fff;border-radius:9px;padding:10px 12px;text-decoration:none;color:var(--text);border:1.5px solid #bbf7d0;transition:.2s;}
 .quick-item:hover{background:#f0fff4;border-color:#86efac;}
-.quick-item .qi-title{font-weight:700;font-size:.85rem;margin-bottom:3px;}
-.quick-item .qi-desc{font-size:.75rem;color:var(--m);}
+.qi-title{font-weight:700;font-size:.83rem;margin-bottom:2px;}
+.qi-desc{font-size:.72rem;color:var(--m);}
 
-/* 底部 */
-.footer{text-align:center;padding:20px;font-size:.76rem;color:var(--m);}
+.footer{text-align:center;padding:16px;font-size:.74rem;color:var(--m);}
 @media(max-width:520px){.grid{grid-template-columns:1fr;}.quick-grid{grid-template-columns:1fr;}.stats{gap:8px;}}
 </style>
 </head>
@@ -87,31 +93,42 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 <div class="hero">
   <div class="tag">📋 業務員基本教育訓練精選考題</div>
   <h1>考試資源總站</h1>
-  <p>11412 精選考題完整解析——實務 × 法規 雙科全攻略</p>
+  <p>11412精選考題 + 必考試題 雙系列全攻略</p>
   <div class="stats">
-    <div class="stat"><div class="stat-num">267</div><div class="stat-lbl">保險實務題目</div></div>
-    <div class="stat"><div class="stat-num">389</div><div class="stat-lbl">保險法規題目</div></div>
-    <div class="stat"><div class="stat-num">656</div><div class="stat-lbl">總題數</div></div>
-    <div class="stat"><div class="stat-num">10</div><div class="stat-lbl">份學習資源</div></div>
+    <div class="stat"><div class="stat-num">267</div><div class="stat-lbl">精選實務題</div></div>
+    <div class="stat"><div class="stat-num">389</div><div class="stat-lbl">精選法規題</div></div>
+    <div class="stat"><div class="stat-num">47+47</div><div class="stat-lbl">必考試題</div></div>
+    <div class="stat"><div class="stat-num">12</div><div class="stat-lbl">份學習資源</div></div>
   </div>
 </div>
 
 <div class="wrap">
 
+  <!-- 必考試題 NEW 區塊 -->
+  <div class="new-section">
+    <span class="new-badge">🆕 新增</span>
+    <div class="new-title">📌 必考試題測驗——高頻命中，考場搶分</div>
+    <div class="new-desc">從必考試題 PDF 精選各章重點題目，直接進入測驗模式，即時查看詳解與成績。<br>實務 47題 · 法規 47題，考前最後衝刺首選！</div>
+    <div class="new-links">
+      <a href="bibei-quiz-shiwu.html" class="new-btn nb-shi">📕 實務必考測驗（47題）→</a>
+      <a href="bibei-quiz-fagui.html" class="new-btn nb-fa">📘 法規必考測驗（47題）→</a>
+    </div>
+  </div>
+
   <!-- 必背 Banner -->
   <div class="bibei-banner">
     <div class="bibei-icon">⭐</div>
     <div class="bibei-body">
-      <div class="title">📌 考前必讀：必背重點整理</div>
+      <div class="title">考前必讀：必背重點整理</div>
       <p>精選高頻考點、易混淆觀念、關鍵數字——考前30分鐘快速掃一遍</p>
       <div class="bibei-links">
-        <a href="bibei-shiwu.html" class="bibei-btn bibei-shi">📕 實務必背</a>
-        <a href="bibei-fagui.html" class="bibei-btn bibei-fa">📘 法規必背</a>
+        <a href="bibei-shiwu.html" class="bibei-btn bs">📕 實務必背</a>
+        <a href="bibei-fagui.html" class="bibei-btn bf">📘 法規必背</a>
       </div>
     </div>
   </div>
 
-  <!-- 科目切換 -->
+  <!-- Tab -->
   <div class="tab-bar">
     <div class="tab active-shi" id="tab-shi" onclick="showSubject('shi')">📕 保險實務（267題）</div>
     <div class="tab" id="tab-fa" onclick="showSubject('fa')">📘 保險法規（389題）</div>
@@ -121,42 +138,43 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
   <div class="subject-section show" id="sec-shi">
     <div class="sec-title">
       <span class="sec-badge sec-shi">📕 保險實務</span>
-      <span class="sec-count">267 道精選考題 · 完整學習路徑</span>
+      <span style="font-size:.82rem;color:var(--m);">267道精選考題 + 47道必考試題</span>
     </div>
-
     <div class="grid">
-      <a href="exam-shiwu.html" class="res-card shi">
+      <a href="bibei-quiz-shiwu.html" class="res-card shi">
         <div class="res-icon">🎯</div>
-        <div class="res-title">互動式題庫練習</div>
-        <div class="res-desc">267道完整題目，即時作答、查看解析，支援錯題檢討模式</div>
+        <div class="res-title">必考試題測驗</div>
+        <div class="res-desc">47道高頻命中題目，即時作答查詳解，考前最後衝刺</div>
+        <span class="res-tag tag-new">🆕 必考試題</span>
+      </a>
+      <a href="exam-shiwu.html" class="res-card shi">
+        <div class="res-icon">📚</div>
+        <div class="res-title">精選題庫練習（267題）</div>
+        <div class="res-desc">完整267道，互動作答、查看解析，錯題檢討</div>
         <span class="res-tag tag-hot">🔥 主要練習</span>
       </a>
-
       <a href="bibei-shiwu.html" class="res-card shi">
         <div class="res-icon">⭐</div>
         <div class="res-title">必背重點整理</div>
-        <div class="res-desc">高頻考點、關鍵數字、易混淆觀念——考前快速複習</div>
+        <div class="res-desc">高頻考點、關鍵數字——考前快速複習</div>
         <span class="res-tag tag-core">📌 考前必讀</span>
       </a>
-
       <a href="core-shiwu.html" class="res-card shi">
         <div class="res-icon">🗂️</div>
         <div class="res-title">核心考點分析</div>
-        <div class="res-desc">依主題分類整理重要考點，建立系統性知識架構</div>
+        <div class="res-desc">依主題分類，建立系統性知識架構</div>
         <span class="res-tag tag-shi">📕 實務</span>
       </a>
-
       <a href="trap-analysis-shiwu.html" class="res-card shi">
         <div class="res-icon">⚠️</div>
         <div class="res-title">陷阱題分析</div>
-        <div class="res-desc">易錯題型解析，找出常見迷思與命題陷阱</div>
+        <div class="res-desc">易錯題型解析，找出命題陷阱</div>
         <span class="res-tag tag-shi">📕 實務</span>
       </a>
-
       <a href="analysis-shiwu.html" class="res-card shi">
         <div class="res-icon">📊</div>
         <div class="res-title">詳細題目解析</div>
-        <div class="res-desc">每道題目完整解析，深入理解出題邏輯與答題技巧</div>
+        <div class="res-desc">每道題目完整解析，深入理解出題邏輯</div>
         <span class="res-tag tag-shi">📕 實務</span>
       </a>
     </div>
@@ -166,79 +184,75 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
   <div class="subject-section" id="sec-fa">
     <div class="sec-title">
       <span class="sec-badge sec-fa">📘 保險法規</span>
-      <span class="sec-count">389 道精選考題 · 完整學習路徑</span>
+      <span style="font-size:.82rem;color:var(--m);">389道精選考題 + 47道必考試題</span>
     </div>
-
     <div class="grid">
-      <a href="exam-fagui.html" class="res-card fa">
+      <a href="bibei-quiz-fagui.html" class="res-card fa">
         <div class="res-icon">🎯</div>
-        <div class="res-title">互動式題庫練習</div>
-        <div class="res-desc">389道完整題目，即時作答、查看解析，支援錯題檢討模式</div>
+        <div class="res-title">必考試題測驗</div>
+        <div class="res-desc">47道高頻命中題目，即時作答查詳解，考前最後衝刺</div>
+        <span class="res-tag tag-new">🆕 必考試題</span>
+      </a>
+      <a href="exam-fagui.html" class="res-card fa">
+        <div class="res-icon">📚</div>
+        <div class="res-title">精選題庫練習（389題）</div>
+        <div class="res-desc">完整389道，互動作答、查看解析，錯題檢討</div>
         <span class="res-tag tag-hot">🔥 主要練習</span>
       </a>
-
       <a href="bibei-fagui.html" class="res-card fa">
         <div class="res-icon">⭐</div>
         <div class="res-title">必背重點整理</div>
-        <div class="res-desc">高頻考點、條文要義、罰則數字——考前快速複習</div>
+        <div class="res-desc">條文要義、罰則數字——考前快速複習</div>
         <span class="res-tag tag-core">📌 考前必讀</span>
       </a>
-
       <a href="core-fagui.html" class="res-card fa">
         <div class="res-icon">🗂️</div>
         <div class="res-title">核心考點分析</div>
-        <div class="res-desc">依條文主題分類整理，建立法規知識架構</div>
+        <div class="res-desc">依條文主題分類，建立法規知識架構</div>
         <span class="res-tag tag-fa">📘 法規</span>
       </a>
-
       <a href="trap-analysis-fagui.html" class="res-card fa">
         <div class="res-icon">⚠️</div>
         <div class="res-title">陷阱題分析</div>
-        <div class="res-desc">條文數字混淆題、相似法條辨析——最易失分的地方</div>
+        <div class="res-desc">條文數字混淆、相似法條辨析</div>
         <span class="res-tag tag-fa">📘 法規</span>
       </a>
-
       <a href="analysis-fagui.html" class="res-card fa">
         <div class="res-icon">📊</div>
         <div class="res-title">詳細題目解析</div>
-        <div class="res-desc">每道題目完整解析，掌握法條邏輯與答題關鍵</div>
+        <div class="res-desc">每道題目完整解析，掌握法條邏輯</div>
         <span class="res-tag tag-fa">📘 法規</span>
       </a>
     </div>
   </div>
 
-  <!-- 考前快速連結 -->
+  <!-- 快速跳轉 -->
   <div class="quick-banner">
     <div class="quick-title">⚡ 快速跳轉</div>
     <div class="quick-grid">
+      <a href="bibei-quiz-shiwu.html" class="quick-item">
+        <div class="qi-title">🎯 實務必考測驗</div><div class="qi-desc">47題 · 高頻命中</div>
+      </a>
+      <a href="bibei-quiz-fagui.html" class="quick-item">
+        <div class="qi-title">🎯 法規必考測驗</div><div class="qi-desc">47題 · 高頻命中</div>
+      </a>
       <a href="exam-shiwu.html" class="quick-item">
-        <div class="qi-title">📕 實務題庫</div>
-        <div class="qi-desc">267道 · 互動練習</div>
+        <div class="qi-title">📕 實務題庫</div><div class="qi-desc">267題 · 互動練習</div>
       </a>
       <a href="exam-fagui.html" class="quick-item">
-        <div class="qi-title">📘 法規題庫</div>
-        <div class="qi-desc">389道 · 互動練習</div>
-      </a>
-      <a href="bibei-shiwu.html" class="quick-item">
-        <div class="qi-title">⭐ 實務必背</div>
-        <div class="qi-desc">考前30分鐘必看</div>
-      </a>
-      <a href="bibei-fagui.html" class="quick-item">
-        <div class="qi-title">⭐ 法規必背</div>
-        <div class="qi-desc">條文重點 · 罰則數字</div>
+        <div class="qi-title">📘 法規題庫</div><div class="qi-desc">389題 · 互動練習</div>
       </a>
     </div>
   </div>
 
 </div>
-
-<div class="footer">業務員基本教育訓練 11412精選考題（1219更新）· 共 656 道題目</div>
+<div class="footer">業務員基本教育訓練 · 11412精選考題（1219更新）+ 必考試題 · 共 12 份學習資源</div>
 
 <script>
 function showSubject(sub){
   document.querySelectorAll('.subject-section').forEach(s=>s.classList.remove('show'));
   document.getElementById('sec-'+sub).classList.add('show');
-  document.querySelectorAll('.tab').forEach(t=>{t.classList.remove('active-shi','active-fa');});
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active-shi','active-fa'));
   document.getElementById('tab-'+sub).classList.add('active-'+sub);
 }
 </script>
